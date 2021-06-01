@@ -28,9 +28,7 @@ Windows Only
 - Peripherals Info: List Of Current Peripherals.
 
 # Might Needed Softwares
-- Java Installed
-- Maven Installed
-- Powershell Scripts Allowed On PC (probably not needed)
+- Java Installed (Recommend Newest Version), Link -> https://www.java.com/en/download/
 
 # Support
 Contact Me At:

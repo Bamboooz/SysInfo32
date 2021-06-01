@@ -1,5 +1,5 @@
 # SysInfo32
-SysInfo32 is a free Advanced Hardware Gatherer Application Which Is Made In Java.
+SysInfo32 is a free Advanced Hardware Info Gatherer Application Which Is Made In Java.
 
 Application Is Using OSHI is a free JNA-based (native) Operating System and Hardware Information, Link Here -> https://github.com/oshi/oshi
 

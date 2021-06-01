@@ -9,10 +9,10 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="corretto-1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="SysInfo32" level="project" />
-    <orderEntry type="library" name="oshi-core-5.7.3" level="project" />
+    <orderEntry type="library" exported="" name="SysInfo32" level="project" />
+    <orderEntry type="library" exported="" name="oshi-core-5.7.3" level="project" />
     <orderEntry type="library" name="Maven: com.github.oshi:oshi-core:5.7.3" level="project" />
     <orderEntry type="library" name="Maven: net.java.dev.jna:jna:5.8.0" level="project" />
     <orderEntry type="library" name="Maven: net.java.dev.jna:jna-platform:5.8.0" level="project" />

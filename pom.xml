@@ -39,7 +39,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>pl.systemInfo.GUI.UI</mainClass>
+                            <mainClass>pl.systemInfo.Code.UI</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

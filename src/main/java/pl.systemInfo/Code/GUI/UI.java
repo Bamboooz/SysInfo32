@@ -1,4 +1,4 @@
-package pl.systemInfo.Code;
+package pl.systemInfo.Code.GUI;
 
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
@@ -7,9 +7,6 @@ import oshi.hardware.HardwareAbstractionLayer;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
-import java.io.PrintStream;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.prefs.Preferences;
 import java.io.*;
 import java.lang.management.ManagementFactory;
 import java.net.*;
@@ -21,7 +18,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
 
-public class Engine {
+public class UI {
 
         public static void main(String[] args) throws IOException {
 
@@ -31,11 +28,11 @@ public class Engine {
 
             JFrame frame = new JFrame("| SysInfo v.3.7.2 | Loading Libraries. Please Wait To Use Program |");
 
-            Image icon = Toolkit.getDefaultToolkit().getImage(Engine.class.getClassLoader().getResource("Graphics/SysInfo32Icon.png"));
+            Image icon = Toolkit.getDefaultToolkit().getImage(UI.class.getClassLoader().getResource("Graphics/SysInfo32Icon.png"));
             frame.setIconImage(icon);
 
             frame.setLayout(new BorderLayout());
-            frame.setContentPane(new JLabel(new ImageIcon(Engine.class.getClassLoader().getResource("Graphics/SysInfo32 Design.png"))));
+            frame.setContentPane(new JLabel(new ImageIcon(UI.class.getClassLoader().getResource("Graphics/SysInfo32 Design.png"))));
 
             frame.pack();
             frame.setVisible(true);
@@ -58,7 +55,7 @@ public class Engine {
             JLabel winIconLbl = new JLabel();
             winIconLbl.setVisible(false);
             frame.add(winIconLbl);
-            ImageIcon winIcon = new ImageIcon(Engine.class.getClassLoader().getResource("Graphics/winIcon.png"));
+            ImageIcon winIcon = new ImageIcon(UI.class.getClassLoader().getResource("Graphics/winIcon.png"));
             winIconLbl.setIcon(winIcon);
             winIconLbl.setBounds(248, 30, 23, 20);
 
@@ -166,7 +163,7 @@ public class Engine {
             JLabel winIconLabel = new JLabel();
             winIconLabel.setVisible(false);
             frame.add(winIconLabel);
-            ImageIcon winIcon1 = new ImageIcon(Engine.class.getClassLoader().getResource("Graphics/winIcon.png"));
+            ImageIcon winIcon1 = new ImageIcon(UI.class.getClassLoader().getResource("Graphics/winIcon.png"));
             winIconLabel.setIcon(winIcon1);
             winIconLabel.setBounds(248, 30, 23, 20);
 
@@ -208,7 +205,7 @@ public class Engine {
             JLabel cpuIconLbl = new JLabel();
             cpuIconLbl.setVisible(false);
             frame.add(cpuIconLbl);
-            ImageIcon cpuIcon = new ImageIcon(Engine.class.getClassLoader().getResource("Graphics/cpuIcon.png"));
+            ImageIcon cpuIcon = new ImageIcon(UI.class.getClassLoader().getResource("Graphics/cpuIcon.png"));
             cpuIconLbl.setIcon(cpuIcon);
             cpuIconLbl.setBounds(248, 104, 23, 20);
 
@@ -229,7 +226,7 @@ public class Engine {
             JLabel ramIconLbl = new JLabel();
             ramIconLbl.setVisible(false);
             frame.add(ramIconLbl);
-            ImageIcon ramIcon = new ImageIcon(Engine.class.getClassLoader().getResource("Graphics/ramIcon.png"));
+            ImageIcon ramIcon = new ImageIcon(UI.class.getClassLoader().getResource("Graphics/ramIcon.png"));
             ramIconLbl.setIcon(ramIcon);
             ramIconLbl.setBounds(248, 360, 23, 20);
 
@@ -283,7 +280,7 @@ public class Engine {
             JLabel gpuIconLbl = new JLabel();
             gpuIconLbl.setVisible(false);
             frame.add(gpuIconLbl);
-            ImageIcon gpuIcon = new ImageIcon(Engine.class.getClassLoader().getResource("Graphics/gpuIcon.png"));
+            ImageIcon gpuIcon = new ImageIcon(UI.class.getClassLoader().getResource("Graphics/gpuIcon.png"));
             gpuIconLbl.setIcon(gpuIcon);
             gpuIconLbl.setBounds(248, 240, 23, 20);
 
@@ -326,7 +323,7 @@ public class Engine {
             JLabel mbIconLbl = new JLabel();
             mbIconLbl.setVisible(false);
             frame.add(mbIconLbl);
-            ImageIcon mbIcon = new ImageIcon(Engine.class.getClassLoader().getResource("Graphics/mbIcon.png"));
+            ImageIcon mbIcon = new ImageIcon(UI.class.getClassLoader().getResource("Graphics/mbIcon.png"));
             mbIconLbl.setIcon(mbIcon);
             mbIconLbl.setBounds(248, 175, 23, 20);
 
@@ -345,7 +342,7 @@ public class Engine {
             JLabel discIconLbl = new JLabel();
             discIconLbl.setVisible(false);
             frame.add(discIconLbl);
-            ImageIcon discIcon = new ImageIcon(Engine.class.getClassLoader().getResource("Graphics/discIcon.png"));
+            ImageIcon discIcon = new ImageIcon(UI.class.getClassLoader().getResource("Graphics/discIcon.png"));
             discIconLbl.setIcon(discIcon);
             discIconLbl.setBounds(248, 300, 23, 20);
 
@@ -359,7 +356,7 @@ public class Engine {
             JLabel storageInfoLabel = new JLabel();
             storageInfoLabel.setVisible(false);
             frame.add(storageInfoLabel);
-            ImageIcon storageIcon = new ImageIcon(Engine.class.getClassLoader().getResource("Graphics/storageIcon.png"));
+            ImageIcon storageIcon = new ImageIcon(UI.class.getClassLoader().getResource("Graphics/storageIcon.png"));
             storageInfoLabel.setIcon(storageIcon);
             storageInfoLabel.setBackground(color);
             storageInfoLabel.setForeground(colorFg);
@@ -406,7 +403,7 @@ public class Engine {
             JLabel networkInfoLabel = new JLabel();
             networkInfoLabel.setVisible(false);
             frame.add(networkInfoLabel);
-            ImageIcon networkIcon = new ImageIcon(Engine.class.getClassLoader().getResource("Graphics/networkIcon.png"));
+            ImageIcon networkIcon = new ImageIcon(UI.class.getClassLoader().getResource("Graphics/networkIcon.png"));
             networkInfoLabel.setIcon(networkIcon);
             networkInfoLabel.setBackground(color);
             networkInfoLabel.setForeground(colorFg);
@@ -717,7 +714,7 @@ public class Engine {
             JLabel displayLabelDisplayInfoLabel = new JLabel();
             displayLabelDisplayInfoLabel.setVisible(false);
             frame.add(displayLabelDisplayInfoLabel);
-            ImageIcon displayIcon = new ImageIcon(Engine.class.getClassLoader().getResource("Graphics/displayIcon.png"));
+            ImageIcon displayIcon = new ImageIcon(UI.class.getClassLoader().getResource("Graphics/displayIcon.png"));
             displayLabelDisplayInfoLabel.setIcon(displayIcon);
             displayLabelDisplayInfoLabel.setBackground(color);
             displayLabelDisplayInfoLabel.setForeground(colorFg);
@@ -930,7 +927,7 @@ public class Engine {
             JLabel peripheralsLabelPeripheralsInfoLabel = new JLabel();
             peripheralsLabelPeripheralsInfoLabel.setVisible(false);
             frame.add(peripheralsLabelPeripheralsInfoLabel);
-            ImageIcon peripheralsIcon = new ImageIcon(Engine.class.getClassLoader().getResource("Graphics/peripheralsIcon.png"));
+            ImageIcon peripheralsIcon = new ImageIcon(UI.class.getClassLoader().getResource("Graphics/peripheralsIcon.png"));
             peripheralsLabelPeripheralsInfoLabel.setIcon(displayIcon);
             peripheralsLabelPeripheralsInfoLabel.setBackground(color);
             peripheralsLabelPeripheralsInfoLabel.setForeground(colorFg);
@@ -953,7 +950,7 @@ public class Engine {
             JLabel soundLabelSoundIcon = new JLabel();
             soundLabelSoundIcon.setVisible(false);
             frame.add(soundLabelSoundIcon);
-            ImageIcon soundIcon = new ImageIcon(Engine.class.getClassLoader().getResource("Graphics/soundIcon.png"));
+            ImageIcon soundIcon = new ImageIcon(UI.class.getClassLoader().getResource("Graphics/soundIcon.png"));
             soundLabelSoundIcon.setIcon(soundIcon);
             soundLabelSoundIcon.setBackground(color);
             soundLabelSoundIcon.setForeground(colorFg);
@@ -1054,7 +1051,7 @@ public class Engine {
             JLabel tempLabel = new JLabel();
             tempLabel.setVisible(false);
             frame.add(tempLabel);
-            ImageIcon tempIcon = new ImageIcon(Engine.class.getClassLoader().getResource("Graphics/tempIcon.png"));
+            ImageIcon tempIcon = new ImageIcon(UI.class.getClassLoader().getResource("Graphics/tempIcon.png"));
             tempLabel.setIcon(tempIcon);
             tempLabel.setBackground(color);
             tempLabel.setForeground(colorFg);
@@ -3403,8 +3400,6 @@ public class Engine {
 
             MainInfo.addMouseListener(new java.awt.event.MouseAdapter() {
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    soundLabelSoundInfo.setVisible(false);
-                    soundLabelSoundIcon.setVisible(false);
                     soundLabelDescription.setVisible(false);
                     soundLabelDefaultSoundPlayback.setVisible(false);
                     soundLabelDefaultVoicePlayback.setVisible(false);

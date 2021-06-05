@@ -4,6 +4,7 @@ SysInfo32 is a free Advanced Hardware Info Gatherer Application Which Is Made In
 Application Is Using OSHI is a free JNA-based (native) Operating System and Hardware Information, Link Here -> https://github.com/oshi/oshi
 
 STILL WORKING ON PROJECT, DOWNLOAD IS AVAILABLE BUT A LOT STUFF DONT WORK (THEY ARE NOT FINISHED) !!!
+If You Want Just Jar App, Just Download Everything, Take .Jar App Off Folder, And Delete Rest Of Downloaded Stuff.
 
 # Author
 @Bamboooz

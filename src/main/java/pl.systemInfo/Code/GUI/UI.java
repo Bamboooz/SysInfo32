@@ -11,6 +11,7 @@ import java.io.*;
 import java.lang.management.ManagementFactory;
 import java.net.*;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.io.BufferedReader;
@@ -20,7 +21,7 @@ import java.io.InputStreamReader;
 
 public class UI {
 
-        public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
 
             //.....................................................//
             //               JFrame i Jego Ustawienia              //
@@ -28,11 +29,11 @@ public class UI {
 
             JFrame frame = new JFrame("| SysInfo v.3.7.2 | Loading Libraries. Please Wait To Use Program |");
 
-            Image icon = Toolkit.getDefaultToolkit().getImage(UI.class.getClassLoader().getResource("Graphics/SysInfo32Icon.png"));
+            Image icon = Toolkit.getDefaultToolkit().getImage(Objects.requireNonNull(UI.class.getClassLoader().getResource("Graphics/SysInfo32Icon.png")));
             frame.setIconImage(icon);
 
             frame.setLayout(new BorderLayout());
-            frame.setContentPane(new JLabel(new ImageIcon(UI.class.getClassLoader().getResource("Graphics/SysInfo32 Design.png"))));
+            frame.setContentPane(new JLabel(new ImageIcon(Objects.requireNonNull(UI.class.getClassLoader().getResource("Graphics/SysInfo32 Design.png")))));
 
             frame.pack();
             frame.setVisible(true);
@@ -55,7 +56,7 @@ public class UI {
             JLabel winIconLbl = new JLabel();
             winIconLbl.setVisible(false);
             frame.add(winIconLbl);
-            ImageIcon winIcon = new ImageIcon(UI.class.getClassLoader().getResource("Graphics/winIcon.png"));
+            ImageIcon winIcon = new ImageIcon(Objects.requireNonNull(UI.class.getClassLoader().getResource("Graphics/winIcon.png")));
             winIconLbl.setIcon(winIcon);
             winIconLbl.setBounds(248, 30, 23, 20);
 
@@ -163,7 +164,7 @@ public class UI {
             JLabel winIconLabel = new JLabel();
             winIconLabel.setVisible(false);
             frame.add(winIconLabel);
-            ImageIcon winIcon1 = new ImageIcon(UI.class.getClassLoader().getResource("Graphics/winIcon.png"));
+            ImageIcon winIcon1 = new ImageIcon(Objects.requireNonNull(UI.class.getClassLoader().getResource("Graphics/winIcon.png")));
             winIconLabel.setIcon(winIcon1);
             winIconLabel.setBounds(248, 30, 23, 20);
 
@@ -205,7 +206,7 @@ public class UI {
             JLabel cpuIconLbl = new JLabel();
             cpuIconLbl.setVisible(false);
             frame.add(cpuIconLbl);
-            ImageIcon cpuIcon = new ImageIcon(UI.class.getClassLoader().getResource("Graphics/cpuIcon.png"));
+            ImageIcon cpuIcon = new ImageIcon(Objects.requireNonNull(UI.class.getClassLoader().getResource("Graphics/cpuIcon.png")));
             cpuIconLbl.setIcon(cpuIcon);
             cpuIconLbl.setBounds(248, 104, 23, 20);
 
@@ -226,7 +227,7 @@ public class UI {
             JLabel ramIconLbl = new JLabel();
             ramIconLbl.setVisible(false);
             frame.add(ramIconLbl);
-            ImageIcon ramIcon = new ImageIcon(UI.class.getClassLoader().getResource("Graphics/ramIcon.png"));
+            ImageIcon ramIcon = new ImageIcon(Objects.requireNonNull(UI.class.getClassLoader().getResource("Graphics/ramIcon.png")));
             ramIconLbl.setIcon(ramIcon);
             ramIconLbl.setBounds(248, 360, 23, 20);
 
@@ -280,7 +281,7 @@ public class UI {
             JLabel gpuIconLbl = new JLabel();
             gpuIconLbl.setVisible(false);
             frame.add(gpuIconLbl);
-            ImageIcon gpuIcon = new ImageIcon(UI.class.getClassLoader().getResource("Graphics/gpuIcon.png"));
+            ImageIcon gpuIcon = new ImageIcon(Objects.requireNonNull(UI.class.getClassLoader().getResource("Graphics/gpuIcon.png")));
             gpuIconLbl.setIcon(gpuIcon);
             gpuIconLbl.setBounds(248, 240, 23, 20);
 
@@ -323,7 +324,7 @@ public class UI {
             JLabel mbIconLbl = new JLabel();
             mbIconLbl.setVisible(false);
             frame.add(mbIconLbl);
-            ImageIcon mbIcon = new ImageIcon(UI.class.getClassLoader().getResource("Graphics/mbIcon.png"));
+            ImageIcon mbIcon = new ImageIcon(Objects.requireNonNull(UI.class.getClassLoader().getResource("Graphics/mbIcon.png")));
             mbIconLbl.setIcon(mbIcon);
             mbIconLbl.setBounds(248, 175, 23, 20);
 
@@ -342,7 +343,7 @@ public class UI {
             JLabel discIconLbl = new JLabel();
             discIconLbl.setVisible(false);
             frame.add(discIconLbl);
-            ImageIcon discIcon = new ImageIcon(UI.class.getClassLoader().getResource("Graphics/discIcon.png"));
+            ImageIcon discIcon = new ImageIcon(Objects.requireNonNull(UI.class.getClassLoader().getResource("Graphics/discIcon.png")));
             discIconLbl.setIcon(discIcon);
             discIconLbl.setBounds(248, 300, 23, 20);
 
@@ -356,7 +357,7 @@ public class UI {
             JLabel storageInfoLabel = new JLabel();
             storageInfoLabel.setVisible(false);
             frame.add(storageInfoLabel);
-            ImageIcon storageIcon = new ImageIcon(UI.class.getClassLoader().getResource("Graphics/storageIcon.png"));
+            ImageIcon storageIcon = new ImageIcon(Objects.requireNonNull(UI.class.getClassLoader().getResource("Graphics/storageIcon.png")));
             storageInfoLabel.setIcon(storageIcon);
             storageInfoLabel.setBackground(color);
             storageInfoLabel.setForeground(colorFg);
@@ -403,7 +404,7 @@ public class UI {
             JLabel networkInfoLabel = new JLabel();
             networkInfoLabel.setVisible(false);
             frame.add(networkInfoLabel);
-            ImageIcon networkIcon = new ImageIcon(UI.class.getClassLoader().getResource("Graphics/networkIcon.png"));
+            ImageIcon networkIcon = new ImageIcon(Objects.requireNonNull(UI.class.getClassLoader().getResource("Graphics/networkIcon.png")));
             networkInfoLabel.setIcon(networkIcon);
             networkInfoLabel.setBackground(color);
             networkInfoLabel.setForeground(colorFg);
@@ -714,7 +715,7 @@ public class UI {
             JLabel displayLabelDisplayInfoLabel = new JLabel();
             displayLabelDisplayInfoLabel.setVisible(false);
             frame.add(displayLabelDisplayInfoLabel);
-            ImageIcon displayIcon = new ImageIcon(UI.class.getClassLoader().getResource("Graphics/displayIcon.png"));
+            ImageIcon displayIcon = new ImageIcon(Objects.requireNonNull(UI.class.getClassLoader().getResource("Graphics/displayIcon.png")));
             displayLabelDisplayInfoLabel.setIcon(displayIcon);
             displayLabelDisplayInfoLabel.setBackground(color);
             displayLabelDisplayInfoLabel.setForeground(colorFg);
@@ -924,11 +925,14 @@ public class UI {
             peripheralsLabelPeripheralsInfoText.setBounds(272, 30, 377, 20);
             peripheralsLabelPeripheralsInfoText.setText("Peripherals Info");
 
+            /*
+            *ImageIcon peripheralsIcon = new ImageIcon(Objects.requireNonNull(UI.class.getClassLoader().getResource("Graphics/peripheralsIcon.png")));
+            *peripheralsLabelPeripheralsInfoLabel.setIcon(peripheralsIcon);
+            */
+
             JLabel peripheralsLabelPeripheralsInfoLabel = new JLabel();
             peripheralsLabelPeripheralsInfoLabel.setVisible(false);
             frame.add(peripheralsLabelPeripheralsInfoLabel);
-            ImageIcon peripheralsIcon = new ImageIcon(UI.class.getClassLoader().getResource("Graphics/peripheralsIcon.png"));
-            peripheralsLabelPeripheralsInfoLabel.setIcon(displayIcon);
             peripheralsLabelPeripheralsInfoLabel.setBackground(color);
             peripheralsLabelPeripheralsInfoLabel.setForeground(colorFg);
             peripheralsLabelPeripheralsInfoLabel.setBounds(248, 30, 377, 20);
@@ -936,7 +940,8 @@ public class UI {
             //.....................................................//
 
             //.....................................................//
-            //                Strona Z Info O Dźwięku              //
+            //
+            //                trona Z Info O Dźwięku              //
             //.....................................................//
 
             JLabel soundLabelSoundInfo = new JLabel("Sound Info");
@@ -950,7 +955,7 @@ public class UI {
             JLabel soundLabelSoundIcon = new JLabel();
             soundLabelSoundIcon.setVisible(false);
             frame.add(soundLabelSoundIcon);
-            ImageIcon soundIcon = new ImageIcon(UI.class.getClassLoader().getResource("Graphics/soundIcon.png"));
+            ImageIcon soundIcon = new ImageIcon(Objects.requireNonNull(UI.class.getClassLoader().getResource("Graphics/soundIcon.png")));
             soundLabelSoundIcon.setIcon(soundIcon);
             soundLabelSoundIcon.setBackground(color);
             soundLabelSoundIcon.setForeground(colorFg);
@@ -1051,7 +1056,7 @@ public class UI {
             JLabel tempLabel = new JLabel();
             tempLabel.setVisible(false);
             frame.add(tempLabel);
-            ImageIcon tempIcon = new ImageIcon(UI.class.getClassLoader().getResource("Graphics/tempIcon.png"));
+            ImageIcon tempIcon = new ImageIcon(Objects.requireNonNull(UI.class.getClassLoader().getResource("Graphics/tempIcon.png")));
             tempLabel.setIcon(tempIcon);
             tempLabel.setBackground(color);
             tempLabel.setForeground(colorFg);
@@ -1126,16 +1131,14 @@ public class UI {
                     BufferedReader br = new BufferedReader(new FileReader(filePath));
                     String line;
 
-                    Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-                        public void run() {
-                            try {
-                                br.close();
-                                File file = new File(filePath);
-                                if (file.delete()) System.out.println("File deleted.");
-                                else System.out.println("Problem");
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
+                    Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+                        try {
+                            br.close();
+                            File file = new File(filePath);
+                            if (file.delete()) System.out.println("File deleted.");
+                            else System.out.println("Problem");
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
                     }, "Shutdown-thread"));
 
@@ -1243,10 +1246,10 @@ public class UI {
                             soundLabelSensauraZoomFX.setVisible(false);
                         }
                     }
-//                    br.close();
-//                    File file = new File(filePath);
-//                    if (file.delete()) System.out.println("File deleted.");
-//                    else System.out.println("Problem");
+                    br.close();
+                    File file = new File(filePath);
+                    if (file.delete()) System.out.println("File deleted.");
+                    else System.out.println("Problem");
                 } catch (IOException | InterruptedException ex) {
                     ex.printStackTrace();
                 }
@@ -1264,16 +1267,14 @@ public class UI {
                     BufferedReader br1 = new BufferedReader(new FileReader(filePath1));
                     String line1;
 
-                    Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-                        public void run() {
-                            try {
-                                br1.close();
-                                File file1 = new File(filePath1);
-                                if (file1.delete()) System.out.println("File 1 deleted.");
-                                else System.out.println("Problem");
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
+                    Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+                        try {
+                            br1.close();
+                            File file1 = new File(filePath1);
+                            if (file1.delete()) System.out.println("File 1 deleted.");
+                            else System.out.println("Problem");
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
                     }, "Shutdown-thread"));
 
@@ -1415,16 +1416,14 @@ public class UI {
                     BufferedReader br2 = new BufferedReader(new FileReader(filePath2));
                     String line2;
 
-                    Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-                        public void run() {
-                            try {
-                                br2.close();
-                                File file2 = new File(filePath2);
-                                if (file2.delete()) System.out.println("File 2 deleted.");
-                                else System.out.println("Problem");
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
+                    Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+                        try {
+                            br2.close();
+                            File file2 = new File(filePath2);
+                            if (file2.delete()) System.out.println("File 2 deleted.");
+                            else System.out.println("Problem");
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
                     }, "Shutdown-thread"));
 
@@ -1550,16 +1549,14 @@ public class UI {
                     BufferedReader br3 = new BufferedReader(new FileReader(filePath3));
                     String line3;
 
-                    Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-                        public void run() {
-                            try {
-                                br3.close();
-                                File file3 = new File(filePath3);
-                                if (file3.delete()) System.out.println("File 3 deleted.");
-                                else System.out.println("Problem");
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
+                    Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+                        try {
+                            br3.close();
+                            File file3 = new File(filePath3);
+                            if (file3.delete()) System.out.println("File 3 deleted.");
+                            else System.out.println("Problem");
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
                     }, "Shutdown-thread"));
 
@@ -1685,16 +1682,14 @@ public class UI {
                     BufferedReader br4 = new BufferedReader(new FileReader(filePath4));
                     String line4;
 
-                    Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-                        public void run() {
-                            try {
-                                br4.close();
-                                File file4 = new File(filePath4);
-                                if (file4.delete()) System.out.println("File 4 deleted.");
-                                else System.out.println("Problem");
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
+                    Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+                        try {
+                            br4.close();
+                            File file4 = new File(filePath4);
+                            if (file4.delete()) System.out.println("File 4 deleted.");
+                            else System.out.println("Problem");
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
                     }, "Shutdown-thread"));
 
@@ -1820,16 +1815,14 @@ public class UI {
                     BufferedReader br5 = new BufferedReader(new FileReader(filePath5));
                     String line5;
 
-                    Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-                        public void run() {
-                            try {
-                                br5.close();
-                                File file5 = new File(filePath5);
-                                if (file5.delete()) System.out.println("File 5 deleted.");
-                                else System.out.println("Problem");
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
+                    Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+                        try {
+                            br5.close();
+                            File file5 = new File(filePath5);
+                            if (file5.delete()) System.out.println("File 5 deleted.");
+                            else System.out.println("Problem");
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
                     }, "Shutdown-thread"));
 
@@ -1955,16 +1948,14 @@ public class UI {
                     BufferedReader br6 = new BufferedReader(new FileReader(filePath6));
                     String line6;
 
-                    Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-                        public void run() {
-                            try {
-                                br6.close();
-                                File file6 = new File(filePath6);
-                                if (file6.delete()) System.out.println("File 6 deleted.");
-                                else System.out.println("Problem");
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
+                    Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+                        try {
+                            br6.close();
+                            File file6 = new File(filePath6);
+                            if (file6.delete()) System.out.println("File 6 deleted.");
+                            else System.out.println("Problem");
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
                     }, "Shutdown-thread"));
 
@@ -2088,16 +2079,14 @@ public class UI {
                     BufferedReader br7 = new BufferedReader(new FileReader(filePath7));
                     String line7;
 
-                    Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-                        public void run() {
-                            try {
-                                br7.close();
-                                File file7 = new File(filePath7);
-                                if (file7.delete()) System.out.println("File 7 deleted.");
-                                else System.out.println("Problem");
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
+                    Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+                        try {
+                            br7.close();
+                            File file7 = new File(filePath7);
+                            if (file7.delete()) System.out.println("File 7 deleted.");
+                            else System.out.println("Problem");
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
                     }, "Shutdown-thread"));
 
@@ -2210,936 +2199,924 @@ public class UI {
                 }
             });
 
-            ExecutorService service8 = Executors.newCachedThreadPool();
-
-            service8.submit(() -> {
-                try {
-                    String filePath8 = "./src/main/resources/dxdiagOutputs/dxdiagOutput8.txt";
-                    ProcessBuilder pb8 = new ProcessBuilder("cmd.exe", "/c", "cmd.exe", "/c", "dxdiag", "/dontskip", "/whql:off", "/64bit", "/t", filePath8);
-                    Process p8 = pb8.start();
-                    p8.waitFor();
-                    BufferedReader br8 = new BufferedReader(new FileReader(filePath8));
-                    String line8;
-
-                    Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-                        public void run() {
-                            try {
-                                br8.close();
-                                File file8 = new File(filePath8);
-                                if (file8.delete()) System.out.println("File 8 deleted.");
-                                else System.out.println("Problem");
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }, "Shutdown-thread"));
-
-                    while ((line8 = br8.readLine()) != null) {
-                        if (line8.trim().startsWith("Manufacturer:")) {
-                            System.out.println(line8.trim());
-                            displayLabelDisplayInfoText.setVisible(false);
-                            displayLabelDisplayInfoLabel.setVisible(false);
-                            gpuLabelGpuModel.setVisible(false);
-                            gpuLabelGpuManufacturer.setVisible(false);
-                            gpuLabelGpuChipType.setVisible(false);
-                            gpuLabelGpuDacType.setVisible(false);
-                            gpuLabelGpuDeviceType.setVisible(false);
-                            gpuLabelGpuDisplayMemory.setVisible(false);
-                            gpuLabelGpuDedicatedMemory.setVisible(false);
-                            gpuLabelGpuSharedMemory.setVisible(false);
-                            gpuLabelGpuVirtualization.setVisible(false);
-                            cpuLabelCpuTemp.setVisible(false);
-                            cpuLabelInfoText.setVisible(false);
-                            cpuLabel.setVisible(false);
-                            cpuLabelCpuModel.setVisible(false);
-                            cpuLabelCpuArch.setVisible(false);
-                            cpuLabelCpuCores.setVisible(false);
-                            cpuLabelInfoText.setVisible(false);
-                            cpuLabelLogicProcessors.setVisible(false);
-                            cpuLabelProcessorIdentifier.setVisible(false);
-                            tempLabelText.setVisible(false);
-                            tempLabel.setVisible(false);
-                            tempLabelCPUTemp.setVisible(false);
-                            tempLabelGPUTemp.setVisible(false);
-                            tempLabelMotherboardTemp.setVisible(false);
-                            tempLabelRAMTemp.setVisible(false);
-                            tempLabelDiscTemp.setVisible(false);
-                            systemLabelMachineModel.setVisible(false);
-                            systemLabelMachineId.setVisible(false);
-                            systemLabelLanguage.setVisible(false);
-                            systemLabelWinDir.setVisible(false);
-                            gpuInfo.setVisible(false);
-                            gpuInfoLabel.setVisible(false);
-                            storageInfoSize.setVisible(false);
-                            storageInfo.setVisible(false);
-                            networkConnectionLabel.setVisible(false);
-                            networkLabelHostAddress.setVisible(false);
-                            networkLabelisAnyLocalAddress.setVisible(false);
-                            networkLabelisLinkLocalAddress.setVisible(false);
-                            networkLabelisLoopbackAddress.setVisible(false);
-                            networkLabelisMCGlobal.setVisible(false);
-                            networkLabelisMCLinkLocal.setVisible(false);
-                            networkLabelisMCNodeLocal.setVisible(false);
-                            networkLabelisMCOrgLocal.setVisible(false);
-                            networkLabelisMCSiteLocal.setVisible(false);
-                            networkLabelisMulticastAddress.setVisible(false);
-                            networkLabelisSiteLocalAddress.setVisible(false);
-                            networkLabelOsName.setVisible(false);
-                            networkLabelIpAdress.setVisible(false);
-                            networkInfo.setVisible(false);
-                            networkInfoLabel.setVisible(false);
-                            winIconLabel.setVisible(false);
-                            hostnameLabel.setVisible(false);
-                            SysArchLabel.setVisible(false);
-                            SysNameLabel.setVisible(false);
-                            C.setVisible(false);
-                            F.setVisible(false);
-                            SysVer.setVisible(false);
-                            SystemName.setVisible(false);
-                            CPUArch.setVisible(false);
-                            displayLabelCardName.setVisible(false);
-                            displayLabelManufacturer.setVisible(false);
-                            displayLabelChipType.setVisible(false);
-                            displayLabelDacType.setVisible(false);
-                            displayLabelDeviceType.setVisible(false);
-                            displayLabelDisplayMemory.setVisible(false);
-                            displayLabelDedicatedMemory.setVisible(false);
-                            displayLabelSharedMemory.setVisible(false);
-                            displayLabelCurrentMode.setVisible(false);
-                            displayLabelHDRSupport.setVisible(false);
-                            displayLabelDisplayTopology.setVisible(false);
-                            displayLabelMonitorName.setVisible(false);
-                            displayLabelMonitorId.setVisible(false);
-                            displayLabelNativeMode.setVisible(false);
-                            displayLabelOutputType.setVisible(false);
-                            displayLabelMonitorCapabilities.setVisible(false);
-                            displayLabelVirtualization.setVisible(false);
-                            motherboardLabelMotherboardInfo.setVisible(false);
-                            motherboardLabelMotherboardIcon.setVisible(false);
-                            motherboardLabelSystemManufacturer.setVisible(false);
-                            motherboardLabelBios.setVisible(false);
-                            motherboardLabelSystemModel.setVisible(false);
-                            motherboardLabelMotherboardSerialNumber.setVisible(false);
-                            soundLabelSoundInfo.setVisible(false);
-                            soundLabelSoundIcon.setVisible(false);
-                            soundLabelDescription.setVisible(false);
-                            soundLabelDefaultSoundPlayback.setVisible(false);
-                            soundLabelDefaultVoicePlayback.setVisible(false);
-                            soundLabelHardwareID.setVisible(false);
-                            soundLabelDriverProvider.setVisible(false);
-                            soundLabelHWAccelLevel.setVisible(false);
-                            soundLabelVoiceManagement.setVisible(false);
-                            soundLabelEAX20.setVisible(false);
-                            soundLabelI3DL2.setVisible(false);
-                            soundLabelSensauraZoomFX.setVisible(false);
-                        }
-                    }
-                    br8.close();
-                    File file8 = new File(filePath8);
-                    if (file8.delete()) System.out.println("File 8 deleted.");
-                    else System.out.println("Problem");
-                } catch (IOException | InterruptedException ex) {
-                    ex.printStackTrace();
-                }
-            });
-
-            ExecutorService service9 = Executors.newCachedThreadPool();
-
-            service9.submit(() -> {
-                try {
-                    String filePath9 = "./src/main/resources/dxdiagOutputs/dxdiagOutput9.txt";
-                    ProcessBuilder pb9 = new ProcessBuilder("cmd.exe", "/c", "cmd.exe", "/c", "dxdiag", "/dontskip", "/whql:off", "/64bit", "/t", filePath9);
-                    Process p9 = pb9.start();
-                    p9.waitFor();
-                    BufferedReader br9 = new BufferedReader(new FileReader(filePath9));
-                    String line9;
-
-                    Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-                        public void run() {
-                            try {
-                                br9.close();
-                                File file9 = new File(filePath9);
-                                if (file9.delete()) System.out.println("File 9 deleted.");
-                                else System.out.println("Problem");
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }, "Shutdown-thread"));
-
-                    while ((line9 = br9.readLine()) != null) {
-                        if (line9.trim().startsWith("DAC type:")) {
-                            System.out.println(line9.trim());
-                            displayLabelDisplayInfoText.setVisible(false);
-                            displayLabelDisplayInfoLabel.setVisible(false);
-                            gpuLabelGpuModel.setVisible(false);
-                            gpuLabelGpuManufacturer.setVisible(false);
-                            gpuLabelGpuChipType.setVisible(false);
-                            gpuLabelGpuDacType.setVisible(false);
-                            gpuLabelGpuDeviceType.setVisible(false);
-                            gpuLabelGpuDisplayMemory.setVisible(false);
-                            gpuLabelGpuDedicatedMemory.setVisible(false);
-                            gpuLabelGpuSharedMemory.setVisible(false);
-                            gpuLabelGpuVirtualization.setVisible(false);
-                            cpuLabelCpuTemp.setVisible(false);
-                            cpuLabelInfoText.setVisible(false);
-                            cpuLabel.setVisible(false);
-                            cpuLabelCpuModel.setVisible(false);
-                            cpuLabelCpuArch.setVisible(false);
-                            cpuLabelCpuCores.setVisible(false);
-                            cpuLabelInfoText.setVisible(false);
-                            cpuLabelLogicProcessors.setVisible(false);
-                            cpuLabelProcessorIdentifier.setVisible(false);
-                            tempLabelText.setVisible(false);
-                            tempLabel.setVisible(false);
-                            tempLabelCPUTemp.setVisible(false);
-                            tempLabelGPUTemp.setVisible(false);
-                            tempLabelMotherboardTemp.setVisible(false);
-                            tempLabelRAMTemp.setVisible(false);
-                            tempLabelDiscTemp.setVisible(false);
-                            systemLabelMachineModel.setVisible(false);
-                            systemLabelMachineId.setVisible(false);
-                            systemLabelLanguage.setVisible(false);
-                            systemLabelWinDir.setVisible(false);
-                            gpuInfo.setVisible(false);
-                            gpuInfoLabel.setVisible(false);
-                            storageInfoSize.setVisible(false);
-                            storageInfo.setVisible(false);
-                            networkConnectionLabel.setVisible(false);
-                            networkLabelHostAddress.setVisible(false);
-                            networkLabelisAnyLocalAddress.setVisible(false);
-                            networkLabelisLinkLocalAddress.setVisible(false);
-                            networkLabelisLoopbackAddress.setVisible(false);
-                            networkLabelisMCGlobal.setVisible(false);
-                            networkLabelisMCLinkLocal.setVisible(false);
-                            networkLabelisMCNodeLocal.setVisible(false);
-                            networkLabelisMCOrgLocal.setVisible(false);
-                            networkLabelisMCSiteLocal.setVisible(false);
-                            networkLabelisMulticastAddress.setVisible(false);
-                            networkLabelisSiteLocalAddress.setVisible(false);
-                            networkLabelOsName.setVisible(false);
-                            networkLabelIpAdress.setVisible(false);
-                            networkInfo.setVisible(false);
-                            networkInfoLabel.setVisible(false);
-                            winIconLabel.setVisible(false);
-                            hostnameLabel.setVisible(false);
-                            SysArchLabel.setVisible(false);
-                            SysNameLabel.setVisible(false);
-                            C.setVisible(false);
-                            F.setVisible(false);
-                            SysVer.setVisible(false);
-                            SystemName.setVisible(false);
-                            CPUArch.setVisible(false);
-                            displayLabelCardName.setVisible(false);
-                            displayLabelManufacturer.setVisible(false);
-                            displayLabelChipType.setVisible(false);
-                            displayLabelDacType.setVisible(false);
-                            displayLabelDeviceType.setVisible(false);
-                            displayLabelDisplayMemory.setVisible(false);
-                            displayLabelDedicatedMemory.setVisible(false);
-                            displayLabelSharedMemory.setVisible(false);
-                            displayLabelCurrentMode.setVisible(false);
-                            displayLabelHDRSupport.setVisible(false);
-                            displayLabelDisplayTopology.setVisible(false);
-                            displayLabelMonitorName.setVisible(false);
-                            displayLabelMonitorId.setVisible(false);
-                            displayLabelNativeMode.setVisible(false);
-                            displayLabelOutputType.setVisible(false);
-                            displayLabelMonitorCapabilities.setVisible(false);
-                            displayLabelVirtualization.setVisible(false);
-                            motherboardLabelMotherboardInfo.setVisible(false);
-                            motherboardLabelMotherboardIcon.setVisible(false);
-                            motherboardLabelSystemManufacturer.setVisible(false);
-                            motherboardLabelBios.setVisible(false);
-                            motherboardLabelSystemModel.setVisible(false);
-                            motherboardLabelMotherboardSerialNumber.setVisible(false);
-                            soundLabelSoundInfo.setVisible(false);
-                            soundLabelSoundIcon.setVisible(false);
-                            soundLabelDescription.setVisible(false);
-                            soundLabelDefaultSoundPlayback.setVisible(false);
-                            soundLabelDefaultVoicePlayback.setVisible(false);
-                            soundLabelHardwareID.setVisible(false);
-                            soundLabelDriverProvider.setVisible(false);
-                            soundLabelHWAccelLevel.setVisible(false);
-                            soundLabelVoiceManagement.setVisible(false);
-                            soundLabelEAX20.setVisible(false);
-                            soundLabelI3DL2.setVisible(false);
-                            soundLabelSensauraZoomFX.setVisible(false);
-                        }
-                    }
-                    br9.close();
-                    File file9 = new File(filePath9);
-                    if (file9.delete()) System.out.println("File 9 deleted.");
-                    else System.out.println("Problem");
-                } catch (IOException | InterruptedException ex) {
-                    ex.printStackTrace();
-                }
-            });
-
-            ExecutorService service10 = Executors.newCachedThreadPool();
-
-            service10.submit(() -> {
-                try {
-                    String filePath10 = "./src/main/resources/dxdiagOutputs/dxdiagOutput10.txt";
-                    ProcessBuilder pb10 = new ProcessBuilder("cmd.exe", "/c", "cmd.exe", "/c", "dxdiag", "/dontskip", "/whql:off", "/64bit", "/t", filePath10);
-                    Process p10 = pb10.start();
-                    p10.waitFor();
-                    BufferedReader br10 = new BufferedReader(new FileReader(filePath10));
-                    String line10;
-
-                    Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-                        public void run() {
-                            try {
-                                br10.close();
-                                File file10 = new File(filePath10);
-                                if (file10.delete()) System.out.println("File 10 deleted.");
-                                else System.out.println("Problem");
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }, "Shutdown-thread"));
-
-                    while ((line10 = br10.readLine()) != null) {
-                        if (line10.trim().startsWith("Device Type:")) {
-                            System.out.println(line10.trim());
-                            displayLabelDisplayInfoText.setVisible(false);
-                            displayLabelDisplayInfoLabel.setVisible(false);
-                            gpuLabelGpuModel.setVisible(false);
-                            gpuLabelGpuManufacturer.setVisible(false);
-                            gpuLabelGpuChipType.setVisible(false);
-                            gpuLabelGpuDacType.setVisible(false);
-                            gpuLabelGpuDeviceType.setVisible(false);
-                            gpuLabelGpuDisplayMemory.setVisible(false);
-                            gpuLabelGpuDedicatedMemory.setVisible(false);
-                            gpuLabelGpuSharedMemory.setVisible(false);
-                            gpuLabelGpuVirtualization.setVisible(false);
-                            cpuLabelCpuTemp.setVisible(false);
-                            cpuLabelInfoText.setVisible(false);
-                            cpuLabel.setVisible(false);
-                            cpuLabelCpuModel.setVisible(false);
-                            cpuLabelCpuArch.setVisible(false);
-                            cpuLabelCpuCores.setVisible(false);
-                            cpuLabelInfoText.setVisible(false);
-                            cpuLabelLogicProcessors.setVisible(false);
-                            cpuLabelProcessorIdentifier.setVisible(false);
-                            tempLabelText.setVisible(false);
-                            tempLabel.setVisible(false);
-                            tempLabelCPUTemp.setVisible(false);
-                            tempLabelGPUTemp.setVisible(false);
-                            tempLabelMotherboardTemp.setVisible(false);
-                            tempLabelRAMTemp.setVisible(false);
-                            tempLabelDiscTemp.setVisible(false);
-                            systemLabelMachineModel.setVisible(false);
-                            systemLabelMachineId.setVisible(false);
-                            systemLabelLanguage.setVisible(false);
-                            systemLabelWinDir.setVisible(false);
-                            gpuInfo.setVisible(false);
-                            gpuInfoLabel.setVisible(false);
-                            storageInfoSize.setVisible(false);
-                            storageInfo.setVisible(false);
-                            networkConnectionLabel.setVisible(false);
-                            networkLabelHostAddress.setVisible(false);
-                            networkLabelisAnyLocalAddress.setVisible(false);
-                            networkLabelisLinkLocalAddress.setVisible(false);
-                            networkLabelisLoopbackAddress.setVisible(false);
-                            networkLabelisMCGlobal.setVisible(false);
-                            networkLabelisMCLinkLocal.setVisible(false);
-                            networkLabelisMCNodeLocal.setVisible(false);
-                            networkLabelisMCOrgLocal.setVisible(false);
-                            networkLabelisMCSiteLocal.setVisible(false);
-                            networkLabelisMulticastAddress.setVisible(false);
-                            networkLabelisSiteLocalAddress.setVisible(false);
-                            networkLabelOsName.setVisible(false);
-                            networkLabelIpAdress.setVisible(false);
-                            networkInfo.setVisible(false);
-                            networkInfoLabel.setVisible(false);
-                            winIconLabel.setVisible(false);
-                            hostnameLabel.setVisible(false);
-                            SysArchLabel.setVisible(false);
-                            SysNameLabel.setVisible(false);
-                            C.setVisible(false);
-                            F.setVisible(false);
-                            SysVer.setVisible(false);
-                            SystemName.setVisible(false);
-                            CPUArch.setVisible(false);
-                            displayLabelCardName.setVisible(false);
-                            displayLabelManufacturer.setVisible(false);
-                            displayLabelChipType.setVisible(false);
-                            displayLabelDacType.setVisible(false);
-                            displayLabelDeviceType.setVisible(false);
-                            displayLabelDisplayMemory.setVisible(false);
-                            displayLabelDedicatedMemory.setVisible(false);
-                            displayLabelSharedMemory.setVisible(false);
-                            displayLabelCurrentMode.setVisible(false);
-                            displayLabelHDRSupport.setVisible(false);
-                            displayLabelDisplayTopology.setVisible(false);
-                            displayLabelMonitorName.setVisible(false);
-                            displayLabelMonitorId.setVisible(false);
-                            displayLabelNativeMode.setVisible(false);
-                            displayLabelOutputType.setVisible(false);
-                            displayLabelMonitorCapabilities.setVisible(false);
-                            displayLabelVirtualization.setVisible(false);
-                            motherboardLabelMotherboardInfo.setVisible(false);
-                            motherboardLabelMotherboardIcon.setVisible(false);
-                            motherboardLabelSystemManufacturer.setVisible(false);
-                            motherboardLabelBios.setVisible(false);
-                            motherboardLabelSystemModel.setVisible(false);
-                            motherboardLabelMotherboardSerialNumber.setVisible(false);
-                            soundLabelSoundInfo.setVisible(false);
-                            soundLabelSoundIcon.setVisible(false);
-                            soundLabelDescription.setVisible(false);
-                            soundLabelDefaultSoundPlayback.setVisible(false);
-                            soundLabelDefaultVoicePlayback.setVisible(false);
-                            soundLabelHardwareID.setVisible(false);
-                            soundLabelDriverProvider.setVisible(false);
-                            soundLabelHWAccelLevel.setVisible(false);
-                            soundLabelVoiceManagement.setVisible(false);
-                            soundLabelEAX20.setVisible(false);
-                            soundLabelI3DL2.setVisible(false);
-                            soundLabelSensauraZoomFX.setVisible(false);
-                        }
-                    }
-                    br10.close();
-                    File file10 = new File(filePath10);
-                    if (file10.delete()) System.out.println("File 10 deleted.");
-                    else System.out.println("Problem");
-                } catch (IOException | InterruptedException ex) {
-                    ex.printStackTrace();
-                }
-            });
-
-            ExecutorService service11 = Executors.newCachedThreadPool();
-
-            service11.submit(() -> {
-                try {
-                    String filePath11 = "./src/main/resources/dxdiagOutputs/dxdiagOutput11.txt";
-                    ProcessBuilder pb11 = new ProcessBuilder("cmd.exe", "/c", "cmd.exe", "/c", "dxdiag", "/dontskip", "/whql:off", "/64bit", "/t", filePath11);
-                    Process p11 = pb11.start();
-                    p11.waitFor();
-                    BufferedReader br11 = new BufferedReader(new FileReader(filePath11));
-                    String line11;
-
-                    Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-                        public void run() {
-                            try {
-                                br11.close();
-                                File file11 = new File(filePath11);
-                                if (file11.delete()) System.out.println("File 11 deleted.");
-                                else System.out.println("Problem");
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }, "Shutdown-thread"));
-
-                    while ((line11 = br11.readLine()) != null) {
-                        if (line11.trim().startsWith("Dedicated Memory:")) {
-                            System.out.println(line11.trim());
-                            displayLabelDisplayInfoText.setVisible(false);
-                            displayLabelDisplayInfoLabel.setVisible(false);
-                            gpuLabelGpuModel.setVisible(false);
-                            gpuLabelGpuManufacturer.setVisible(false);
-                            gpuLabelGpuChipType.setVisible(false);
-                            gpuLabelGpuDacType.setVisible(false);
-                            gpuLabelGpuDeviceType.setVisible(false);
-                            gpuLabelGpuDisplayMemory.setVisible(false);
-                            gpuLabelGpuDedicatedMemory.setVisible(false);
-                            gpuLabelGpuSharedMemory.setVisible(false);
-                            gpuLabelGpuVirtualization.setVisible(false);
-                            cpuLabelCpuTemp.setVisible(false);
-                            cpuLabelInfoText.setVisible(false);
-                            cpuLabel.setVisible(false);
-                            cpuLabelCpuModel.setVisible(false);
-                            cpuLabelCpuArch.setVisible(false);
-                            cpuLabelCpuCores.setVisible(false);
-                            cpuLabelInfoText.setVisible(false);
-                            cpuLabelLogicProcessors.setVisible(false);
-                            cpuLabelProcessorIdentifier.setVisible(false);
-                            tempLabelText.setVisible(false);
-                            tempLabel.setVisible(false);
-                            tempLabelCPUTemp.setVisible(false);
-                            tempLabelGPUTemp.setVisible(false);
-                            tempLabelMotherboardTemp.setVisible(false);
-                            tempLabelRAMTemp.setVisible(false);
-                            tempLabelDiscTemp.setVisible(false);
-                            systemLabelMachineModel.setVisible(false);
-                            systemLabelMachineId.setVisible(false);
-                            systemLabelLanguage.setVisible(false);
-                            systemLabelWinDir.setVisible(false);
-                            gpuInfo.setVisible(false);
-                            gpuInfoLabel.setVisible(false);
-                            storageInfoSize.setVisible(false);
-                            storageInfo.setVisible(false);
-                            networkConnectionLabel.setVisible(false);
-                            networkLabelHostAddress.setVisible(false);
-                            networkLabelisAnyLocalAddress.setVisible(false);
-                            networkLabelisLinkLocalAddress.setVisible(false);
-                            networkLabelisLoopbackAddress.setVisible(false);
-                            networkLabelisMCGlobal.setVisible(false);
-                            networkLabelisMCLinkLocal.setVisible(false);
-                            networkLabelisMCNodeLocal.setVisible(false);
-                            networkLabelisMCOrgLocal.setVisible(false);
-                            networkLabelisMCSiteLocal.setVisible(false);
-                            networkLabelisMulticastAddress.setVisible(false);
-                            networkLabelisSiteLocalAddress.setVisible(false);
-                            networkLabelOsName.setVisible(false);
-                            networkLabelIpAdress.setVisible(false);
-                            networkInfo.setVisible(false);
-                            networkInfoLabel.setVisible(false);
-                            winIconLabel.setVisible(false);
-                            hostnameLabel.setVisible(false);
-                            SysArchLabel.setVisible(false);
-                            SysNameLabel.setVisible(false);
-                            C.setVisible(false);
-                            F.setVisible(false);
-                            SysVer.setVisible(false);
-                            SystemName.setVisible(false);
-                            CPUArch.setVisible(false);
-                            displayLabelCardName.setVisible(false);
-                            displayLabelManufacturer.setVisible(false);
-                            displayLabelChipType.setVisible(false);
-                            displayLabelDacType.setVisible(false);
-                            displayLabelDeviceType.setVisible(false);
-                            displayLabelDisplayMemory.setVisible(false);
-                            displayLabelDedicatedMemory.setVisible(false);
-                            displayLabelSharedMemory.setVisible(false);
-                            displayLabelCurrentMode.setVisible(false);
-                            displayLabelHDRSupport.setVisible(false);
-                            displayLabelDisplayTopology.setVisible(false);
-                            displayLabelMonitorName.setVisible(false);
-                            displayLabelMonitorId.setVisible(false);
-                            displayLabelNativeMode.setVisible(false);
-                            displayLabelOutputType.setVisible(false);
-                            displayLabelMonitorCapabilities.setVisible(false);
-                            displayLabelVirtualization.setVisible(false);
-                            motherboardLabelMotherboardInfo.setVisible(false);
-                            motherboardLabelMotherboardIcon.setVisible(false);
-                            motherboardLabelSystemManufacturer.setVisible(false);
-                            motherboardLabelBios.setVisible(false);
-                            motherboardLabelSystemModel.setVisible(false);
-                            motherboardLabelMotherboardSerialNumber.setVisible(false);
-                            soundLabelSoundInfo.setVisible(false);
-                            soundLabelSoundIcon.setVisible(false);
-                            soundLabelDescription.setVisible(false);
-                            soundLabelDefaultSoundPlayback.setVisible(false);
-                            soundLabelDefaultVoicePlayback.setVisible(false);
-                            soundLabelHardwareID.setVisible(false);
-                            soundLabelDriverProvider.setVisible(false);
-                            soundLabelHWAccelLevel.setVisible(false);
-                            soundLabelVoiceManagement.setVisible(false);
-                            soundLabelEAX20.setVisible(false);
-                            soundLabelI3DL2.setVisible(false);
-                            soundLabelSensauraZoomFX.setVisible(false);
-                        }
-                    }
-                    br11.close();
-                    File file11 = new File(filePath11);
-                    if (file11.delete()) System.out.println("File 11 deleted.");
-                    else System.out.println("Problem");
-                } catch (IOException | InterruptedException ex) {
-                    ex.printStackTrace();
-                }
-            });
-
-            ExecutorService service12 = Executors.newCachedThreadPool();
-
-            service12.submit(() -> {
-                try {
-                    String filePath12 = "./src/main/resources/dxdiagOutputs/dxdiagOutput12.txt";
-                    ProcessBuilder pb12 = new ProcessBuilder("cmd.exe", "/c", "cmd.exe", "/c", "dxdiag", "/dontskip", "/whql:off", "/64bit", "/t", filePath12);
-                    Process p12 = pb12.start();
-                    p12.waitFor();
-                    BufferedReader br12 = new BufferedReader(new FileReader(filePath12));
-                    String line12;
-
-                    Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-                        public void run() {
-                            try {
-                                br12.close();
-                                File file12 = new File(filePath12);
-                                if (file12.delete()) System.out.println("File 12 deleted.");
-                                else System.out.println("Problem");
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }, "Shutdown-thread"));
-
-                    while ((line12 = br12.readLine()) != null) {
-                        if (line12.trim().startsWith("Shared Memory:")) {
-                            System.out.println(line12.trim());
-                            displayLabelDisplayInfoText.setVisible(false);
-                            displayLabelDisplayInfoLabel.setVisible(false);
-                            gpuLabelGpuModel.setVisible(false);
-                            gpuLabelGpuManufacturer.setVisible(false);
-                            gpuLabelGpuChipType.setVisible(false);
-                            gpuLabelGpuDacType.setVisible(false);
-                            gpuLabelGpuDeviceType.setVisible(false);
-                            gpuLabelGpuDisplayMemory.setVisible(false);
-                            gpuLabelGpuDedicatedMemory.setVisible(false);
-                            gpuLabelGpuSharedMemory.setVisible(false);
-                            gpuLabelGpuVirtualization.setVisible(false);
-                            cpuLabelCpuTemp.setVisible(false);
-                            cpuLabelInfoText.setVisible(false);
-                            cpuLabel.setVisible(false);
-                            cpuLabelCpuModel.setVisible(false);
-                            cpuLabelCpuArch.setVisible(false);
-                            cpuLabelCpuCores.setVisible(false);
-                            cpuLabelInfoText.setVisible(false);
-                            cpuLabelLogicProcessors.setVisible(false);
-                            cpuLabelProcessorIdentifier.setVisible(false);
-                            tempLabelText.setVisible(false);
-                            tempLabel.setVisible(false);
-                            tempLabelCPUTemp.setVisible(false);
-                            tempLabelGPUTemp.setVisible(false);
-                            tempLabelMotherboardTemp.setVisible(false);
-                            tempLabelRAMTemp.setVisible(false);
-                            tempLabelDiscTemp.setVisible(false);
-                            systemLabelMachineModel.setVisible(false);
-                            systemLabelMachineId.setVisible(false);
-                            systemLabelLanguage.setVisible(false);
-                            systemLabelWinDir.setVisible(false);
-                            gpuInfo.setVisible(false);
-                            gpuInfoLabel.setVisible(false);
-                            storageInfoSize.setVisible(false);
-                            storageInfo.setVisible(false);
-                            networkConnectionLabel.setVisible(false);
-                            networkLabelHostAddress.setVisible(false);
-                            networkLabelisAnyLocalAddress.setVisible(false);
-                            networkLabelisLinkLocalAddress.setVisible(false);
-                            networkLabelisLoopbackAddress.setVisible(false);
-                            networkLabelisMCGlobal.setVisible(false);
-                            networkLabelisMCLinkLocal.setVisible(false);
-                            networkLabelisMCNodeLocal.setVisible(false);
-                            networkLabelisMCOrgLocal.setVisible(false);
-                            networkLabelisMCSiteLocal.setVisible(false);
-                            networkLabelisMulticastAddress.setVisible(false);
-                            networkLabelisSiteLocalAddress.setVisible(false);
-                            networkLabelOsName.setVisible(false);
-                            networkLabelIpAdress.setVisible(false);
-                            networkInfo.setVisible(false);
-                            networkInfoLabel.setVisible(false);
-                            winIconLabel.setVisible(false);
-                            hostnameLabel.setVisible(false);
-                            SysArchLabel.setVisible(false);
-                            SysNameLabel.setVisible(false);
-                            C.setVisible(false);
-                            F.setVisible(false);
-                            SysVer.setVisible(false);
-                            SystemName.setVisible(false);
-                            CPUArch.setVisible(false);
-                            displayLabelCardName.setVisible(false);
-                            displayLabelManufacturer.setVisible(false);
-                            displayLabelChipType.setVisible(false);
-                            displayLabelDacType.setVisible(false);
-                            displayLabelDeviceType.setVisible(false);
-                            displayLabelDisplayMemory.setVisible(false);
-                            displayLabelDedicatedMemory.setVisible(false);
-                            displayLabelSharedMemory.setVisible(false);
-                            displayLabelCurrentMode.setVisible(false);
-                            displayLabelHDRSupport.setVisible(false);
-                            displayLabelDisplayTopology.setVisible(false);
-                            displayLabelMonitorName.setVisible(false);
-                            displayLabelMonitorId.setVisible(false);
-                            displayLabelNativeMode.setVisible(false);
-                            displayLabelOutputType.setVisible(false);
-                            displayLabelMonitorCapabilities.setVisible(false);
-                            displayLabelVirtualization.setVisible(false);
-                            motherboardLabelMotherboardInfo.setVisible(false);
-                            motherboardLabelMotherboardIcon.setVisible(false);
-                            motherboardLabelSystemManufacturer.setVisible(false);
-                            motherboardLabelBios.setVisible(false);
-                            motherboardLabelSystemModel.setVisible(false);
-                            motherboardLabelMotherboardSerialNumber.setVisible(false);
-                            soundLabelSoundInfo.setVisible(false);
-                            soundLabelSoundIcon.setVisible(false);
-                            soundLabelDescription.setVisible(false);
-                            soundLabelDefaultSoundPlayback.setVisible(false);
-                            soundLabelDefaultVoicePlayback.setVisible(false);
-                            soundLabelHardwareID.setVisible(false);
-                            soundLabelDriverProvider.setVisible(false);
-                            soundLabelHWAccelLevel.setVisible(false);
-                            soundLabelVoiceManagement.setVisible(false);
-                            soundLabelEAX20.setVisible(false);
-                            soundLabelI3DL2.setVisible(false);
-                            soundLabelSensauraZoomFX.setVisible(false);
-                        }
-                    }
-                    br12.close();
-                    File file12 = new File(filePath12);
-                    if (file12.delete()) System.out.println("File 12 deleted.");
-                    else System.out.println("Problem");
-                } catch (IOException | InterruptedException ex) {
-                    ex.printStackTrace();
-                }
-            });
-
-            ExecutorService service13 = Executors.newCachedThreadPool();
-
-            service13.submit(() -> {
-                try {
-                    String filePath13 = "./src/main/resources/dxdiagOutputs/dxdiagOutput13.txt";
-                    ProcessBuilder pb13 = new ProcessBuilder("cmd.exe", "/c", "cmd.exe", "/c", "dxdiag", "/dontskip", "/whql:off", "/64bit", "/t", filePath13);
-                    Process p13 = pb13.start();
-                    p13.waitFor();
-                    BufferedReader br13 = new BufferedReader(new FileReader(filePath13));
-                    String line13;
-
-                    Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-                        public void run() {
-                            try {
-                                br13.close();
-                                File file13 = new File(filePath13);
-                                if (file13.delete()) System.out.println("File 13 deleted.");
-                                else System.out.println("Problem");
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }, "Shutdown-thread"));
-
-                    while ((line13 = br13.readLine()) != null) {
-                        if (line13.trim().startsWith("Virtualization:")) {
-                            System.out.println(line13.trim());
-                            displayLabelDisplayInfoText.setVisible(false);
-                            displayLabelDisplayInfoLabel.setVisible(false);
-                            gpuLabelGpuModel.setVisible(false);
-                            gpuLabelGpuManufacturer.setVisible(false);
-                            gpuLabelGpuChipType.setVisible(false);
-                            gpuLabelGpuDacType.setVisible(false);
-                            gpuLabelGpuDeviceType.setVisible(false);
-                            gpuLabelGpuDisplayMemory.setVisible(false);
-                            gpuLabelGpuDedicatedMemory.setVisible(false);
-                            gpuLabelGpuSharedMemory.setVisible(false);
-                            gpuLabelGpuVirtualization.setVisible(false);
-                            cpuLabelCpuTemp.setVisible(false);
-                            cpuLabelInfoText.setVisible(false);
-                            cpuLabel.setVisible(false);
-                            cpuLabelCpuModel.setVisible(false);
-                            cpuLabelCpuArch.setVisible(false);
-                            cpuLabelCpuCores.setVisible(false);
-                            cpuLabelInfoText.setVisible(false);
-                            cpuLabelLogicProcessors.setVisible(false);
-                            cpuLabelProcessorIdentifier.setVisible(false);
-                            tempLabelText.setVisible(false);
-                            tempLabel.setVisible(false);
-                            tempLabelCPUTemp.setVisible(false);
-                            tempLabelGPUTemp.setVisible(false);
-                            tempLabelMotherboardTemp.setVisible(false);
-                            tempLabelRAMTemp.setVisible(false);
-                            tempLabelDiscTemp.setVisible(false);
-                            systemLabelMachineModel.setVisible(false);
-                            systemLabelMachineId.setVisible(false);
-                            systemLabelLanguage.setVisible(false);
-                            systemLabelWinDir.setVisible(false);
-                            gpuInfo.setVisible(false);
-                            gpuInfoLabel.setVisible(false);
-                            storageInfoSize.setVisible(false);
-                            storageInfo.setVisible(false);
-                            networkConnectionLabel.setVisible(false);
-                            networkLabelHostAddress.setVisible(false);
-                            networkLabelisAnyLocalAddress.setVisible(false);
-                            networkLabelisLinkLocalAddress.setVisible(false);
-                            networkLabelisLoopbackAddress.setVisible(false);
-                            networkLabelisMCGlobal.setVisible(false);
-                            networkLabelisMCLinkLocal.setVisible(false);
-                            networkLabelisMCNodeLocal.setVisible(false);
-                            networkLabelisMCOrgLocal.setVisible(false);
-                            networkLabelisMCSiteLocal.setVisible(false);
-                            networkLabelisMulticastAddress.setVisible(false);
-                            networkLabelisSiteLocalAddress.setVisible(false);
-                            networkLabelOsName.setVisible(false);
-                            networkLabelIpAdress.setVisible(false);
-                            networkInfo.setVisible(false);
-                            networkInfoLabel.setVisible(false);
-                            winIconLabel.setVisible(false);
-                            hostnameLabel.setVisible(false);
-                            SysArchLabel.setVisible(false);
-                            SysNameLabel.setVisible(false);
-                            C.setVisible(false);
-                            F.setVisible(false);
-                            SysVer.setVisible(false);
-                            SystemName.setVisible(false);
-                            CPUArch.setVisible(false);
-                            displayLabelCardName.setVisible(false);
-                            displayLabelManufacturer.setVisible(false);
-                            displayLabelChipType.setVisible(false);
-                            displayLabelDacType.setVisible(false);
-                            displayLabelDeviceType.setVisible(false);
-                            displayLabelDisplayMemory.setVisible(false);
-                            displayLabelDedicatedMemory.setVisible(false);
-                            displayLabelSharedMemory.setVisible(false);
-                            displayLabelCurrentMode.setVisible(false);
-                            displayLabelHDRSupport.setVisible(false);
-                            displayLabelDisplayTopology.setVisible(false);
-                            displayLabelMonitorName.setVisible(false);
-                            displayLabelMonitorId.setVisible(false);
-                            displayLabelNativeMode.setVisible(false);
-                            displayLabelOutputType.setVisible(false);
-                            displayLabelMonitorCapabilities.setVisible(false);
-                            displayLabelVirtualization.setVisible(false);
-                            motherboardLabelMotherboardInfo.setVisible(false);
-                            motherboardLabelMotherboardIcon.setVisible(false);
-                            motherboardLabelSystemManufacturer.setVisible(false);
-                            motherboardLabelBios.setVisible(false);
-                            motherboardLabelSystemModel.setVisible(false);
-                            motherboardLabelMotherboardSerialNumber.setVisible(false);
-                            soundLabelSoundInfo.setVisible(false);
-                            soundLabelSoundIcon.setVisible(false);
-                            soundLabelDescription.setVisible(false);
-                            soundLabelDefaultSoundPlayback.setVisible(false);
-                            soundLabelDefaultVoicePlayback.setVisible(false);
-                            soundLabelHardwareID.setVisible(false);
-                            soundLabelDriverProvider.setVisible(false);
-                            soundLabelHWAccelLevel.setVisible(false);
-                            soundLabelVoiceManagement.setVisible(false);
-                            soundLabelEAX20.setVisible(false);
-                            soundLabelI3DL2.setVisible(false);
-                            soundLabelSensauraZoomFX.setVisible(false);
-                        }
-                    }
-                    br13.close();
-                    File file13 = new File(filePath13);
-                    if (file13.delete()) System.out.println("File 13 deleted.");
-                    else System.out.println("Problem");
-                } catch (IOException | InterruptedException ex) {
-                    ex.printStackTrace();
-                }
-            });
-
-            ExecutorService service14 = Executors.newCachedThreadPool();
-
-            service14.submit(() -> {
-                try {
-                    String filePath14 = "./src/main/resources/dxdiagOutputs/dxdiagOutput14.txt";
-                    ProcessBuilder pb14 = new ProcessBuilder("cmd.exe", "/c", "cmd.exe", "/c", "dxdiag", "/dontskip", "/whql:off", "/64bit", "/t", filePath14);
-                    Process p14 = pb14.start();
-                    p14.waitFor();
-                    BufferedReader br14 = new BufferedReader(new FileReader(filePath14));
-                    String line14;
-
-                    Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-                        public void run() {
-                            try {
-                                br14.close();
-                                File file14 = new File(filePath14);
-                                if (file14.delete()) System.out.println("File 14 deleted.");
-                                else System.out.println("Problem");
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }, "Shutdown-thread"));
-
-                    while ((line14 = br14.readLine()) != null) {
-                        if (line14.trim().startsWith("Chip type:")) {
-                            System.out.println(line14.trim());
-                            displayLabelDisplayInfoText.setVisible(false);
-                            displayLabelDisplayInfoLabel.setVisible(false);
-                            gpuLabelGpuModel.setVisible(false);
-                            gpuLabelGpuManufacturer.setVisible(false);
-                            gpuLabelGpuChipType.setVisible(false);
-                            gpuLabelGpuDacType.setVisible(false);
-                            gpuLabelGpuDeviceType.setVisible(false);
-                            gpuLabelGpuDisplayMemory.setVisible(false);
-                            gpuLabelGpuDedicatedMemory.setVisible(false);
-                            gpuLabelGpuSharedMemory.setVisible(false);
-                            gpuLabelGpuVirtualization.setVisible(false);
-                            cpuLabelCpuTemp.setVisible(false);
-                            cpuLabelInfoText.setVisible(false);
-                            cpuLabel.setVisible(false);
-                            cpuLabelCpuModel.setVisible(false);
-                            cpuLabelCpuArch.setVisible(false);
-                            cpuLabelCpuCores.setVisible(false);
-                            cpuLabelInfoText.setVisible(false);
-                            cpuLabelLogicProcessors.setVisible(false);
-                            cpuLabelProcessorIdentifier.setVisible(false);
-                            tempLabelText.setVisible(false);
-                            tempLabel.setVisible(false);
-                            tempLabelCPUTemp.setVisible(false);
-                            tempLabelGPUTemp.setVisible(false);
-                            tempLabelMotherboardTemp.setVisible(false);
-                            tempLabelRAMTemp.setVisible(false);
-                            tempLabelDiscTemp.setVisible(false);
-                            systemLabelMachineModel.setVisible(false);
-                            systemLabelMachineId.setVisible(false);
-                            systemLabelLanguage.setVisible(false);
-                            systemLabelWinDir.setVisible(false);
-                            gpuInfo.setVisible(false);
-                            gpuInfoLabel.setVisible(false);
-                            storageInfoSize.setVisible(false);
-                            storageInfo.setVisible(false);
-                            networkConnectionLabel.setVisible(false);
-                            networkLabelHostAddress.setVisible(false);
-                            networkLabelisAnyLocalAddress.setVisible(false);
-                            networkLabelisLinkLocalAddress.setVisible(false);
-                            networkLabelisLoopbackAddress.setVisible(false);
-                            networkLabelisMCGlobal.setVisible(false);
-                            networkLabelisMCLinkLocal.setVisible(false);
-                            networkLabelisMCNodeLocal.setVisible(false);
-                            networkLabelisMCOrgLocal.setVisible(false);
-                            networkLabelisMCSiteLocal.setVisible(false);
-                            networkLabelisMulticastAddress.setVisible(false);
-                            networkLabelisSiteLocalAddress.setVisible(false);
-                            networkLabelOsName.setVisible(false);
-                            networkLabelIpAdress.setVisible(false);
-                            networkInfo.setVisible(false);
-                            networkInfoLabel.setVisible(false);
-                            winIconLabel.setVisible(false);
-                            hostnameLabel.setVisible(false);
-                            SysArchLabel.setVisible(false);
-                            SysNameLabel.setVisible(false);
-                            C.setVisible(false);
-                            F.setVisible(false);
-                            SysVer.setVisible(false);
-                            SystemName.setVisible(false);
-                            CPUArch.setVisible(false);
-                            displayLabelCardName.setVisible(false);
-                            displayLabelManufacturer.setVisible(false);
-                            displayLabelChipType.setVisible(false);
-                            displayLabelDacType.setVisible(false);
-                            displayLabelDeviceType.setVisible(false);
-                            displayLabelDisplayMemory.setVisible(false);
-                            displayLabelDedicatedMemory.setVisible(false);
-                            displayLabelSharedMemory.setVisible(false);
-                            displayLabelCurrentMode.setVisible(false);
-                            displayLabelHDRSupport.setVisible(false);
-                            displayLabelDisplayTopology.setVisible(false);
-                            displayLabelMonitorName.setVisible(false);
-                            displayLabelMonitorId.setVisible(false);
-                            displayLabelNativeMode.setVisible(false);
-                            displayLabelOutputType.setVisible(false);
-                            displayLabelMonitorCapabilities.setVisible(false);
-                            displayLabelVirtualization.setVisible(false);
-                            motherboardLabelMotherboardInfo.setVisible(false);
-                            motherboardLabelMotherboardIcon.setVisible(false);
-                            motherboardLabelSystemManufacturer.setVisible(false);
-                            motherboardLabelBios.setVisible(false);
-                            motherboardLabelSystemModel.setVisible(false);
-                            motherboardLabelMotherboardSerialNumber.setVisible(false);
-                            soundLabelSoundInfo.setVisible(false);
-                            soundLabelSoundIcon.setVisible(false);
-                            soundLabelDescription.setVisible(false);
-                            soundLabelDefaultSoundPlayback.setVisible(false);
-                            soundLabelDefaultVoicePlayback.setVisible(false);
-                            soundLabelHardwareID.setVisible(false);
-                            soundLabelDriverProvider.setVisible(false);
-                            soundLabelHWAccelLevel.setVisible(false);
-                            soundLabelVoiceManagement.setVisible(false);
-                            soundLabelEAX20.setVisible(false);
-                            soundLabelI3DL2.setVisible(false);
-                            soundLabelSensauraZoomFX.setVisible(false);
-                        }
-                    }
-                    br14.close();
-                    File file14 = new File(filePath14);
-                    if (file14.delete()) System.out.println("File 14 deleted.");
-                    else System.out.println("Problem");
-                } catch (IOException | InterruptedException ex) {
-                    ex.printStackTrace();
-                }
-            });
+/*
+//            ExecutorService service8 = Executors.newCachedThreadPool();
+//
+//            service8.submit(() -> {
+//                try {
+//                    String filePath8 = "./src/main/resources/dxdiagOutputs/dxdiagOutput8.txt";
+//                    ProcessBuilder pb8 = new ProcessBuilder("cmd.exe", "/c", "cmd.exe", "/c", "dxdiag", "/dontskip", "/whql:off", "/64bit", "/t", filePath8);
+//                    Process p8 = pb8.start();
+//                    p8.waitFor();
+//                    BufferedReader br8 = new BufferedReader(new FileReader(filePath8));
+//                    String line8;
+//
+//                    Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+//                        try {
+//                            br8.close();
+//                            File file8 = new File(filePath8);
+//                            if (file8.delete()) System.out.println("File 8 deleted.");
+//                            else System.out.println("Problem");
+//                        } catch (IOException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }, "Shutdown-thread"));
+//
+//                    while ((line8 = br8.readLine()) != null) {
+//                        if (line8.trim().startsWith("Manufacturer:")) {
+//                            System.out.println(line8.trim());
+//                            displayLabelDisplayInfoText.setVisible(false);
+//                            displayLabelDisplayInfoLabel.setVisible(false);
+//                            gpuLabelGpuModel.setVisible(false);
+//                            gpuLabelGpuManufacturer.setVisible(false);
+//                            gpuLabelGpuChipType.setVisible(false);
+//                            gpuLabelGpuDacType.setVisible(false);
+//                            gpuLabelGpuDeviceType.setVisible(false);
+//                            gpuLabelGpuDisplayMemory.setVisible(false);
+//                            gpuLabelGpuDedicatedMemory.setVisible(false);
+//                            gpuLabelGpuSharedMemory.setVisible(false);
+//                            gpuLabelGpuVirtualization.setVisible(false);
+//                            cpuLabelCpuTemp.setVisible(false);
+//                            cpuLabelInfoText.setVisible(false);
+//                            cpuLabel.setVisible(false);
+//                            cpuLabelCpuModel.setVisible(false);
+//                            cpuLabelCpuArch.setVisible(false);
+//                            cpuLabelCpuCores.setVisible(false);
+//                            cpuLabelInfoText.setVisible(false);
+//                            cpuLabelLogicProcessors.setVisible(false);
+//                            cpuLabelProcessorIdentifier.setVisible(false);
+//                            tempLabelText.setVisible(false);
+//                            tempLabel.setVisible(false);
+//                            tempLabelCPUTemp.setVisible(false);
+//                            tempLabelGPUTemp.setVisible(false);
+//                            tempLabelMotherboardTemp.setVisible(false);
+//                            tempLabelRAMTemp.setVisible(false);
+//                            tempLabelDiscTemp.setVisible(false);
+//                            systemLabelMachineModel.setVisible(false);
+//                            systemLabelMachineId.setVisible(false);
+//                            systemLabelLanguage.setVisible(false);
+//                            systemLabelWinDir.setVisible(false);
+//                            gpuInfo.setVisible(false);
+//                            gpuInfoLabel.setVisible(false);
+//                            storageInfoSize.setVisible(false);
+//                            storageInfo.setVisible(false);
+//                            networkConnectionLabel.setVisible(false);
+//                            networkLabelHostAddress.setVisible(false);
+//                            networkLabelisAnyLocalAddress.setVisible(false);
+//                            networkLabelisLinkLocalAddress.setVisible(false);
+//                            networkLabelisLoopbackAddress.setVisible(false);
+//                            networkLabelisMCGlobal.setVisible(false);
+//                            networkLabelisMCLinkLocal.setVisible(false);
+//                            networkLabelisMCNodeLocal.setVisible(false);
+//                            networkLabelisMCOrgLocal.setVisible(false);
+//                            networkLabelisMCSiteLocal.setVisible(false);
+//                            networkLabelisMulticastAddress.setVisible(false);
+//                            networkLabelisSiteLocalAddress.setVisible(false);
+//                            networkLabelOsName.setVisible(false);
+//                            networkLabelIpAdress.setVisible(false);
+//                            networkInfo.setVisible(false);
+//                            networkInfoLabel.setVisible(false);
+//                            winIconLabel.setVisible(false);
+//                            hostnameLabel.setVisible(false);
+//                            SysArchLabel.setVisible(false);
+//                            SysNameLabel.setVisible(false);
+//                            C.setVisible(false);
+//                            F.setVisible(false);
+//                            SysVer.setVisible(false);
+//                            SystemName.setVisible(false);
+//                            CPUArch.setVisible(false);
+//                            displayLabelCardName.setVisible(false);
+//                            displayLabelManufacturer.setVisible(false);
+//                            displayLabelChipType.setVisible(false);
+//                            displayLabelDacType.setVisible(false);
+//                            displayLabelDeviceType.setVisible(false);
+//                            displayLabelDisplayMemory.setVisible(false);
+//                            displayLabelDedicatedMemory.setVisible(false);
+//                            displayLabelSharedMemory.setVisible(false);
+//                            displayLabelCurrentMode.setVisible(false);
+//                            displayLabelHDRSupport.setVisible(false);
+//                            displayLabelDisplayTopology.setVisible(false);
+//                            displayLabelMonitorName.setVisible(false);
+//                            displayLabelMonitorId.setVisible(false);
+//                            displayLabelNativeMode.setVisible(false);
+//                            displayLabelOutputType.setVisible(false);
+//                            displayLabelMonitorCapabilities.setVisible(false);
+//                            displayLabelVirtualization.setVisible(false);
+//                            motherboardLabelMotherboardInfo.setVisible(false);
+//                            motherboardLabelMotherboardIcon.setVisible(false);
+//                            motherboardLabelSystemManufacturer.setVisible(false);
+//                            motherboardLabelBios.setVisible(false);
+//                            motherboardLabelSystemModel.setVisible(false);
+//                            motherboardLabelMotherboardSerialNumber.setVisible(false);
+//                            soundLabelSoundInfo.setVisible(false);
+//                            soundLabelSoundIcon.setVisible(false);
+//                            soundLabelDescription.setVisible(false);
+//                            soundLabelDefaultSoundPlayback.setVisible(false);
+//                            soundLabelDefaultVoicePlayback.setVisible(false);
+//                            soundLabelHardwareID.setVisible(false);
+//                            soundLabelDriverProvider.setVisible(false);
+//                            soundLabelHWAccelLevel.setVisible(false);
+//                            soundLabelVoiceManagement.setVisible(false);
+//                            soundLabelEAX20.setVisible(false);
+//                            soundLabelI3DL2.setVisible(false);
+//                            soundLabelSensauraZoomFX.setVisible(false);
+//                        }
+//                    }
+//                    br8.close();
+//                    File file8 = new File(filePath8);
+//                    if (file8.delete()) System.out.println("File 8 deleted.");
+//                    else System.out.println("Problem");
+//                } catch (IOException | InterruptedException ex) {
+//                    ex.printStackTrace();
+//                }
+//            });
+//
+//            ExecutorService service9 = Executors.newCachedThreadPool();
+//
+//            service9.submit(() -> {
+//                try {
+//                    String filePath9 = "./src/main/resources/dxdiagOutputs/dxdiagOutput9.txt";
+//                    ProcessBuilder pb9 = new ProcessBuilder("cmd.exe", "/c", "cmd.exe", "/c", "dxdiag", "/dontskip", "/whql:off", "/64bit", "/t", filePath9);
+//                    Process p9 = pb9.start();
+//                    p9.waitFor();
+//                    BufferedReader br9 = new BufferedReader(new FileReader(filePath9));
+//                    String line9;
+//
+//                    Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+//                        try {
+//                            br9.close();
+//                            File file9 = new File(filePath9);
+//                            if (file9.delete()) System.out.println("File 9 deleted.");
+//                            else System.out.println("Problem");
+//                        } catch (IOException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }, "Shutdown-thread"));
+//
+//                    while ((line9 = br9.readLine()) != null) {
+//                        if (line9.trim().startsWith("DAC type:")) {
+//                            System.out.println(line9.trim());
+//                            displayLabelDisplayInfoText.setVisible(false);
+//                            displayLabelDisplayInfoLabel.setVisible(false);
+//                            gpuLabelGpuModel.setVisible(false);
+//                            gpuLabelGpuManufacturer.setVisible(false);
+//                            gpuLabelGpuChipType.setVisible(false);
+//                            gpuLabelGpuDacType.setVisible(false);
+//                            gpuLabelGpuDeviceType.setVisible(false);
+//                            gpuLabelGpuDisplayMemory.setVisible(false);
+//                            gpuLabelGpuDedicatedMemory.setVisible(false);
+//                            gpuLabelGpuSharedMemory.setVisible(false);
+//                            gpuLabelGpuVirtualization.setVisible(false);
+//                            cpuLabelCpuTemp.setVisible(false);
+//                            cpuLabelInfoText.setVisible(false);
+//                            cpuLabel.setVisible(false);
+//                            cpuLabelCpuModel.setVisible(false);
+//                            cpuLabelCpuArch.setVisible(false);
+//                            cpuLabelCpuCores.setVisible(false);
+//                            cpuLabelInfoText.setVisible(false);
+//                            cpuLabelLogicProcessors.setVisible(false);
+//                            cpuLabelProcessorIdentifier.setVisible(false);
+//                            tempLabelText.setVisible(false);
+//                            tempLabel.setVisible(false);
+//                            tempLabelCPUTemp.setVisible(false);
+//                            tempLabelGPUTemp.setVisible(false);
+//                            tempLabelMotherboardTemp.setVisible(false);
+//                            tempLabelRAMTemp.setVisible(false);
+//                            tempLabelDiscTemp.setVisible(false);
+//                            systemLabelMachineModel.setVisible(false);
+//                            systemLabelMachineId.setVisible(false);
+//                            systemLabelLanguage.setVisible(false);
+//                            systemLabelWinDir.setVisible(false);
+//                            gpuInfo.setVisible(false);
+//                            gpuInfoLabel.setVisible(false);
+//                            storageInfoSize.setVisible(false);
+//                            storageInfo.setVisible(false);
+//                            networkConnectionLabel.setVisible(false);
+//                            networkLabelHostAddress.setVisible(false);
+//                            networkLabelisAnyLocalAddress.setVisible(false);
+//                            networkLabelisLinkLocalAddress.setVisible(false);
+//                            networkLabelisLoopbackAddress.setVisible(false);
+//                            networkLabelisMCGlobal.setVisible(false);
+//                            networkLabelisMCLinkLocal.setVisible(false);
+//                            networkLabelisMCNodeLocal.setVisible(false);
+//                            networkLabelisMCOrgLocal.setVisible(false);
+//                            networkLabelisMCSiteLocal.setVisible(false);
+//                            networkLabelisMulticastAddress.setVisible(false);
+//                            networkLabelisSiteLocalAddress.setVisible(false);
+//                            networkLabelOsName.setVisible(false);
+//                            networkLabelIpAdress.setVisible(false);
+//                            networkInfo.setVisible(false);
+//                            networkInfoLabel.setVisible(false);
+//                            winIconLabel.setVisible(false);
+//                            hostnameLabel.setVisible(false);
+//                            SysArchLabel.setVisible(false);
+//                            SysNameLabel.setVisible(false);
+//                            C.setVisible(false);
+//                            F.setVisible(false);
+//                            SysVer.setVisible(false);
+//                            SystemName.setVisible(false);
+//                            CPUArch.setVisible(false);
+//                            displayLabelCardName.setVisible(false);
+//                            displayLabelManufacturer.setVisible(false);
+//                            displayLabelChipType.setVisible(false);
+//                            displayLabelDacType.setVisible(false);
+//                            displayLabelDeviceType.setVisible(false);
+//                            displayLabelDisplayMemory.setVisible(false);
+//                            displayLabelDedicatedMemory.setVisible(false);
+//                            displayLabelSharedMemory.setVisible(false);
+//                            displayLabelCurrentMode.setVisible(false);
+//                            displayLabelHDRSupport.setVisible(false);
+//                            displayLabelDisplayTopology.setVisible(false);
+//                            displayLabelMonitorName.setVisible(false);
+//                            displayLabelMonitorId.setVisible(false);
+//                            displayLabelNativeMode.setVisible(false);
+//                            displayLabelOutputType.setVisible(false);
+//                            displayLabelMonitorCapabilities.setVisible(false);
+//                            displayLabelVirtualization.setVisible(false);
+//                            motherboardLabelMotherboardInfo.setVisible(false);
+//                            motherboardLabelMotherboardIcon.setVisible(false);
+//                            motherboardLabelSystemManufacturer.setVisible(false);
+//                            motherboardLabelBios.setVisible(false);
+//                            motherboardLabelSystemModel.setVisible(false);
+//                            motherboardLabelMotherboardSerialNumber.setVisible(false);
+//                            soundLabelSoundInfo.setVisible(false);
+//                            soundLabelSoundIcon.setVisible(false);
+//                            soundLabelDescription.setVisible(false);
+//                            soundLabelDefaultSoundPlayback.setVisible(false);
+//                            soundLabelDefaultVoicePlayback.setVisible(false);
+//                            soundLabelHardwareID.setVisible(false);
+//                            soundLabelDriverProvider.setVisible(false);
+//                            soundLabelHWAccelLevel.setVisible(false);
+//                            soundLabelVoiceManagement.setVisible(false);
+//                            soundLabelEAX20.setVisible(false);
+//                            soundLabelI3DL2.setVisible(false);
+//                            soundLabelSensauraZoomFX.setVisible(false);
+//                        }
+//                    }
+//                    br9.close();
+//                    File file9 = new File(filePath9);
+//                    if (file9.delete()) System.out.println("File 9 deleted.");
+//                    else System.out.println("Problem");
+//                } catch (IOException | InterruptedException ex) {
+//                    ex.printStackTrace();
+//                }
+//            });
+//
+//            ExecutorService service10 = Executors.newCachedThreadPool();
+//
+//            service10.submit(() -> {
+//                try {
+//                    String filePath10 = "./src/main/resources/dxdiagOutputs/dxdiagOutput10.txt";
+//                    ProcessBuilder pb10 = new ProcessBuilder("cmd.exe", "/c", "cmd.exe", "/c", "dxdiag", "/dontskip", "/whql:off", "/64bit", "/t", filePath10);
+//                    Process p10 = pb10.start();
+//                    p10.waitFor();
+//                    BufferedReader br10 = new BufferedReader(new FileReader(filePath10));
+//                    String line10;
+//
+//                    Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+//                        try {
+//                            br10.close();
+//                            File file10 = new File(filePath10);
+//                            if (file10.delete()) System.out.println("File 10 deleted.");
+//                            else System.out.println("Problem");
+//                        } catch (IOException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }, "Shutdown-thread"));
+//
+//                    while ((line10 = br10.readLine()) != null) {
+//                        if (line10.trim().startsWith("Device Type:")) {
+//                            System.out.println(line10.trim());
+//                            displayLabelDisplayInfoText.setVisible(false);
+//                            displayLabelDisplayInfoLabel.setVisible(false);
+//                            gpuLabelGpuModel.setVisible(false);
+//                            gpuLabelGpuManufacturer.setVisible(false);
+//                            gpuLabelGpuChipType.setVisible(false);
+//                            gpuLabelGpuDacType.setVisible(false);
+//                            gpuLabelGpuDeviceType.setVisible(false);
+//                            gpuLabelGpuDisplayMemory.setVisible(false);
+//                            gpuLabelGpuDedicatedMemory.setVisible(false);
+//                            gpuLabelGpuSharedMemory.setVisible(false);
+//                            gpuLabelGpuVirtualization.setVisible(false);
+//                            cpuLabelCpuTemp.setVisible(false);
+//                            cpuLabelInfoText.setVisible(false);
+//                            cpuLabel.setVisible(false);
+//                            cpuLabelCpuModel.setVisible(false);
+//                            cpuLabelCpuArch.setVisible(false);
+//                            cpuLabelCpuCores.setVisible(false);
+//                            cpuLabelInfoText.setVisible(false);
+//                            cpuLabelLogicProcessors.setVisible(false);
+//                            cpuLabelProcessorIdentifier.setVisible(false);
+//                            tempLabelText.setVisible(false);
+//                            tempLabel.setVisible(false);
+//                            tempLabelCPUTemp.setVisible(false);
+//                            tempLabelGPUTemp.setVisible(false);
+//                            tempLabelMotherboardTemp.setVisible(false);
+//                            tempLabelRAMTemp.setVisible(false);
+//                            tempLabelDiscTemp.setVisible(false);
+//                            systemLabelMachineModel.setVisible(false);
+//                            systemLabelMachineId.setVisible(false);
+//                            systemLabelLanguage.setVisible(false);
+//                            systemLabelWinDir.setVisible(false);
+//                            gpuInfo.setVisible(false);
+//                            gpuInfoLabel.setVisible(false);
+//                            storageInfoSize.setVisible(false);
+//                            storageInfo.setVisible(false);
+//                            networkConnectionLabel.setVisible(false);
+//                            networkLabelHostAddress.setVisible(false);
+//                            networkLabelisAnyLocalAddress.setVisible(false);
+//                            networkLabelisLinkLocalAddress.setVisible(false);
+//                            networkLabelisLoopbackAddress.setVisible(false);
+//                            networkLabelisMCGlobal.setVisible(false);
+//                            networkLabelisMCLinkLocal.setVisible(false);
+//                            networkLabelisMCNodeLocal.setVisible(false);
+//                            networkLabelisMCOrgLocal.setVisible(false);
+//                            networkLabelisMCSiteLocal.setVisible(false);
+//                            networkLabelisMulticastAddress.setVisible(false);
+//                            networkLabelisSiteLocalAddress.setVisible(false);
+//                            networkLabelOsName.setVisible(false);
+//                            networkLabelIpAdress.setVisible(false);
+//                            networkInfo.setVisible(false);
+//                            networkInfoLabel.setVisible(false);
+//                            winIconLabel.setVisible(false);
+//                            hostnameLabel.setVisible(false);
+//                            SysArchLabel.setVisible(false);
+//                            SysNameLabel.setVisible(false);
+//                            C.setVisible(false);
+//                            F.setVisible(false);
+//                            SysVer.setVisible(false);
+//                            SystemName.setVisible(false);
+//                            CPUArch.setVisible(false);
+//                            displayLabelCardName.setVisible(false);
+//                            displayLabelManufacturer.setVisible(false);
+//                            displayLabelChipType.setVisible(false);
+//                            displayLabelDacType.setVisible(false);
+//                            displayLabelDeviceType.setVisible(false);
+//                            displayLabelDisplayMemory.setVisible(false);
+//                            displayLabelDedicatedMemory.setVisible(false);
+//                            displayLabelSharedMemory.setVisible(false);
+//                            displayLabelCurrentMode.setVisible(false);
+//                            displayLabelHDRSupport.setVisible(false);
+//                            displayLabelDisplayTopology.setVisible(false);
+//                            displayLabelMonitorName.setVisible(false);
+//                            displayLabelMonitorId.setVisible(false);
+//                            displayLabelNativeMode.setVisible(false);
+//                            displayLabelOutputType.setVisible(false);
+//                            displayLabelMonitorCapabilities.setVisible(false);
+//                            displayLabelVirtualization.setVisible(false);
+//                            motherboardLabelMotherboardInfo.setVisible(false);
+//                            motherboardLabelMotherboardIcon.setVisible(false);
+//                            motherboardLabelSystemManufacturer.setVisible(false);
+//                            motherboardLabelBios.setVisible(false);
+//                            motherboardLabelSystemModel.setVisible(false);
+//                            motherboardLabelMotherboardSerialNumber.setVisible(false);
+//                            soundLabelSoundInfo.setVisible(false);
+//                            soundLabelSoundIcon.setVisible(false);
+//                            soundLabelDescription.setVisible(false);
+//                            soundLabelDefaultSoundPlayback.setVisible(false);
+//                            soundLabelDefaultVoicePlayback.setVisible(false);
+//                            soundLabelHardwareID.setVisible(false);
+//                            soundLabelDriverProvider.setVisible(false);
+//                            soundLabelHWAccelLevel.setVisible(false);
+//                            soundLabelVoiceManagement.setVisible(false);
+//                            soundLabelEAX20.setVisible(false);
+//                            soundLabelI3DL2.setVisible(false);
+//                            soundLabelSensauraZoomFX.setVisible(false);
+//                        }
+//                    }
+//                    br10.close();
+//                    File file10 = new File(filePath10);
+//                    if (file10.delete()) System.out.println("File 10 deleted.");
+//                    else System.out.println("Problem");
+//                } catch (IOException | InterruptedException ex) {
+//                    ex.printStackTrace();
+//                }
+//            });
+//
+//            ExecutorService service11 = Executors.newCachedThreadPool();
+//
+//            service11.submit(() -> {
+//                try {
+//                    String filePath11 = "./src/main/resources/dxdiagOutputs/dxdiagOutput11.txt";
+//                    ProcessBuilder pb11 = new ProcessBuilder("cmd.exe", "/c", "cmd.exe", "/c", "dxdiag", "/dontskip", "/whql:off", "/64bit", "/t", filePath11);
+//                    Process p11 = pb11.start();
+//                    p11.waitFor();
+//                    BufferedReader br11 = new BufferedReader(new FileReader(filePath11));
+//                    String line11;
+//
+//                    Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+//                        try {
+//                            br11.close();
+//                            File file11 = new File(filePath11);
+//                            if (file11.delete()) System.out.println("File 11 deleted.");
+//                            else System.out.println("Problem");
+//                        } catch (IOException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }, "Shutdown-thread"));
+//
+//                    while ((line11 = br11.readLine()) != null) {
+//                        if (line11.trim().startsWith("Dedicated Memory:")) {
+//                            System.out.println(line11.trim());
+//                            displayLabelDisplayInfoText.setVisible(false);
+//                            displayLabelDisplayInfoLabel.setVisible(false);
+//                            gpuLabelGpuModel.setVisible(false);
+//                            gpuLabelGpuManufacturer.setVisible(false);
+//                            gpuLabelGpuChipType.setVisible(false);
+//                            gpuLabelGpuDacType.setVisible(false);
+//                            gpuLabelGpuDeviceType.setVisible(false);
+//                            gpuLabelGpuDisplayMemory.setVisible(false);
+//                            gpuLabelGpuDedicatedMemory.setVisible(false);
+//                            gpuLabelGpuSharedMemory.setVisible(false);
+//                            gpuLabelGpuVirtualization.setVisible(false);
+//                            cpuLabelCpuTemp.setVisible(false);
+//                            cpuLabelInfoText.setVisible(false);
+//                            cpuLabel.setVisible(false);
+//                            cpuLabelCpuModel.setVisible(false);
+//                            cpuLabelCpuArch.setVisible(false);
+//                            cpuLabelCpuCores.setVisible(false);
+//                            cpuLabelInfoText.setVisible(false);
+//                            cpuLabelLogicProcessors.setVisible(false);
+//                            cpuLabelProcessorIdentifier.setVisible(false);
+//                            tempLabelText.setVisible(false);
+//                            tempLabel.setVisible(false);
+//                            tempLabelCPUTemp.setVisible(false);
+//                            tempLabelGPUTemp.setVisible(false);
+//                            tempLabelMotherboardTemp.setVisible(false);
+//                            tempLabelRAMTemp.setVisible(false);
+//                            tempLabelDiscTemp.setVisible(false);
+//                            systemLabelMachineModel.setVisible(false);
+//                            systemLabelMachineId.setVisible(false);
+//                            systemLabelLanguage.setVisible(false);
+//                            systemLabelWinDir.setVisible(false);
+//                            gpuInfo.setVisible(false);
+//                            gpuInfoLabel.setVisible(false);
+//                            storageInfoSize.setVisible(false);
+//                            storageInfo.setVisible(false);
+//                            networkConnectionLabel.setVisible(false);
+//                            networkLabelHostAddress.setVisible(false);
+//                            networkLabelisAnyLocalAddress.setVisible(false);
+//                            networkLabelisLinkLocalAddress.setVisible(false);
+//                            networkLabelisLoopbackAddress.setVisible(false);
+//                            networkLabelisMCGlobal.setVisible(false);
+//                            networkLabelisMCLinkLocal.setVisible(false);
+//                            networkLabelisMCNodeLocal.setVisible(false);
+//                            networkLabelisMCOrgLocal.setVisible(false);
+//                            networkLabelisMCSiteLocal.setVisible(false);
+//                            networkLabelisMulticastAddress.setVisible(false);
+//                            networkLabelisSiteLocalAddress.setVisible(false);
+//                            networkLabelOsName.setVisible(false);
+//                            networkLabelIpAdress.setVisible(false);
+//                            networkInfo.setVisible(false);
+//                            networkInfoLabel.setVisible(false);
+//                            winIconLabel.setVisible(false);
+//                            hostnameLabel.setVisible(false);
+//                            SysArchLabel.setVisible(false);
+//                            SysNameLabel.setVisible(false);
+//                            C.setVisible(false);
+//                            F.setVisible(false);
+//                            SysVer.setVisible(false);
+//                            SystemName.setVisible(false);
+//                            CPUArch.setVisible(false);
+//                            displayLabelCardName.setVisible(false);
+//                            displayLabelManufacturer.setVisible(false);
+//                            displayLabelChipType.setVisible(false);
+//                            displayLabelDacType.setVisible(false);
+//                            displayLabelDeviceType.setVisible(false);
+//                            displayLabelDisplayMemory.setVisible(false);
+//                            displayLabelDedicatedMemory.setVisible(false);
+//                            displayLabelSharedMemory.setVisible(false);
+//                            displayLabelCurrentMode.setVisible(false);
+//                            displayLabelHDRSupport.setVisible(false);
+//                            displayLabelDisplayTopology.setVisible(false);
+//                            displayLabelMonitorName.setVisible(false);
+//                            displayLabelMonitorId.setVisible(false);
+//                            displayLabelNativeMode.setVisible(false);
+//                            displayLabelOutputType.setVisible(false);
+//                            displayLabelMonitorCapabilities.setVisible(false);
+//                            displayLabelVirtualization.setVisible(false);
+//                            motherboardLabelMotherboardInfo.setVisible(false);
+//                            motherboardLabelMotherboardIcon.setVisible(false);
+//                            motherboardLabelSystemManufacturer.setVisible(false);
+//                            motherboardLabelBios.setVisible(false);
+//                            motherboardLabelSystemModel.setVisible(false);
+//                            motherboardLabelMotherboardSerialNumber.setVisible(false);
+//                            soundLabelSoundInfo.setVisible(false);
+//                            soundLabelSoundIcon.setVisible(false);
+//                            soundLabelDescription.setVisible(false);
+//                            soundLabelDefaultSoundPlayback.setVisible(false);
+//                            soundLabelDefaultVoicePlayback.setVisible(false);
+//                            soundLabelHardwareID.setVisible(false);
+//                            soundLabelDriverProvider.setVisible(false);
+//                            soundLabelHWAccelLevel.setVisible(false);
+//                            soundLabelVoiceManagement.setVisible(false);
+//                            soundLabelEAX20.setVisible(false);
+//                            soundLabelI3DL2.setVisible(false);
+//                            soundLabelSensauraZoomFX.setVisible(false);
+//                        }
+//                    }
+//                    br11.close();
+//                    File file11 = new File(filePath11);
+//                    if (file11.delete()) System.out.println("File 11 deleted.");
+//                    else System.out.println("Problem");
+//                } catch (IOException | InterruptedException ex) {
+//                    ex.printStackTrace();
+//                }
+//            });
+//
+//            ExecutorService service12 = Executors.newCachedThreadPool();
+//
+//            service12.submit(() -> {
+//                try {
+//                    String filePath12 = "./src/main/resources/dxdiagOutputs/dxdiagOutput12.txt";
+//                    ProcessBuilder pb12 = new ProcessBuilder("cmd.exe", "/c", "cmd.exe", "/c", "dxdiag", "/dontskip", "/whql:off", "/64bit", "/t", filePath12);
+//                    Process p12 = pb12.start();
+//                    p12.waitFor();
+//                    BufferedReader br12 = new BufferedReader(new FileReader(filePath12));
+//                    String line12;
+//
+//                    Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+//                        try {
+//                            br12.close();
+//                            File file12 = new File(filePath12);
+//                            if (file12.delete()) System.out.println("File 12 deleted.");
+//                            else System.out.println("Problem");
+//                        } catch (IOException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }, "Shutdown-thread"));
+//
+//                    while ((line12 = br12.readLine()) != null) {
+//                        if (line12.trim().startsWith("Shared Memory:")) {
+//                            System.out.println(line12.trim());
+//                            displayLabelDisplayInfoText.setVisible(false);
+//                            displayLabelDisplayInfoLabel.setVisible(false);
+//                            gpuLabelGpuModel.setVisible(false);
+//                            gpuLabelGpuManufacturer.setVisible(false);
+//                            gpuLabelGpuChipType.setVisible(false);
+//                            gpuLabelGpuDacType.setVisible(false);
+//                            gpuLabelGpuDeviceType.setVisible(false);
+//                            gpuLabelGpuDisplayMemory.setVisible(false);
+//                            gpuLabelGpuDedicatedMemory.setVisible(false);
+//                            gpuLabelGpuSharedMemory.setVisible(false);
+//                            gpuLabelGpuVirtualization.setVisible(false);
+//                            cpuLabelCpuTemp.setVisible(false);
+//                            cpuLabelInfoText.setVisible(false);
+//                            cpuLabel.setVisible(false);
+//                            cpuLabelCpuModel.setVisible(false);
+//                            cpuLabelCpuArch.setVisible(false);
+//                            cpuLabelCpuCores.setVisible(false);
+//                            cpuLabelInfoText.setVisible(false);
+//                            cpuLabelLogicProcessors.setVisible(false);
+//                            cpuLabelProcessorIdentifier.setVisible(false);
+//                            tempLabelText.setVisible(false);
+//                            tempLabel.setVisible(false);
+//                            tempLabelCPUTemp.setVisible(false);
+//                            tempLabelGPUTemp.setVisible(false);
+//                            tempLabelMotherboardTemp.setVisible(false);
+//                            tempLabelRAMTemp.setVisible(false);
+//                            tempLabelDiscTemp.setVisible(false);
+//                            systemLabelMachineModel.setVisible(false);
+//                            systemLabelMachineId.setVisible(false);
+//                            systemLabelLanguage.setVisible(false);
+//                            systemLabelWinDir.setVisible(false);
+//                            gpuInfo.setVisible(false);
+//                            gpuInfoLabel.setVisible(false);
+//                            storageInfoSize.setVisible(false);
+//                            storageInfo.setVisible(false);
+//                            networkConnectionLabel.setVisible(false);
+//                            networkLabelHostAddress.setVisible(false);
+//                            networkLabelisAnyLocalAddress.setVisible(false);
+//                            networkLabelisLinkLocalAddress.setVisible(false);
+//                            networkLabelisLoopbackAddress.setVisible(false);
+//                            networkLabelisMCGlobal.setVisible(false);
+//                            networkLabelisMCLinkLocal.setVisible(false);
+//                            networkLabelisMCNodeLocal.setVisible(false);
+//                            networkLabelisMCOrgLocal.setVisible(false);
+//                            networkLabelisMCSiteLocal.setVisible(false);
+//                            networkLabelisMulticastAddress.setVisible(false);
+//                            networkLabelisSiteLocalAddress.setVisible(false);
+//                            networkLabelOsName.setVisible(false);
+//                            networkLabelIpAdress.setVisible(false);
+//                            networkInfo.setVisible(false);
+//                            networkInfoLabel.setVisible(false);
+//                            winIconLabel.setVisible(false);
+//                            hostnameLabel.setVisible(false);
+//                            SysArchLabel.setVisible(false);
+//                            SysNameLabel.setVisible(false);
+//                            C.setVisible(false);
+//                            F.setVisible(false);
+//                            SysVer.setVisible(false);
+//                            SystemName.setVisible(false);
+//                            CPUArch.setVisible(false);
+//                            displayLabelCardName.setVisible(false);
+//                            displayLabelManufacturer.setVisible(false);
+//                            displayLabelChipType.setVisible(false);
+//                            displayLabelDacType.setVisible(false);
+//                            displayLabelDeviceType.setVisible(false);
+//                            displayLabelDisplayMemory.setVisible(false);
+//                            displayLabelDedicatedMemory.setVisible(false);
+//                            displayLabelSharedMemory.setVisible(false);
+//                            displayLabelCurrentMode.setVisible(false);
+//                            displayLabelHDRSupport.setVisible(false);
+//                            displayLabelDisplayTopology.setVisible(false);
+//                            displayLabelMonitorName.setVisible(false);
+//                            displayLabelMonitorId.setVisible(false);
+//                            displayLabelNativeMode.setVisible(false);
+//                            displayLabelOutputType.setVisible(false);
+//                            displayLabelMonitorCapabilities.setVisible(false);
+//                            displayLabelVirtualization.setVisible(false);
+//                            motherboardLabelMotherboardInfo.setVisible(false);
+//                            motherboardLabelMotherboardIcon.setVisible(false);
+//                            motherboardLabelSystemManufacturer.setVisible(false);
+//                            motherboardLabelBios.setVisible(false);
+//                            motherboardLabelSystemModel.setVisible(false);
+//                            motherboardLabelMotherboardSerialNumber.setVisible(false);
+//                            soundLabelSoundInfo.setVisible(false);
+//                            soundLabelSoundIcon.setVisible(false);
+//                            soundLabelDescription.setVisible(false);
+//                            soundLabelDefaultSoundPlayback.setVisible(false);
+//                            soundLabelDefaultVoicePlayback.setVisible(false);
+//                            soundLabelHardwareID.setVisible(false);
+//                            soundLabelDriverProvider.setVisible(false);
+//                            soundLabelHWAccelLevel.setVisible(false);
+//                            soundLabelVoiceManagement.setVisible(false);
+//                            soundLabelEAX20.setVisible(false);
+//                            soundLabelI3DL2.setVisible(false);
+//                            soundLabelSensauraZoomFX.setVisible(false);
+//                        }
+//                    }
+//                    br12.close();
+//                    File file12 = new File(filePath12);
+//                    if (file12.delete()) System.out.println("File 12 deleted.");
+//                    else System.out.println("Problem");
+//                } catch (IOException | InterruptedException ex) {
+//                    ex.printStackTrace();
+//                }
+//            });
+//
+//            ExecutorService service13 = Executors.newCachedThreadPool();
+//
+//            service13.submit(() -> {
+//                try {
+//                    String filePath13 = "./src/main/resources/dxdiagOutputs/dxdiagOutput13.txt";
+//                    ProcessBuilder pb13 = new ProcessBuilder("cmd.exe", "/c", "cmd.exe", "/c", "dxdiag", "/dontskip", "/whql:off", "/64bit", "/t", filePath13);
+//                    Process p13 = pb13.start();
+//                    p13.waitFor();
+//                    BufferedReader br13 = new BufferedReader(new FileReader(filePath13));
+//                    String line13;
+//
+//                    Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+//                        try {
+//                            br13.close();
+//                            File file13 = new File(filePath13);
+//                            if (file13.delete()) System.out.println("File 13 deleted.");
+//                            else System.out.println("Problem");
+//                        } catch (IOException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }, "Shutdown-thread"));
+//
+//                    while ((line13 = br13.readLine()) != null) {
+//                        if (line13.trim().startsWith("Virtualization:")) {
+//                            System.out.println(line13.trim());
+//                            displayLabelDisplayInfoText.setVisible(false);
+//                            displayLabelDisplayInfoLabel.setVisible(false);
+//                            gpuLabelGpuModel.setVisible(false);
+//                            gpuLabelGpuManufacturer.setVisible(false);
+//                            gpuLabelGpuChipType.setVisible(false);
+//                            gpuLabelGpuDacType.setVisible(false);
+//                            gpuLabelGpuDeviceType.setVisible(false);
+//                            gpuLabelGpuDisplayMemory.setVisible(false);
+//                            gpuLabelGpuDedicatedMemory.setVisible(false);
+//                            gpuLabelGpuSharedMemory.setVisible(false);
+//                            gpuLabelGpuVirtualization.setVisible(false);
+//                            cpuLabelCpuTemp.setVisible(false);
+//                            cpuLabelInfoText.setVisible(false);
+//                            cpuLabel.setVisible(false);
+//                            cpuLabelCpuModel.setVisible(false);
+//                            cpuLabelCpuArch.setVisible(false);
+//                            cpuLabelCpuCores.setVisible(false);
+//                            cpuLabelInfoText.setVisible(false);
+//                            cpuLabelLogicProcessors.setVisible(false);
+//                            cpuLabelProcessorIdentifier.setVisible(false);
+//                            tempLabelText.setVisible(false);
+//                            tempLabel.setVisible(false);
+//                            tempLabelCPUTemp.setVisible(false);
+//                            tempLabelGPUTemp.setVisible(false);
+//                            tempLabelMotherboardTemp.setVisible(false);
+//                            tempLabelRAMTemp.setVisible(false);
+//                            tempLabelDiscTemp.setVisible(false);
+//                            systemLabelMachineModel.setVisible(false);
+//                            systemLabelMachineId.setVisible(false);
+//                            systemLabelLanguage.setVisible(false);
+//                            systemLabelWinDir.setVisible(false);
+//                            gpuInfo.setVisible(false);
+//                            gpuInfoLabel.setVisible(false);
+//                            storageInfoSize.setVisible(false);
+//                            storageInfo.setVisible(false);
+//                            networkConnectionLabel.setVisible(false);
+//                            networkLabelHostAddress.setVisible(false);
+//                            networkLabelisAnyLocalAddress.setVisible(false);
+//                            networkLabelisLinkLocalAddress.setVisible(false);
+//                            networkLabelisLoopbackAddress.setVisible(false);
+//                            networkLabelisMCGlobal.setVisible(false);
+//                            networkLabelisMCLinkLocal.setVisible(false);
+//                            networkLabelisMCNodeLocal.setVisible(false);
+//                            networkLabelisMCOrgLocal.setVisible(false);
+//                            networkLabelisMCSiteLocal.setVisible(false);
+//                            networkLabelisMulticastAddress.setVisible(false);
+//                            networkLabelisSiteLocalAddress.setVisible(false);
+//                            networkLabelOsName.setVisible(false);
+//                            networkLabelIpAdress.setVisible(false);
+//                            networkInfo.setVisible(false);
+//                            networkInfoLabel.setVisible(false);
+//                            winIconLabel.setVisible(false);
+//                            hostnameLabel.setVisible(false);
+//                            SysArchLabel.setVisible(false);
+//                            SysNameLabel.setVisible(false);
+//                            C.setVisible(false);
+//                            F.setVisible(false);
+//                            SysVer.setVisible(false);
+//                            SystemName.setVisible(false);
+//                            CPUArch.setVisible(false);
+//                            displayLabelCardName.setVisible(false);
+//                            displayLabelManufacturer.setVisible(false);
+//                            displayLabelChipType.setVisible(false);
+//                            displayLabelDacType.setVisible(false);
+//                            displayLabelDeviceType.setVisible(false);
+//                            displayLabelDisplayMemory.setVisible(false);
+//                            displayLabelDedicatedMemory.setVisible(false);
+//                            displayLabelSharedMemory.setVisible(false);
+//                            displayLabelCurrentMode.setVisible(false);
+//                            displayLabelHDRSupport.setVisible(false);
+//                            displayLabelDisplayTopology.setVisible(false);
+//                            displayLabelMonitorName.setVisible(false);
+//                            displayLabelMonitorId.setVisible(false);
+//                            displayLabelNativeMode.setVisible(false);
+//                            displayLabelOutputType.setVisible(false);
+//                            displayLabelMonitorCapabilities.setVisible(false);
+//                            displayLabelVirtualization.setVisible(false);
+//                            motherboardLabelMotherboardInfo.setVisible(false);
+//                            motherboardLabelMotherboardIcon.setVisible(false);
+//                            motherboardLabelSystemManufacturer.setVisible(false);
+//                            motherboardLabelBios.setVisible(false);
+//                            motherboardLabelSystemModel.setVisible(false);
+//                            motherboardLabelMotherboardSerialNumber.setVisible(false);
+//                            soundLabelSoundInfo.setVisible(false);
+//                            soundLabelSoundIcon.setVisible(false);
+//                            soundLabelDescription.setVisible(false);
+//                            soundLabelDefaultSoundPlayback.setVisible(false);
+//                            soundLabelDefaultVoicePlayback.setVisible(false);
+//                            soundLabelHardwareID.setVisible(false);
+//                            soundLabelDriverProvider.setVisible(false);
+//                            soundLabelHWAccelLevel.setVisible(false);
+//                            soundLabelVoiceManagement.setVisible(false);
+//                            soundLabelEAX20.setVisible(false);
+//                            soundLabelI3DL2.setVisible(false);
+//                            soundLabelSensauraZoomFX.setVisible(false);
+//                        }
+//                    }
+//                    br13.close();
+//                    File file13 = new File(filePath13);
+//                    if (file13.delete()) System.out.println("File 13 deleted.");
+//                    else System.out.println("Problem");
+//                } catch (IOException | InterruptedException ex) {
+//                    ex.printStackTrace();
+//                }
+//            });
+//
+//            ExecutorService service14 = Executors.newCachedThreadPool();
+//
+//            service14.submit(() -> {
+//                try {
+//                    String filePath14 = "./src/main/resources/dxdiagOutputs/dxdiagOutput14.txt";
+//                    ProcessBuilder pb14 = new ProcessBuilder("cmd.exe", "/c", "cmd.exe", "/c", "dxdiag", "/dontskip", "/whql:off", "/64bit", "/t", filePath14);
+//                    Process p14 = pb14.start();
+//                    p14.waitFor();
+//                    BufferedReader br14 = new BufferedReader(new FileReader(filePath14));
+//                    String line14;
+//
+//                    Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+//                        try {
+//                            br14.close();
+//                            File file14 = new File(filePath14);
+//                            if (file14.delete()) System.out.println("File 14 deleted.");
+//                            else System.out.println("Problem");
+//                        } catch (IOException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }, "Shutdown-thread"));
+//
+//                    while ((line14 = br14.readLine()) != null) {
+//                        if (line14.trim().startsWith("Chip type:")) {
+//                            System.out.println(line14.trim());
+//                            displayLabelDisplayInfoText.setVisible(false);
+//                            displayLabelDisplayInfoLabel.setVisible(false);
+//                            gpuLabelGpuModel.setVisible(false);
+//                            gpuLabelGpuManufacturer.setVisible(false);
+//                            gpuLabelGpuChipType.setVisible(false);
+//                            gpuLabelGpuDacType.setVisible(false);
+//                            gpuLabelGpuDeviceType.setVisible(false);
+//                            gpuLabelGpuDisplayMemory.setVisible(false);
+//                            gpuLabelGpuDedicatedMemory.setVisible(false);
+//                            gpuLabelGpuSharedMemory.setVisible(false);
+//                            gpuLabelGpuVirtualization.setVisible(false);
+//                            cpuLabelCpuTemp.setVisible(false);
+//                            cpuLabelInfoText.setVisible(false);
+//                            cpuLabel.setVisible(false);
+//                            cpuLabelCpuModel.setVisible(false);
+//                            cpuLabelCpuArch.setVisible(false);
+//                            cpuLabelCpuCores.setVisible(false);
+//                            cpuLabelInfoText.setVisible(false);
+//                            cpuLabelLogicProcessors.setVisible(false);
+//                            cpuLabelProcessorIdentifier.setVisible(false);
+//                            tempLabelText.setVisible(false);
+//                            tempLabel.setVisible(false);
+//                            tempLabelCPUTemp.setVisible(false);
+//                            tempLabelGPUTemp.setVisible(false);
+//                            tempLabelMotherboardTemp.setVisible(false);
+//                            tempLabelRAMTemp.setVisible(false);
+//                            tempLabelDiscTemp.setVisible(false);
+//                            systemLabelMachineModel.setVisible(false);
+//                            systemLabelMachineId.setVisible(false);
+//                            systemLabelLanguage.setVisible(false);
+//                            systemLabelWinDir.setVisible(false);
+//                            gpuInfo.setVisible(false);
+//                            gpuInfoLabel.setVisible(false);
+//                            storageInfoSize.setVisible(false);
+//                            storageInfo.setVisible(false);
+//                            networkConnectionLabel.setVisible(false);
+//                            networkLabelHostAddress.setVisible(false);
+//                            networkLabelisAnyLocalAddress.setVisible(false);
+//                            networkLabelisLinkLocalAddress.setVisible(false);
+//                            networkLabelisLoopbackAddress.setVisible(false);
+//                            networkLabelisMCGlobal.setVisible(false);
+//                            networkLabelisMCLinkLocal.setVisible(false);
+//                            networkLabelisMCNodeLocal.setVisible(false);
+//                            networkLabelisMCOrgLocal.setVisible(false);
+//                            networkLabelisMCSiteLocal.setVisible(false);
+//                            networkLabelisMulticastAddress.setVisible(false);
+//                            networkLabelisSiteLocalAddress.setVisible(false);
+//                            networkLabelOsName.setVisible(false);
+//                            networkLabelIpAdress.setVisible(false);
+//                            networkInfo.setVisible(false);
+//                            networkInfoLabel.setVisible(false);
+//                            winIconLabel.setVisible(false);
+//                            hostnameLabel.setVisible(false);
+//                            SysArchLabel.setVisible(false);
+//                            SysNameLabel.setVisible(false);
+//                            C.setVisible(false);
+//                            F.setVisible(false);
+//                            SysVer.setVisible(false);
+//                            SystemName.setVisible(false);
+//                            CPUArch.setVisible(false);
+//                            displayLabelCardName.setVisible(false);
+//                            displayLabelManufacturer.setVisible(false);
+//                            displayLabelChipType.setVisible(false);
+//                            displayLabelDacType.setVisible(false);
+//                            displayLabelDeviceType.setVisible(false);
+//                            displayLabelDisplayMemory.setVisible(false);
+//                            displayLabelDedicatedMemory.setVisible(false);
+//                            displayLabelSharedMemory.setVisible(false);
+//                            displayLabelCurrentMode.setVisible(false);
+//                            displayLabelHDRSupport.setVisible(false);
+//                            displayLabelDisplayTopology.setVisible(false);
+//                            displayLabelMonitorName.setVisible(false);
+//                            displayLabelMonitorId.setVisible(false);
+//                            displayLabelNativeMode.setVisible(false);
+//                            displayLabelOutputType.setVisible(false);
+//                            displayLabelMonitorCapabilities.setVisible(false);
+//                            displayLabelVirtualization.setVisible(false);
+//                            motherboardLabelMotherboardInfo.setVisible(false);
+//                            motherboardLabelMotherboardIcon.setVisible(false);
+//                            motherboardLabelSystemManufacturer.setVisible(false);
+//                            motherboardLabelBios.setVisible(false);
+//                            motherboardLabelSystemModel.setVisible(false);
+//                            motherboardLabelMotherboardSerialNumber.setVisible(false);
+//                            soundLabelSoundInfo.setVisible(false);
+//                            soundLabelSoundIcon.setVisible(false);
+//                            soundLabelDescription.setVisible(false);
+//                            soundLabelDefaultSoundPlayback.setVisible(false);
+//                            soundLabelDefaultVoicePlayback.setVisible(false);
+//                            soundLabelHardwareID.setVisible(false);
+//                            soundLabelDriverProvider.setVisible(false);
+//                            soundLabelHWAccelLevel.setVisible(false);
+//                            soundLabelVoiceManagement.setVisible(false);
+//                            soundLabelEAX20.setVisible(false);
+//                            soundLabelI3DL2.setVisible(false);
+//                            soundLabelSensauraZoomFX.setVisible(false);
+//                        }
+//                    }
+//                    br14.close();
+//                    File file14 = new File(filePath14);
+//                    if (file14.delete()) System.out.println("File 14 deleted.");
+//                    else System.out.println("Problem");
+//                } catch (IOException | InterruptedException ex) {
+//                    ex.printStackTrace();
+//                }
+//            });
+*/
 
             ExecutorService service15 = Executors.newCachedThreadPool();
 
@@ -3152,16 +3129,14 @@ public class UI {
                     BufferedReader br15 = new BufferedReader(new FileReader(filePath15));
                     String line15;
 
-                    Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-                        public void run() {
-                            try {
-                                br15.close();
-                                File file15 = new File(filePath15);
-                                if (file15.delete()) System.out.println("File 15 deleted.");
-                                else System.out.println("Problem");
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
+                    Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+                        try {
+                            br15.close();
+                            File file15 = new File(filePath15);
+                            if (file15.delete()) System.out.println("File 15 deleted.");
+                            else System.out.println("Problem");
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
                     }, "Shutdown-thread"));
 
@@ -5125,11 +5100,10 @@ public class UI {
 
     /**
      * Method for get Windows Machine MotherBoard Serial Number
-     * @return
      */
 
     private static String getWindowsMotherboard_SerialNumber() {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         try {
             File file = File.createTempFile("realhowto",".vbs");
             file.deleteOnExit();
@@ -5151,24 +5125,23 @@ public class UI {
             BufferedReader input = new BufferedReader(new InputStreamReader(p.getInputStream()));
             String line;
             while ((line = input.readLine()) != null) {
-                result += line;
+                result.append(line);
             }
             input.close();
         }
         catch(Exception E){
             System.err.println("Windows MotherBoard Exp : "+E.getMessage());
         }
-        return result.trim();
+        return result.toString().trim();
     }
 
 
     /**
      * Method for get Linux Machine MotherBoard Serial Number
-     * @return
      */
     private static String GetLinuxMotherBoard_serialNumber() {
         String command = "dmidecode -s baseboard-serial-number";
-        String sNum = null;
+        String sNum;
         try {
             Process SerNumProcess = Runtime.getRuntime().exec(command);
             BufferedReader sNumReader = new BufferedReader(new InputStreamReader(SerNumProcess.getInputStream()));

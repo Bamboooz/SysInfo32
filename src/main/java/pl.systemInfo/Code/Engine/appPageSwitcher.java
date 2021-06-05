@@ -1,4 +1,4 @@
-package pl.systemInfo.Code.sysInfo32Engine;
+package pl.systemInfo.Code.Engine;
 
 //public class appPageSwitcher {
 

@@ -19,7 +19,9 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
 
-public class UI {
+import static pl.systemInfo.Code.engineFiles.otherHardwareGatherer.*;
+
+public class UI extends JFrame{
 
     public static void main(String[] args) throws IOException {
 
@@ -231,17 +233,25 @@ public class UI {
             ramIconLbl.setIcon(ramIcon);
             ramIconLbl.setBounds(248, 360, 23, 20);
 
+            File cDrive = new File("C:");
+
+            String totalSpace;
+            String freeSpace;
+            String usableSpace;
+
+            totalSpace = ("Total space: " +  cDrive.getTotalSpace() /1073741824 + " GB");
+            freeSpace = ("Free space: " +  cDrive.getFreeSpace() /1073741824 + " GB");
+            usableSpace = ("Usable space: " +  cDrive.getUsableSpace() /1073741824 + " GB");
+
+            getRamInfo();
+
             JLabel cSize = new JLabel();
             frame.add(cSize);
             cSize.setBackground(color);
             cSize.setForeground(colorFg);
             cSize.setVisible(false);
             cSize.setBounds(290, 324, 380, 20);
-            long diskSize = new File("/").getTotalSpace();
-            long memorySize = ((com.sun.management.OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean()).getTotalPhysicalMemorySize();
-            memorySize = (memorySize / 1000000000);
-            diskSize = (diskSize / 1000000000);
-            cSize.setText("Size of C: " + diskSize + " Gigabytes");
+            cSize.setText(totalSpace);
 
             JLabel RAMInfoText = new JLabel();
             RAMInfoText.setForeground(colorFg);
@@ -256,7 +266,7 @@ public class UI {
             frame.add(ramSize);
             ramSize.setForeground(colorFg);
             ramSize.setBounds(290, 388, 280, 20);
-            ramSize.setText("RAM Size = " + memorySize + " Gigabytes");
+            ramSize.setText("RAM Size = " + ramCapacity);
 
             JLabel BIOSModelText = new JLabel();
             frame.add(BIOSModelText);
@@ -363,14 +373,6 @@ public class UI {
             storageInfoLabel.setForeground(colorFg);
             storageInfoLabel.setBounds(248, 30, 177, 20);
 
-            JLabel storageInfoSize = new JLabel();
-            storageInfoSize.setVisible(false);
-            frame.add(storageInfoSize);
-            storageInfoSize.setBackground(color);
-            storageInfoSize.setForeground(colorFg);
-            storageInfoSize.setBounds(290, 50, 277, 20);
-            storageInfoSize.setText("Size of C: " + diskSize + " Gigabytes");
-
             JLabel StorageInfoText = new JLabel();
             frame.add(StorageInfoText);
             StorageInfoText.setBackground(color);
@@ -378,6 +380,33 @@ public class UI {
             StorageInfoText.setVisible(false);
             StorageInfoText.setBounds(270, 300, 180, 20);
             StorageInfoText.setText("Storage Info");
+
+            // ej tu zmien printowanie tego, zeby najpierw ustawialo to na stringa, a potem printowalo
+
+            JLabel storageLabelStorageDescription = new JLabel();
+            storageLabelStorageDescription.setVisible(false);
+            frame.add(storageLabelStorageDescription);
+            storageLabelStorageDescription.setBackground(color);
+            storageLabelStorageDescription.setForeground(colorFg);
+            storageLabelStorageDescription.setBounds(290, 50, 277, 20);
+            storageLabelStorageDescription.setText(totalSpace);
+
+            JLabel storageLabelStorageLabel = new JLabel();
+            storageLabelStorageLabel.setVisible(false);
+            frame.add(storageLabelStorageLabel);
+            storageLabelStorageLabel.setBackground(color);
+            storageLabelStorageLabel.setForeground(colorFg);
+            storageLabelStorageLabel.setBounds(290, 70, 277, 20);
+            storageLabelStorageLabel.setText(freeSpace);
+
+            JLabel storageLabelStorageLogicalVolume = new JLabel();
+            storageLabelStorageLogicalVolume.setVisible(false);
+            frame.add(storageLabelStorageLogicalVolume);
+            storageLabelStorageLogicalVolume.setBackground(color);
+            storageLabelStorageLogicalVolume.setForeground(colorFg);
+            storageLabelStorageLogicalVolume.setBounds(290, 90, 277, 20);
+            storageLabelStorageLogicalVolume.setText(usableSpace);
+
             //.....................................................//
 
             //.....................................................//
@@ -914,6 +943,67 @@ public class UI {
             //.....................................................//
 
             //.....................................................//
+            //                 Strona Z Info O RAM                 //
+            //.....................................................//
+            JLabel ramLabelRamInfoLabel = new JLabel("Ram Info");
+            ramLabelRamInfoLabel.setVisible(false);
+            frame.add(ramLabelRamInfoLabel);
+            ramLabelRamInfoLabel.setBackground(color);
+            ramLabelRamInfoLabel.setForeground(colorFg);
+            ramLabelRamInfoLabel.setBounds(272, 30, 377, 20);
+            ramLabelRamInfoLabel.setText("Ram Info");
+
+            JLabel ramLabelRamIcon = new JLabel();
+            ramLabelRamIcon.setVisible(false);
+            frame.add(ramLabelRamIcon);
+            ramLabelRamIcon.setIcon(ramIcon);
+            ramLabelRamIcon.setBackground(color);
+            ramLabelRamIcon.setForeground(colorFg);
+            ramLabelRamIcon.setBounds(248, 30, 377, 20);
+
+            JLabel ramLabelRamManufacturer = new JLabel("Ram Manufacturer");
+            ramLabelRamManufacturer.setVisible(false);
+            frame.add(ramLabelRamManufacturer);
+            ramLabelRamManufacturer.setBackground(color);
+            ramLabelRamManufacturer.setForeground(colorFg);
+            ramLabelRamManufacturer.setBounds(272, 50, 377, 20);
+            ramLabelRamManufacturer.setText(ramManufacturer);
+
+            JLabel ramLabelMemoryType = new JLabel("Ram Type");
+            ramLabelMemoryType.setVisible(false);
+            frame.add(ramLabelMemoryType);
+            ramLabelMemoryType.setBackground(color);
+            ramLabelMemoryType.setForeground(colorFg);
+            ramLabelMemoryType.setBounds(272, 70, 377, 20);
+            ramLabelMemoryType.setText(ramMemoryType);
+
+            JLabel ramLabelRamBankSlotLabel = new JLabel("Ram Bank/Slot Label: ");
+            ramLabelRamBankSlotLabel.setVisible(false);
+            frame.add(ramLabelRamBankSlotLabel);
+            ramLabelRamBankSlotLabel.setBackground(color);
+            ramLabelRamBankSlotLabel.setForeground(colorFg);
+            ramLabelRamBankSlotLabel.setBounds(272, 90, 377, 20);
+            ramLabelRamBankSlotLabel.setText(ramBankSlotLabel);
+
+            JLabel ramLabelRamCapacity = new JLabel("Ram Capacity");
+            ramLabelRamCapacity.setVisible(false);
+            frame.add(ramLabelRamCapacity);
+            ramLabelRamCapacity.setBackground(color);
+            ramLabelRamCapacity.setForeground(colorFg);
+            ramLabelRamCapacity.setBounds(272, 110, 377, 20);
+            ramLabelRamCapacity.setText(ramCapacity);
+
+            JLabel ramLabelRamClockSpeed = new JLabel("Ram Clock Speed");
+            ramLabelRamClockSpeed.setVisible(false);
+            frame.add(ramLabelRamClockSpeed);
+            ramLabelRamClockSpeed.setBackground(color);
+            ramLabelRamClockSpeed.setForeground(colorFg);
+            ramLabelRamClockSpeed.setBounds(272, 130, 377, 20);
+            ramLabelRamClockSpeed.setText(ramClockSpeed);
+
+            //.....................................................//
+
+            //.....................................................//
             //             Strona Z Info O Peryferiach             //
             //.....................................................//
 
@@ -940,8 +1030,7 @@ public class UI {
             //.....................................................//
 
             //.....................................................//
-            //
-            //                trona Z Info O Dźwięku              //
+            //                Strona Z Info O Dźwięku              //
             //.....................................................//
 
             JLabel soundLabelSoundInfo = new JLabel("Sound Info");
@@ -1182,7 +1271,6 @@ public class UI {
                             systemLabelWinDir.setVisible(false);
                             gpuInfo.setVisible(false);
                             gpuInfoLabel.setVisible(false);
-                            storageInfoSize.setVisible(false);
                             storageInfo.setVisible(false);
                             networkConnectionLabel.setVisible(false);
                             networkLabelHostAddress.setVisible(false);
@@ -1244,6 +1332,16 @@ public class UI {
                             soundLabelEAX20.setVisible(false);
                             soundLabelI3DL2.setVisible(false);
                             soundLabelSensauraZoomFX.setVisible(false);
+                            ramLabelRamInfoLabel.setVisible(false);
+                            ramLabelRamIcon.setVisible(false);
+                            ramLabelRamManufacturer.setVisible(false);
+                            ramLabelMemoryType.setVisible(false);
+                            ramLabelRamBankSlotLabel.setVisible(false);
+                            ramLabelRamCapacity.setVisible(false);
+                            ramLabelRamClockSpeed.setVisible(false);
+                            storageLabelStorageDescription.setVisible(false);
+                            storageLabelStorageLabel.setVisible(false);
+                            storageLabelStorageLogicalVolume.setVisible(false);
                         }
                     }
                     br.close();
@@ -1332,7 +1430,6 @@ public class UI {
                             systemLabelWinDir.setVisible(false);
                             gpuInfo.setVisible(false);
                             gpuInfoLabel.setVisible(false);
-                            storageInfoSize.setVisible(false);
                             storageInfo.setVisible(false);
                             networkConnectionLabel.setVisible(false);
                             networkLabelHostAddress.setVisible(false);
@@ -1394,6 +1491,16 @@ public class UI {
                             soundLabelEAX20.setVisible(false);
                             soundLabelI3DL2.setVisible(false);
                             soundLabelSensauraZoomFX.setVisible(false);
+                            ramLabelRamInfoLabel.setVisible(false);
+                            ramLabelRamIcon.setVisible(false);
+                            ramLabelRamManufacturer.setVisible(false);
+                            ramLabelMemoryType.setVisible(false);
+                            ramLabelRamBankSlotLabel.setVisible(false);
+                            ramLabelRamCapacity.setVisible(false);
+                            ramLabelRamClockSpeed.setVisible(false);
+                            storageLabelStorageDescription.setVisible(false);
+                            storageLabelStorageLabel.setVisible(false);
+                            storageLabelStorageLogicalVolume.setVisible(false);
                         }
                     }
                     br1.close();
@@ -1465,7 +1572,6 @@ public class UI {
                             systemLabelWinDir.setVisible(false);
                             gpuInfo.setVisible(false);
                             gpuInfoLabel.setVisible(false);
-                            storageInfoSize.setVisible(false);
                             storageInfo.setVisible(false);
                             networkConnectionLabel.setVisible(false);
                             networkLabelHostAddress.setVisible(false);
@@ -1527,6 +1633,16 @@ public class UI {
                             soundLabelEAX20.setVisible(false);
                             soundLabelI3DL2.setVisible(false);
                             soundLabelSensauraZoomFX.setVisible(false);
+                            ramLabelRamInfoLabel.setVisible(false);
+                            ramLabelRamIcon.setVisible(false);
+                            ramLabelRamManufacturer.setVisible(false);
+                            ramLabelMemoryType.setVisible(false);
+                            ramLabelRamBankSlotLabel.setVisible(false);
+                            ramLabelRamCapacity.setVisible(false);
+                            ramLabelRamClockSpeed.setVisible(false);
+                            storageLabelStorageDescription.setVisible(false);
+                            storageLabelStorageLabel.setVisible(false);
+                            storageLabelStorageLogicalVolume.setVisible(false);
                         }
                     }
                     br2.close();
@@ -1598,7 +1714,6 @@ public class UI {
                             systemLabelWinDir.setVisible(false);
                             gpuInfo.setVisible(false);
                             gpuInfoLabel.setVisible(false);
-                            storageInfoSize.setVisible(false);
                             storageInfo.setVisible(false);
                             networkConnectionLabel.setVisible(false);
                             networkLabelHostAddress.setVisible(false);
@@ -1660,6 +1775,16 @@ public class UI {
                             soundLabelEAX20.setVisible(false);
                             soundLabelI3DL2.setVisible(false);
                             soundLabelSensauraZoomFX.setVisible(false);
+                            ramLabelRamInfoLabel.setVisible(false);
+                            ramLabelRamIcon.setVisible(false);
+                            ramLabelRamManufacturer.setVisible(false);
+                            ramLabelMemoryType.setVisible(false);
+                            ramLabelRamBankSlotLabel.setVisible(false);
+                            ramLabelRamCapacity.setVisible(false);
+                            ramLabelRamClockSpeed.setVisible(false);
+                            storageLabelStorageDescription.setVisible(false);
+                            storageLabelStorageLabel.setVisible(false);
+                            storageLabelStorageLogicalVolume.setVisible(false);
                         }
                     }
                     br3.close();
@@ -1731,7 +1856,6 @@ public class UI {
                             systemLabelWinDir.setVisible(false);
                             gpuInfo.setVisible(false);
                             gpuInfoLabel.setVisible(false);
-                            storageInfoSize.setVisible(false);
                             storageInfo.setVisible(false);
                             networkConnectionLabel.setVisible(false);
                             networkLabelHostAddress.setVisible(false);
@@ -1793,6 +1917,16 @@ public class UI {
                             soundLabelEAX20.setVisible(false);
                             soundLabelI3DL2.setVisible(false);
                             soundLabelSensauraZoomFX.setVisible(false);
+                            ramLabelRamInfoLabel.setVisible(false);
+                            ramLabelRamIcon.setVisible(false);
+                            ramLabelRamManufacturer.setVisible(false);
+                            ramLabelMemoryType.setVisible(false);
+                            ramLabelRamBankSlotLabel.setVisible(false);
+                            ramLabelRamCapacity.setVisible(false);
+                            ramLabelRamClockSpeed.setVisible(false);
+                            storageLabelStorageDescription.setVisible(false);
+                            storageLabelStorageLabel.setVisible(false);
+                            storageLabelStorageLogicalVolume.setVisible(false);
                         }
                     }
                     br4.close();
@@ -1864,7 +1998,6 @@ public class UI {
                             systemLabelWinDir.setVisible(false);
                             gpuInfo.setVisible(false);
                             gpuInfoLabel.setVisible(false);
-                            storageInfoSize.setVisible(false);
                             storageInfo.setVisible(false);
                             networkConnectionLabel.setVisible(false);
                             networkLabelHostAddress.setVisible(false);
@@ -1926,6 +2059,16 @@ public class UI {
                             soundLabelEAX20.setVisible(false);
                             soundLabelI3DL2.setVisible(false);
                             soundLabelSensauraZoomFX.setVisible(false);
+                            ramLabelRamInfoLabel.setVisible(false);
+                            ramLabelRamIcon.setVisible(false);
+                            ramLabelRamManufacturer.setVisible(false);
+                            ramLabelMemoryType.setVisible(false);
+                            ramLabelRamBankSlotLabel.setVisible(false);
+                            ramLabelRamCapacity.setVisible(false);
+                            ramLabelRamClockSpeed.setVisible(false);
+                            storageLabelStorageDescription.setVisible(false);
+                            storageLabelStorageLabel.setVisible(false);
+                            storageLabelStorageLogicalVolume.setVisible(false);
                         }
                     }
                     br5.close();
@@ -1995,7 +2138,6 @@ public class UI {
                             systemLabelWinDir.setVisible(false);
                             gpuInfo.setVisible(false);
                             gpuInfoLabel.setVisible(false);
-                            storageInfoSize.setVisible(false);
                             storageInfo.setVisible(false);
                             networkConnectionLabel.setVisible(false);
                             networkLabelHostAddress.setVisible(false);
@@ -2057,6 +2199,16 @@ public class UI {
                             soundLabelEAX20.setVisible(false);
                             soundLabelI3DL2.setVisible(false);
                             soundLabelSensauraZoomFX.setVisible(false);
+                            ramLabelRamInfoLabel.setVisible(false);
+                            ramLabelRamIcon.setVisible(false);
+                            ramLabelRamManufacturer.setVisible(false);
+                            ramLabelMemoryType.setVisible(false);
+                            ramLabelRamBankSlotLabel.setVisible(false);
+                            ramLabelRamCapacity.setVisible(false);
+                            ramLabelRamClockSpeed.setVisible(false);
+                            storageLabelStorageDescription.setVisible(false);
+                            storageLabelStorageLabel.setVisible(false);
+                            storageLabelStorageLogicalVolume.setVisible(false);
                         }
                     }
                     br6.close();
@@ -2126,7 +2278,6 @@ public class UI {
                             systemLabelWinDir.setVisible(false);
                             gpuInfo.setVisible(false);
                             gpuInfoLabel.setVisible(false);
-                            storageInfoSize.setVisible(false);
                             storageInfo.setVisible(false);
                             networkConnectionLabel.setVisible(false);
                             networkLabelHostAddress.setVisible(false);
@@ -2188,6 +2339,16 @@ public class UI {
                             soundLabelEAX20.setVisible(false);
                             soundLabelI3DL2.setVisible(false);
                             soundLabelSensauraZoomFX.setVisible(false);
+                            ramLabelRamInfoLabel.setVisible(false);
+                            ramLabelRamIcon.setVisible(false);
+                            ramLabelRamManufacturer.setVisible(false);
+                            ramLabelMemoryType.setVisible(false);
+                            ramLabelRamBankSlotLabel.setVisible(false);
+                            ramLabelRamCapacity.setVisible(false);
+                            ramLabelRamClockSpeed.setVisible(false);
+                            storageLabelStorageDescription.setVisible(false);
+                            storageLabelStorageLabel.setVisible(false);
+                            storageLabelStorageLogicalVolume.setVisible(false);
                         }
                     }
                     br7.close();
@@ -2320,6 +2481,25 @@ public class UI {
 //                            soundLabelEAX20.setVisible(false);
 //                            soundLabelI3DL2.setVisible(false);
 //                            soundLabelSensauraZoomFX.setVisible(false);
+//                            ramLabelRamInfoLabel.setVisible(false);
+//                            ramLabelRamIcon.setVisible(false);
+//                            ramLabelRamManufacturer.setVisible(false);
+//                            ramLabelMemoryType.setVisible(false);
+//                            ramLabelRamBankSlotLabel.setVisible(false);
+//                            ramLabelRamCapacity.setVisible(false);
+//                            ramLabelRamClockSpeed.setVisible(false);
+//                            storageLabelStorageDescription.setVisible(false);
+//                            storageLabelStorageLabel.setVisible(false);
+//                            storageLabelStorageLogicalVolume.setVisible(false);
+//                            storageLabelStorageMount.setVisible(false);
+//                            storageLabelStorageName.setVisible(false);
+//                            storageLabelStorageOptions.setVisible(false);
+//                            storageLabelStorageType.setVisible(false);
+//                            storageLabelStorageUUID.setVisible(false);
+//                            storageLabelStorageVolume.setVisible(false);
+//                            storageLabelStorageFreeSpace.setVisible(false);
+//                            storageLabelStorageTotalSpace.setVisible(false);
+//                            storageLabelStorageUsableSpace.setVisible(false);
 //                        }
 //                    }
 //                    br8.close();
@@ -2451,6 +2631,25 @@ public class UI {
 //                            soundLabelEAX20.setVisible(false);
 //                            soundLabelI3DL2.setVisible(false);
 //                            soundLabelSensauraZoomFX.setVisible(false);
+//                            ramLabelRamInfoLabel.setVisible(false);
+//                            ramLabelRamIcon.setVisible(false);
+//                            ramLabelRamManufacturer.setVisible(false);
+//                            ramLabelMemoryType.setVisible(false);
+//                            ramLabelRamBankSlotLabel.setVisible(false);
+//                            ramLabelRamCapacity.setVisible(false);
+//                            ramLabelRamClockSpeed.setVisible(false);
+//                            storageLabelStorageDescription.setVisible(false);
+//                            storageLabelStorageLabel.setVisible(false);
+//                            storageLabelStorageLogicalVolume.setVisible(false);
+//                            storageLabelStorageMount.setVisible(false);
+//                            storageLabelStorageName.setVisible(false);
+//                            storageLabelStorageOptions.setVisible(false);
+//                            storageLabelStorageType.setVisible(false);
+//                            storageLabelStorageUUID.setVisible(false);
+//                            storageLabelStorageVolume.setVisible(false);
+//                            storageLabelStorageFreeSpace.setVisible(false);
+//                            storageLabelStorageTotalSpace.setVisible(false);
+//                            storageLabelStorageUsableSpace.setVisible(false);
 //                        }
 //                    }
 //                    br9.close();
@@ -2582,6 +2781,25 @@ public class UI {
 //                            soundLabelEAX20.setVisible(false);
 //                            soundLabelI3DL2.setVisible(false);
 //                            soundLabelSensauraZoomFX.setVisible(false);
+//                            ramLabelRamInfoLabel.setVisible(false);
+//                            ramLabelRamIcon.setVisible(false);
+//                            ramLabelRamManufacturer.setVisible(false);
+//                            ramLabelMemoryType.setVisible(false);
+//                            ramLabelRamBankSlotLabel.setVisible(false);
+//                            ramLabelRamCapacity.setVisible(false);
+//                            ramLabelRamClockSpeed.setVisible(false);
+//                            storageLabelStorageDescription.setVisible(false);
+//                            storageLabelStorageLabel.setVisible(false);
+//                            storageLabelStorageLogicalVolume.setVisible(false);
+//                            storageLabelStorageMount.setVisible(false);
+//                            storageLabelStorageName.setVisible(false);
+//                            storageLabelStorageOptions.setVisible(false);
+//                            storageLabelStorageType.setVisible(false);
+//                            storageLabelStorageUUID.setVisible(false);
+//                            storageLabelStorageVolume.setVisible(false);
+//                            storageLabelStorageFreeSpace.setVisible(false);
+//                            storageLabelStorageTotalSpace.setVisible(false);
+//                            storageLabelStorageUsableSpace.setVisible(false);
 //                        }
 //                    }
 //                    br10.close();
@@ -2713,6 +2931,25 @@ public class UI {
 //                            soundLabelEAX20.setVisible(false);
 //                            soundLabelI3DL2.setVisible(false);
 //                            soundLabelSensauraZoomFX.setVisible(false);
+//                            ramLabelRamInfoLabel.setVisible(false);
+//                            ramLabelRamIcon.setVisible(false);
+//                            ramLabelRamManufacturer.setVisible(false);
+//                            ramLabelMemoryType.setVisible(false);
+//                            ramLabelRamBankSlotLabel.setVisible(false);
+//                            ramLabelRamCapacity.setVisible(false);
+//                            ramLabelRamClockSpeed.setVisible(false);
+//                            storageLabelStorageDescription.setVisible(false);
+//                            storageLabelStorageLabel.setVisible(false);
+//                            storageLabelStorageLogicalVolume.setVisible(false);
+//                            storageLabelStorageMount.setVisible(false);
+//                            storageLabelStorageName.setVisible(false);
+//                            storageLabelStorageOptions.setVisible(false);
+//                            storageLabelStorageType.setVisible(false);
+//                            storageLabelStorageUUID.setVisible(false);
+//                            storageLabelStorageVolume.setVisible(false);
+//                            storageLabelStorageFreeSpace.setVisible(false);
+//                            storageLabelStorageTotalSpace.setVisible(false);
+//                            storageLabelStorageUsableSpace.setVisible(false);
 //                        }
 //                    }
 //                    br11.close();
@@ -2844,6 +3081,25 @@ public class UI {
 //                            soundLabelEAX20.setVisible(false);
 //                            soundLabelI3DL2.setVisible(false);
 //                            soundLabelSensauraZoomFX.setVisible(false);
+//                            ramLabelRamInfoLabel.setVisible(false);
+//                            ramLabelRamIcon.setVisible(false);
+//                            ramLabelRamManufacturer.setVisible(false);
+//                            ramLabelMemoryType.setVisible(false);
+//                            ramLabelRamBankSlotLabel.setVisible(false);
+//                            ramLabelRamCapacity.setVisible(false);
+//                            ramLabelRamClockSpeed.setVisible(false);
+//                            storageLabelStorageDescription.setVisible(false);
+//                            storageLabelStorageLabel.setVisible(false);
+//                            storageLabelStorageLogicalVolume.setVisible(false);
+//                            storageLabelStorageMount.setVisible(false);
+//                            storageLabelStorageName.setVisible(false);
+//                            storageLabelStorageOptions.setVisible(false);
+//                            storageLabelStorageType.setVisible(false);
+//                            storageLabelStorageUUID.setVisible(false);
+//                            storageLabelStorageVolume.setVisible(false);
+//                            storageLabelStorageFreeSpace.setVisible(false);
+//                            storageLabelStorageTotalSpace.setVisible(false);
+//                            storageLabelStorageUsableSpace.setVisible(false);
 //                        }
 //                    }
 //                    br12.close();
@@ -2975,6 +3231,25 @@ public class UI {
 //                            soundLabelEAX20.setVisible(false);
 //                            soundLabelI3DL2.setVisible(false);
 //                            soundLabelSensauraZoomFX.setVisible(false);
+//                            ramLabelRamInfoLabel.setVisible(false);
+//                            ramLabelRamIcon.setVisible(false);
+//                            ramLabelRamManufacturer.setVisible(false);
+//                            ramLabelMemoryType.setVisible(false);
+//                            ramLabelRamBankSlotLabel.setVisible(false);
+//                            ramLabelRamCapacity.setVisible(false);
+//                            ramLabelRamClockSpeed.setVisible(false);
+//                            storageLabelStorageDescription.setVisible(false);
+//                            storageLabelStorageLabel.setVisible(false);
+//                            storageLabelStorageLogicalVolume.setVisible(false);
+//                            storageLabelStorageMount.setVisible(false);
+//                            storageLabelStorageName.setVisible(false);
+//                            storageLabelStorageOptions.setVisible(false);
+//                            storageLabelStorageType.setVisible(false);
+//                            storageLabelStorageUUID.setVisible(false);
+//                            storageLabelStorageVolume.setVisible(false);
+//                            storageLabelStorageFreeSpace.setVisible(false);
+//                            storageLabelStorageTotalSpace.setVisible(false);
+//                            storageLabelStorageUsableSpace.setVisible(false);
 //                        }
 //                    }
 //                    br13.close();
@@ -3106,6 +3381,25 @@ public class UI {
 //                            soundLabelEAX20.setVisible(false);
 //                            soundLabelI3DL2.setVisible(false);
 //                            soundLabelSensauraZoomFX.setVisible(false);
+//                            ramLabelRamInfoLabel.setVisible(false);
+//                            ramLabelRamIcon.setVisible(false);
+//                            ramLabelRamManufacturer.setVisible(false);
+//                            ramLabelMemoryType.setVisible(false);
+//                            ramLabelRamBankSlotLabel.setVisible(false);
+//                            ramLabelRamCapacity.setVisible(false);
+//                            ramLabelRamClockSpeed.setVisible(false);
+//                            storageLabelStorageDescription.setVisible(false);
+//                            storageLabelStorageLabel.setVisible(false);
+//                            storageLabelStorageLogicalVolume.setVisible(false);
+//                            storageLabelStorageMount.setVisible(false);
+//                            storageLabelStorageName.setVisible(false);
+//                            storageLabelStorageOptions.setVisible(false);
+//                            storageLabelStorageType.setVisible(false);
+//                            storageLabelStorageUUID.setVisible(false);
+//                            storageLabelStorageVolume.setVisible(false);
+//                            storageLabelStorageFreeSpace.setVisible(false);
+//                            storageLabelStorageTotalSpace.setVisible(false);
+//                            storageLabelStorageUsableSpace.setVisible(false);
 //                        }
 //                    }
 //                    br14.close();
@@ -3192,7 +3486,6 @@ public class UI {
                             systemLabelWinDir.setVisible(false);
                             gpuInfo.setVisible(false);
                             gpuInfoLabel.setVisible(false);
-                            storageInfoSize.setVisible(false);
                             storageInfo.setVisible(false);
                             networkConnectionLabel.setVisible(false);
                             networkLabelHostAddress.setVisible(false);
@@ -3254,6 +3547,16 @@ public class UI {
                             soundLabelEAX20.setVisible(false);
                             soundLabelI3DL2.setVisible(false);
                             soundLabelSensauraZoomFX.setVisible(false);
+                            ramLabelRamInfoLabel.setVisible(false);
+                            ramLabelRamIcon.setVisible(false);
+                            ramLabelRamManufacturer.setVisible(false);
+                            ramLabelMemoryType.setVisible(false);
+                            ramLabelRamBankSlotLabel.setVisible(false);
+                            ramLabelRamCapacity.setVisible(false);
+                            ramLabelRamClockSpeed.setVisible(false);
+                            storageLabelStorageDescription.setVisible(false);
+                            storageLabelStorageLabel.setVisible(false);
+                            storageLabelStorageLogicalVolume.setVisible(false);
                         }
                     }
                     br15.close();
@@ -3375,6 +3678,7 @@ public class UI {
 
             MainInfo.addMouseListener(new java.awt.event.MouseAdapter() {
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    soundLabelSoundInfo.setVisible(false);
                     soundLabelDescription.setVisible(false);
                     soundLabelDefaultSoundPlayback.setVisible(false);
                     soundLabelDefaultVoicePlayback.setVisible(false);
@@ -3447,7 +3751,6 @@ public class UI {
                     GPUDisplayMemory.setVisible(true);
                     gpuInfo.setVisible(false);
                     gpuInfoLabel.setVisible(false);
-                    storageInfoSize.setVisible(false);
                     storageInfo.setVisible(false);
                     storageInfoLabel.setVisible(false);
                     networkConnectionLabel.setVisible(false);
@@ -3491,6 +3794,16 @@ public class UI {
                     discIconLbl.setVisible(true);
                     ramIconLbl.setVisible(true);
                     gpuIconLbl.setVisible(true);
+                    ramLabelRamInfoLabel.setVisible(false);
+                    ramLabelRamIcon.setVisible(false);
+                    ramLabelRamManufacturer.setVisible(false);
+                    ramLabelMemoryType.setVisible(false);
+                    ramLabelRamBankSlotLabel.setVisible(false);
+                    ramLabelRamCapacity.setVisible(false);
+                    ramLabelRamClockSpeed.setVisible(false);
+                    storageLabelStorageDescription.setVisible(false);
+                    storageLabelStorageLabel.setVisible(false);
+                    storageLabelStorageLogicalVolume.setVisible(false);
                 }
             });
             SystemInfo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -3569,7 +3882,6 @@ public class UI {
                     GPUDisplayMemory.setVisible(false);
                     gpuInfo.setVisible(false);
                     gpuInfoLabel.setVisible(false);
-                    storageInfoSize.setVisible(false);
                     storageInfo.setVisible(false);
                     storageInfoLabel.setVisible(false);
                     networkConnectionLabel.setVisible(false);
@@ -3613,6 +3925,16 @@ public class UI {
                     discIconLbl.setVisible(false);
                     ramIconLbl.setVisible(false);
                     gpuIconLbl.setVisible(false);
+                    ramLabelRamInfoLabel.setVisible(false);
+                    ramLabelRamIcon.setVisible(false);
+                    ramLabelRamManufacturer.setVisible(false);
+                    ramLabelMemoryType.setVisible(false);
+                    ramLabelRamBankSlotLabel.setVisible(false);
+                    ramLabelRamCapacity.setVisible(false);
+                    ramLabelRamClockSpeed.setVisible(false);
+                    storageLabelStorageDescription.setVisible(false);
+                    storageLabelStorageLabel.setVisible(false);
+                    storageLabelStorageLogicalVolume.setVisible(false);
                 }
             });
             CPUInfo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -3691,7 +4013,6 @@ public class UI {
                     GPUDisplayMemory.setVisible(false);
                     gpuInfo.setVisible(false);
                     gpuInfoLabel.setVisible(false);
-                    storageInfoSize.setVisible(false);
                     storageInfo.setVisible(false);
                     storageInfoLabel.setVisible(false);
                     networkConnectionLabel.setVisible(false);
@@ -3735,6 +4056,16 @@ public class UI {
                     discIconLbl.setVisible(false);
                     ramIconLbl.setVisible(false);
                     gpuIconLbl.setVisible(false);
+                    ramLabelRamInfoLabel.setVisible(false);
+                    ramLabelRamIcon.setVisible(false);
+                    ramLabelRamManufacturer.setVisible(false);
+                    ramLabelMemoryType.setVisible(false);
+                    ramLabelRamBankSlotLabel.setVisible(false);
+                    ramLabelRamCapacity.setVisible(false);
+                    ramLabelRamClockSpeed.setVisible(false);
+                    storageLabelStorageDescription.setVisible(false);
+                    storageLabelStorageLabel.setVisible(false);
+                    storageLabelStorageLogicalVolume.setVisible(false);
                 }
             });
             RAMInfo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -3813,7 +4144,6 @@ public class UI {
                     GPUDisplayMemory.setVisible(false);
                     gpuInfo.setVisible(false);
                     gpuInfoLabel.setVisible(false);
-                    storageInfoSize.setVisible(false);
                     storageInfo.setVisible(false);
                     storageInfoLabel.setVisible(false);
                     networkConnectionLabel.setVisible(false);
@@ -3857,6 +4187,16 @@ public class UI {
                     discIconLbl.setVisible(false);
                     ramIconLbl.setVisible(false);
                     gpuIconLbl.setVisible(false);
+                    ramLabelRamInfoLabel.setVisible(true);
+                    ramLabelRamIcon.setVisible(true);
+                    ramLabelRamManufacturer.setVisible(true);
+                    ramLabelMemoryType.setVisible(true);
+                    ramLabelRamBankSlotLabel.setVisible(true);
+                    ramLabelRamCapacity.setVisible(true);
+                    ramLabelRamClockSpeed.setVisible(true);
+                    storageLabelStorageDescription.setVisible(false);
+                    storageLabelStorageLabel.setVisible(false);
+                    storageLabelStorageLogicalVolume.setVisible(false);
                 }
             });
             MBInfo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -3935,7 +4275,6 @@ public class UI {
                     GPUDisplayMemory.setVisible(false);
                     gpuInfo.setVisible(false);
                     gpuInfoLabel.setVisible(false);
-                    storageInfoSize.setVisible(false);
                     storageInfo.setVisible(false);
                     storageInfoLabel.setVisible(false);
                     networkConnectionLabel.setVisible(false);
@@ -3979,6 +4318,16 @@ public class UI {
                     discIconLbl.setVisible(false);
                     ramIconLbl.setVisible(false);
                     gpuIconLbl.setVisible(false);
+                    ramLabelRamInfoLabel.setVisible(false);
+                    ramLabelRamIcon.setVisible(false);
+                    ramLabelRamManufacturer.setVisible(false);
+                    ramLabelMemoryType.setVisible(false);
+                    ramLabelRamBankSlotLabel.setVisible(false);
+                    ramLabelRamCapacity.setVisible(false);
+                    ramLabelRamClockSpeed.setVisible(false);
+                    storageLabelStorageDescription.setVisible(false);
+                    storageLabelStorageLabel.setVisible(false);
+                    storageLabelStorageLogicalVolume.setVisible(false);
                 }
             });
             GPUInfo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -4057,7 +4406,6 @@ public class UI {
                     GPUDisplayMemory.setVisible(false);
                     gpuInfo.setVisible(true);
                     gpuInfoLabel.setVisible(true);
-                    storageInfoSize.setVisible(false);
                     storageInfo.setVisible(false);
                     storageInfoLabel.setVisible(false);
                     networkConnectionLabel.setVisible(false);
@@ -4101,6 +4449,16 @@ public class UI {
                     discIconLbl.setVisible(false);
                     ramIconLbl.setVisible(false);
                     gpuIconLbl.setVisible(false);
+                    ramLabelRamInfoLabel.setVisible(false);
+                    ramLabelRamIcon.setVisible(false);
+                    ramLabelRamManufacturer.setVisible(false);
+                    ramLabelMemoryType.setVisible(false);
+                    ramLabelRamBankSlotLabel.setVisible(false);
+                    ramLabelRamCapacity.setVisible(false);
+                    ramLabelRamClockSpeed.setVisible(false);
+                    storageLabelStorageDescription.setVisible(false);
+                    storageLabelStorageLabel.setVisible(false);
+                    storageLabelStorageLogicalVolume.setVisible(false);
                 }
             });
             DisplayInfo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -4179,7 +4537,6 @@ public class UI {
                     GPUDisplayMemory.setVisible(false);
                     gpuInfo.setVisible(false);
                     gpuInfoLabel.setVisible(false);
-                    storageInfoSize.setVisible(false);
                     storageInfo.setVisible(false);
                     storageInfoLabel.setVisible(false);
                     networkConnectionLabel.setVisible(false);
@@ -4223,6 +4580,16 @@ public class UI {
                     discIconLbl.setVisible(false);
                     ramIconLbl.setVisible(false);
                     gpuIconLbl.setVisible(false);
+                    ramLabelRamInfoLabel.setVisible(false);
+                    ramLabelRamIcon.setVisible(false);
+                    ramLabelRamManufacturer.setVisible(false);
+                    ramLabelMemoryType.setVisible(false);
+                    ramLabelRamBankSlotLabel.setVisible(false);
+                    ramLabelRamCapacity.setVisible(false);
+                    ramLabelRamClockSpeed.setVisible(false);
+                    storageLabelStorageDescription.setVisible(false);
+                    storageLabelStorageLabel.setVisible(false);
+                    storageLabelStorageLogicalVolume.setVisible(false);
                 }
             });
             StorageInfo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -4301,7 +4668,6 @@ public class UI {
                     GPUDisplayMemory.setVisible(false);
                     gpuInfo.setVisible(false);
                     gpuInfoLabel.setVisible(false);
-                    storageInfoSize.setVisible(true);
                     storageInfo.setVisible(true);
                     storageInfoLabel.setVisible(true);
                     networkConnectionLabel.setVisible(false);
@@ -4345,6 +4711,16 @@ public class UI {
                     discIconLbl.setVisible(false);
                     ramIconLbl.setVisible(false);
                     gpuIconLbl.setVisible(false);
+                    ramLabelRamInfoLabel.setVisible(false);
+                    ramLabelRamIcon.setVisible(false);
+                    ramLabelRamManufacturer.setVisible(false);
+                    ramLabelMemoryType.setVisible(false);
+                    ramLabelRamBankSlotLabel.setVisible(false);
+                    ramLabelRamCapacity.setVisible(false);
+                    ramLabelRamClockSpeed.setVisible(false);
+                    storageLabelStorageDescription.setVisible(true);
+                    storageLabelStorageLabel.setVisible(true);
+                    storageLabelStorageLogicalVolume.setVisible(true);
                 }
             });
             OpticalDrives.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -4423,7 +4799,6 @@ public class UI {
                     GPUDisplayMemory.setVisible(false);
                     gpuInfo.setVisible(false);
                     gpuInfoLabel.setVisible(false);
-                    storageInfoSize.setVisible(false);
                     storageInfo.setVisible(false);
                     storageInfoLabel.setVisible(false);
                     networkConnectionLabel.setVisible(false);
@@ -4467,6 +4842,16 @@ public class UI {
                     discIconLbl.setVisible(false);
                     ramIconLbl.setVisible(false);
                     gpuIconLbl.setVisible(false);
+                    ramLabelRamInfoLabel.setVisible(false);
+                    ramLabelRamIcon.setVisible(false);
+                    ramLabelRamManufacturer.setVisible(false);
+                    ramLabelMemoryType.setVisible(false);
+                    ramLabelRamBankSlotLabel.setVisible(false);
+                    ramLabelRamCapacity.setVisible(false);
+                    ramLabelRamClockSpeed.setVisible(false);
+                    storageLabelStorageDescription.setVisible(false);
+                    storageLabelStorageLabel.setVisible(false);
+                    storageLabelStorageLogicalVolume.setVisible(false);
                 }
             });
             Temp.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -4545,7 +4930,6 @@ public class UI {
                     GPUDisplayMemory.setVisible(false);
                     gpuInfo.setVisible(false);
                     gpuInfoLabel.setVisible(false);
-                    storageInfoSize.setVisible(false);
                     storageInfo.setVisible(false);
                     storageInfoLabel.setVisible(false);
                     networkConnectionLabel.setVisible(false);
@@ -4589,6 +4973,16 @@ public class UI {
                     discIconLbl.setVisible(false);
                     ramIconLbl.setVisible(false);
                     gpuIconLbl.setVisible(false);
+                    ramLabelRamInfoLabel.setVisible(false);
+                    ramLabelRamIcon.setVisible(false);
+                    ramLabelRamManufacturer.setVisible(false);
+                    ramLabelMemoryType.setVisible(false);
+                    ramLabelRamBankSlotLabel.setVisible(false);
+                    ramLabelRamCapacity.setVisible(false);
+                    ramLabelRamClockSpeed.setVisible(false);
+                    storageLabelStorageDescription.setVisible(false);
+                    storageLabelStorageLabel.setVisible(false);
+                    storageLabelStorageLogicalVolume.setVisible(false);
                 }
             });
             Peripherals.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -4667,7 +5061,6 @@ public class UI {
                     GPUDisplayMemory.setVisible(false);
                     gpuInfo.setVisible(false);
                     gpuInfoLabel.setVisible(false);
-                    storageInfoSize.setVisible(false);
                     storageInfo.setVisible(false);
                     storageInfoLabel.setVisible(false);
                     networkConnectionLabel.setVisible(false);
@@ -4711,6 +5104,16 @@ public class UI {
                     discIconLbl.setVisible(false);
                     ramIconLbl.setVisible(false);
                     gpuIconLbl.setVisible(false);
+                    ramLabelRamInfoLabel.setVisible(false);
+                    ramLabelRamIcon.setVisible(false);
+                    ramLabelRamManufacturer.setVisible(false);
+                    ramLabelMemoryType.setVisible(false);
+                    ramLabelRamBankSlotLabel.setVisible(false);
+                    ramLabelRamCapacity.setVisible(false);
+                    ramLabelRamClockSpeed.setVisible(false);
+                    storageLabelStorageDescription.setVisible(false);
+                    storageLabelStorageLabel.setVisible(false);
+                    storageLabelStorageLogicalVolume.setVisible(false);
                 }
             });
             Sound.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -4789,7 +5192,6 @@ public class UI {
                     GPUDisplayMemory.setVisible(false);
                     gpuInfo.setVisible(false);
                     gpuInfoLabel.setVisible(false);
-                    storageInfoSize.setVisible(false);
                     storageInfo.setVisible(false);
                     storageInfoLabel.setVisible(false);
                     networkConnectionLabel.setVisible(false);
@@ -4833,6 +5235,16 @@ public class UI {
                     discIconLbl.setVisible(false);
                     ramIconLbl.setVisible(false);
                     gpuIconLbl.setVisible(false);
+                    ramLabelRamInfoLabel.setVisible(false);
+                    ramLabelRamIcon.setVisible(false);
+                    ramLabelRamManufacturer.setVisible(false);
+                    ramLabelMemoryType.setVisible(false);
+                    ramLabelRamBankSlotLabel.setVisible(false);
+                    ramLabelRamCapacity.setVisible(false);
+                    ramLabelRamClockSpeed.setVisible(false);
+                    storageLabelStorageDescription.setVisible(false);
+                    storageLabelStorageLabel.setVisible(false);
+                    storageLabelStorageLogicalVolume.setVisible(false);
                 }
             });
             Network.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -4911,7 +5323,6 @@ public class UI {
                     GPUDisplayMemory.setVisible(false);
                     gpuInfo.setVisible(false);
                     gpuInfoLabel.setVisible(false);
-                    storageInfoSize.setVisible(false);
                     storageInfo.setVisible(false);
                     storageInfoLabel.setVisible(false);
                     networkConnectionLabel.setVisible(true);
@@ -4955,6 +5366,16 @@ public class UI {
                     discIconLbl.setVisible(false);
                     ramIconLbl.setVisible(false);
                     gpuIconLbl.setVisible(false);
+                    ramLabelRamInfoLabel.setVisible(false);
+                    ramLabelRamIcon.setVisible(false);
+                    ramLabelRamManufacturer.setVisible(false);
+                    ramLabelMemoryType.setVisible(false);
+                    ramLabelRamBankSlotLabel.setVisible(false);
+                    ramLabelRamCapacity.setVisible(false);
+                    ramLabelRamClockSpeed.setVisible(false);
+                    storageLabelStorageDescription.setVisible(false);
+                    storageLabelStorageLabel.setVisible(false);
+                    storageLabelStorageLogicalVolume.setVisible(false);
                 }
             });
             Options.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -5033,7 +5454,6 @@ public class UI {
                     GPUDisplayMemory.setVisible(false);
                     gpuInfo.setVisible(false);
                     gpuInfoLabel.setVisible(false);
-                    storageInfoSize.setVisible(false);
                     storageInfo.setVisible(false);
                     storageInfoLabel.setVisible(false);
                     networkConnectionLabel.setVisible(false);
@@ -5077,6 +5497,16 @@ public class UI {
                     discIconLbl.setVisible(false);
                     ramIconLbl.setVisible(false);
                     gpuIconLbl.setVisible(false);
+                    ramLabelRamInfoLabel.setVisible(false);
+                    ramLabelRamIcon.setVisible(false);
+                    ramLabelRamManufacturer.setVisible(false);
+                    ramLabelMemoryType.setVisible(false);
+                    ramLabelRamBankSlotLabel.setVisible(false);
+                    ramLabelRamCapacity.setVisible(false);
+                    ramLabelRamClockSpeed.setVisible(false);
+                    storageLabelStorageDescription.setVisible(false);
+                    storageLabelStorageLabel.setVisible(false);
+                    storageLabelStorageLogicalVolume.setVisible(false);
                 }
             });
             //.....................................................//

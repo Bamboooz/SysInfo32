@@ -22,7 +22,7 @@ import static pl.systemInfo.Code.engineFiles.stringsAndLabels.*;
 
 public class UI extends JFrame{
 
-    public static void loadUI() throws IOException {
+    public static void main(String[] args) throws IOException {
 
             //.....................................................//
             //               JFrame i Jego Ustawienia              //
@@ -151,13 +151,9 @@ public class UI extends JFrame{
             hostnameLabel.setForeground(colorFg);
             hostnameLabel.setBounds(290, 92, 280, 20);
 
-        try {
             getAllHostNames();
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        }
 
-        hostnameLabel.setText("Hostname: " + hostname1);
+            hostnameLabel.setText("Hostname: " + hostname1);
 
             JLabel winIconLabel = new JLabel();
             winIconLabel.setVisible(false);

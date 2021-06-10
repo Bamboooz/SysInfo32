@@ -1,4 +1,4 @@
-package pl.systemInfo.Code.engineFiles;
+package pl.systemInfo.Code.sysinfoEngine;
 
 import java.io.IOException;
 import java.io.*;
@@ -7,7 +7,7 @@ import java.util.concurrent.Executors;
 import java.io.BufferedReader;
 import java.io.File;
 
-import static pl.systemInfo.Code.engineFiles.stringsAndLabels.*;
+import static pl.systemInfo.Code.sysinfoEngine.stringsAndLabels.*;
 
 public class dxDiagnosis {
 

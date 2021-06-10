@@ -1,4 +1,4 @@
-package pl.systemInfo.Code.engineFiles;
+package pl.systemInfo.Code.sysinfoEngine;
 
 //public class appPageSwitcher {
 

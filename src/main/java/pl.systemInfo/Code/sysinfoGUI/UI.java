@@ -1,24 +1,19 @@
-package pl.systemInfo.Code.GUI;
+package pl.systemInfo.Code.sysinfoGUI;
 
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
 import oshi.hardware.HardwareAbstractionLayer;
+import pl.taskmgr.Run;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
-import java.io.*;
-import java.net.UnknownHostException;
 import java.util.Locale;
 import java.util.Objects;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.io.BufferedReader;
-import java.io.File;
 
-import static pl.systemInfo.Code.engineFiles.dxDiagnosis.*;
-import static pl.systemInfo.Code.engineFiles.otherHardwareGatherer.*;
-import static pl.systemInfo.Code.engineFiles.stringsAndLabels.*;
+import static pl.systemInfo.Code.sysinfoEngine.dxDiagnosis.*;
+import static pl.systemInfo.Code.sysinfoEngine.otherHardwareGatherer.*;
+import static pl.systemInfo.Code.sysinfoEngine.stringsAndLabels.*;
 
 public class UI extends JFrame{
 
@@ -47,6 +42,31 @@ public class UI extends JFrame{
 
             Color colorFg = new Color(121, 145, 161);
             Color color = new Color(91, 91, 91);
+
+            JButton switchContentPage = new JButton("Other");
+            frame.add(switchContentPage);
+            switchContentPage.setBackground(color);
+            switchContentPage.setForeground(colorFg);
+            switchContentPage.setVisible(false);
+            switchContentPage.setBorderPainted(false);
+            switchContentPage.setBounds(35, 391, 177, 20);
+            switchContentPage.setText("Other");
+
+            JButton switchContentPageToStartTask = new JButton("Other");
+            frame.add(switchContentPageToStartTask);
+            switchContentPageToStartTask.setBackground(color);
+            switchContentPageToStartTask.setForeground(colorFg);
+            switchContentPageToStartTask.setVisible(false);
+            switchContentPageToStartTask.setBounds(212, 376, 177, 20);
+            switchContentPageToStartTask.setText("Start New Task");
+
+            JButton switchContentPageToKillTask = new JButton("Other");
+            frame.add(switchContentPageToKillTask);
+            switchContentPageToKillTask.setBackground(color);
+            switchContentPageToKillTask.setForeground(colorFg);
+            switchContentPageToKillTask.setVisible(false);
+            switchContentPageToKillTask.setBounds(212, 406, 177, 20);
+            switchContentPageToKillTask.setText("Kill Task");
 
             //.....................................................//
 
@@ -1178,162 +1198,163 @@ public class UI extends JFrame{
             startDxDiagnosis();
 
             while (true) {
-                 if (isDxDiagFinished.equals("yes")) {
-                     CPUModel.setVisible(true);
-                     CPUNumber.setVisible(true);
-                     CPUModelText.setVisible(true);
-                     frame.setTitle("| SysInfo v.3.7.2  | Ready To Use. |");
-                     MBModelText.setVisible(true);
-                     BIOSModelText.setVisible(true);
-                     GPUChipText.setVisible(true);
-                     GPUDisplayMemory.setVisible(true);
-                     SysName.setVisible(true);
-                     SysArch.setVisible(true);
-                     storageInfoLabel.setVisible(true);
-                     discIconLbl.setVisible(true);
-                     mbIconLbl.setVisible(true);
-                     gpuIconLbl.setVisible(true);
-                     ramIconLbl.setVisible(true);
-                     cpuIconLbl.setVisible(true);
-                     winIconLbl.setVisible(true);
-                     RAMInfoText.setVisible(true);
-                     cSize.setVisible(true);
-                     StorageInfoText.setVisible(true);
-                     GPUModel.setVisible(true);
-                     MBModel.setVisible(true);
-                     OperatingSystem.setVisible(true);
-                     ramSize.setVisible(true);
-                     displayLabelDisplayInfoText.setVisible(false);
-                     displayLabelDisplayInfoLabel.setVisible(false);
-                     gpuLabelGpuModel.setVisible(false);
-                     gpuLabelGpuManufacturer.setVisible(false);
-                     gpuLabelGpuChipType.setVisible(false);
-                     gpuLabelGpuDacType.setVisible(false);
-                     gpuLabelGpuDeviceType.setVisible(false);
-                     gpuLabelGpuDisplayMemory.setVisible(false);
-                     gpuLabelGpuDedicatedMemory.setVisible(false);
-                     gpuLabelGpuSharedMemory.setVisible(false);
-                     gpuLabelGpuVirtualization.setVisible(false);
-                     cpuLabelCpuTemp.setVisible(false);
-                     cpuLabel.setVisible(false);
-                     cpuLabelCpuModel.setVisible(false);
-                     cpuLabelCpuArch.setVisible(false);
-                     cpuLabelCpuCores.setVisible(false);
-                     cpuLabelInfoText.setVisible(false);
-                     cpuLabelLogicProcessors.setVisible(false);
-                     cpuLabelProcessorIdentifier.setVisible(false);
-                     tempLabelText.setVisible(false);
-                     tempLabel.setVisible(false);
-                     tempLabelCPUTemp.setVisible(false);
-                     tempLabelGPUTemp.setVisible(false);
-                     tempLabelMotherboardTemp.setVisible(false);
-                     tempLabelRAMTemp.setVisible(false);
-                     tempLabelDiscTemp.setVisible(false);
-                     systemLabelMachineModel.setVisible(false);
-                     systemLabelMachineId.setVisible(false);
-                     systemLabelLanguage.setVisible(false);
-                     systemLabelWinDir.setVisible(false);
-                     gpuInfo.setVisible(false);
-                     gpuInfoLabel.setVisible(false);
-                     storageInfo.setVisible(false);
-                     networkConnectionLabel.setVisible(false);
-                     networkLabelHostAddress.setVisible(false);
-                     networkLabelisAnyLocalAddress.setVisible(false);
-                     networkLabelisLinkLocalAddress.setVisible(false);
-                     networkLabelisLoopbackAddress.setVisible(false);
-                     networkLabelisMCGlobal.setVisible(false);
-                     networkLabelisMCLinkLocal.setVisible(false);
-                     networkLabelisMCNodeLocal.setVisible(false);
-                     networkLabelisMCOrgLocal.setVisible(false);
-                     networkLabelisMCSiteLocal.setVisible(false);
-                     networkLabelisMulticastAddress.setVisible(false);
-                     networkLabelisSiteLocalAddress.setVisible(false);
-                     networkLabelOsName.setVisible(false);
-                     networkLabelIpAdress.setVisible(false);
-                     networkInfo.setVisible(false);
-                     networkInfoLabel.setVisible(false);
-                     winIconLabel.setVisible(false);
-                     hostnameLabel.setVisible(false);
-                     SysArchLabel.setVisible(false);
-                     SysNameLabel.setVisible(false);
-                     C.setVisible(false);
-                     F.setVisible(false);
-                     SysVer.setVisible(false);
-                     SystemName.setVisible(false);
-                     CPUArch.setVisible(false);
-                     displayLabelCardName.setVisible(false);
-                     displayLabelManufacturer.setVisible(false);
-                     displayLabelChipType.setVisible(false);
-                     displayLabelDacType.setVisible(false);
-                     displayLabelDeviceType.setVisible(false);
-                     displayLabelDisplayMemory.setVisible(false);
-                     displayLabelDedicatedMemory.setVisible(false);
-                     displayLabelSharedMemory.setVisible(false);
-                     displayLabelCurrentMode.setVisible(false);
-                     displayLabelHDRSupport.setVisible(false);
-                     displayLabelDisplayTopology.setVisible(false);
-                     displayLabelMonitorName.setVisible(false);
-                     displayLabelMonitorId.setVisible(false);
-                     displayLabelNativeMode.setVisible(false);
-                     displayLabelOutputType.setVisible(false);
-                     displayLabelMonitorCapabilities.setVisible(false);
-                     displayLabelVirtualization.setVisible(false);
-                     motherboardLabelMotherboardInfo.setVisible(false);
-                     motherboardLabelMotherboardIcon.setVisible(false);
-                     motherboardLabelSystemManufacturer.setVisible(false);
-                     motherboardLabelBios.setVisible(false);
-                     motherboardLabelSystemModel.setVisible(false);
-                     motherboardLabelMotherboardSerialNumber.setVisible(false);
-                     soundLabelSoundInfo.setVisible(false);
-                     soundLabelSoundIcon.setVisible(false);
-                     soundLabelDescription.setVisible(false);
-                     soundLabelDefaultSoundPlayback.setVisible(false);
-                     soundLabelDefaultVoicePlayback.setVisible(false);
-                     soundLabelHardwareID.setVisible(false);
-                     soundLabelDriverProvider.setVisible(false);
-                     soundLabelHWAccelLevel.setVisible(false);
-                     soundLabelVoiceManagement.setVisible(false);
-                     soundLabelEAX20.setVisible(false);
-                     soundLabelI3DL2.setVisible(false);
-                     soundLabelSensauraZoomFX.setVisible(false);
-                     ramLabelRamInfoLabel.setVisible(false);
-                     ramLabelRamIcon.setVisible(false);
-                     ramLabelRamManufacturer.setVisible(false);
-                     ramLabelMemoryType.setVisible(false);
-                     ramLabelRamBankSlotLabel.setVisible(false);
-                     ramLabelRamCapacity.setVisible(false);
-                     ramLabelRamClockSpeed.setVisible(false);
-                     storageLabelStorageDescription.setVisible(false);
-                     storageLabelStorageLabel.setVisible(false);
-                     storageLabelStorageLogicalVolume.setVisible(false);
+                    if (isDxDiagFinished.equals("yes")) {
+                            CPUModel.setVisible(true);
+                            CPUNumber.setVisible(true);
+                            CPUModelText.setVisible(true);
+                            frame.setTitle("| SysInfo v.3.7.2  | Ready To Use. |");
+                            MBModelText.setVisible(true);
+                            BIOSModelText.setVisible(true);
+                            GPUChipText.setVisible(true);
+                            GPUDisplayMemory.setVisible(true);
+                            SysName.setVisible(true);
+                            SysArch.setVisible(true);
+                            storageInfoLabel.setVisible(true);
+                            switchContentPage.setVisible(true);
+                            discIconLbl.setVisible(true);
+                            mbIconLbl.setVisible(true);
+                            gpuIconLbl.setVisible(true);
+                            ramIconLbl.setVisible(true);
+                            cpuIconLbl.setVisible(true);
+                            winIconLbl.setVisible(true);
+                            RAMInfoText.setVisible(true);
+                            cSize.setVisible(true);
+                            StorageInfoText.setVisible(true);
+                            GPUModel.setVisible(true);
+                            MBModel.setVisible(true);
+                            OperatingSystem.setVisible(true);
+                            ramSize.setVisible(true);
+                            displayLabelDisplayInfoText.setVisible(false);
+                            displayLabelDisplayInfoLabel.setVisible(false);
+                            gpuLabelGpuModel.setVisible(false);
+                            gpuLabelGpuManufacturer.setVisible(false);
+                            gpuLabelGpuChipType.setVisible(false);
+                            gpuLabelGpuDacType.setVisible(false);
+                            gpuLabelGpuDeviceType.setVisible(false);
+                            gpuLabelGpuDisplayMemory.setVisible(false);
+                            gpuLabelGpuDedicatedMemory.setVisible(false);
+                            gpuLabelGpuSharedMemory.setVisible(false);
+                            gpuLabelGpuVirtualization.setVisible(false);
+                            cpuLabelCpuTemp.setVisible(false);
+                            cpuLabel.setVisible(false);
+                            cpuLabelCpuModel.setVisible(false);
+                            cpuLabelCpuArch.setVisible(false);
+                            cpuLabelCpuCores.setVisible(false);
+                            cpuLabelInfoText.setVisible(false);
+                            cpuLabelLogicProcessors.setVisible(false);
+                            cpuLabelProcessorIdentifier.setVisible(false);
+                            tempLabelText.setVisible(false);
+                            tempLabel.setVisible(false);
+                            tempLabelCPUTemp.setVisible(false);
+                            tempLabelGPUTemp.setVisible(false);
+                            tempLabelMotherboardTemp.setVisible(false);
+                            tempLabelRAMTemp.setVisible(false);
+                            tempLabelDiscTemp.setVisible(false);
+                            systemLabelMachineModel.setVisible(false);
+                            systemLabelMachineId.setVisible(false);
+                            systemLabelLanguage.setVisible(false);
+                            systemLabelWinDir.setVisible(false);
+                            gpuInfo.setVisible(false);
+                            gpuInfoLabel.setVisible(false);
+                            storageInfo.setVisible(false);
+                            networkConnectionLabel.setVisible(false);
+                            networkLabelHostAddress.setVisible(false);
+                            networkLabelisAnyLocalAddress.setVisible(false);
+                            networkLabelisLinkLocalAddress.setVisible(false);
+                            networkLabelisLoopbackAddress.setVisible(false);
+                            networkLabelisMCGlobal.setVisible(false);
+                            networkLabelisMCLinkLocal.setVisible(false);
+                            networkLabelisMCNodeLocal.setVisible(false);
+                            networkLabelisMCOrgLocal.setVisible(false);
+                            networkLabelisMCSiteLocal.setVisible(false);
+                            networkLabelisMulticastAddress.setVisible(false);
+                            networkLabelisSiteLocalAddress.setVisible(false);
+                            networkLabelOsName.setVisible(false);
+                            networkLabelIpAdress.setVisible(false);
+                            networkInfo.setVisible(false);
+                            networkInfoLabel.setVisible(false);
+                            winIconLabel.setVisible(false);
+                            hostnameLabel.setVisible(false);
+                            SysArchLabel.setVisible(false);
+                            SysNameLabel.setVisible(false);
+                            C.setVisible(false);
+                            F.setVisible(false);
+                            SysVer.setVisible(false);
+                            SystemName.setVisible(false);
+                            CPUArch.setVisible(false);
+                            displayLabelCardName.setVisible(false);
+                            displayLabelManufacturer.setVisible(false);
+                            displayLabelChipType.setVisible(false);
+                            displayLabelDacType.setVisible(false);
+                            displayLabelDeviceType.setVisible(false);
+                            displayLabelDisplayMemory.setVisible(false);
+                            displayLabelDedicatedMemory.setVisible(false);
+                            displayLabelSharedMemory.setVisible(false);
+                            displayLabelCurrentMode.setVisible(false);
+                            displayLabelHDRSupport.setVisible(false);
+                            displayLabelDisplayTopology.setVisible(false);
+                            displayLabelMonitorName.setVisible(false);
+                            displayLabelMonitorId.setVisible(false);
+                            displayLabelNativeMode.setVisible(false);
+                            displayLabelOutputType.setVisible(false);
+                            displayLabelMonitorCapabilities.setVisible(false);
+                            displayLabelVirtualization.setVisible(false);
+                            motherboardLabelMotherboardInfo.setVisible(false);
+                            motherboardLabelMotherboardIcon.setVisible(false);
+                            motherboardLabelSystemManufacturer.setVisible(false);
+                            motherboardLabelBios.setVisible(false);
+                            motherboardLabelSystemModel.setVisible(false);
+                            motherboardLabelMotherboardSerialNumber.setVisible(false);
+                            soundLabelSoundInfo.setVisible(false);
+                            soundLabelSoundIcon.setVisible(false);
+                            soundLabelDescription.setVisible(false);
+                            soundLabelDefaultSoundPlayback.setVisible(false);
+                            soundLabelDefaultVoicePlayback.setVisible(false);
+                            soundLabelHardwareID.setVisible(false);
+                            soundLabelDriverProvider.setVisible(false);
+                            soundLabelHWAccelLevel.setVisible(false);
+                            soundLabelVoiceManagement.setVisible(false);
+                            soundLabelEAX20.setVisible(false);
+                            soundLabelI3DL2.setVisible(false);
+                            soundLabelSensauraZoomFX.setVisible(false);
+                            ramLabelRamInfoLabel.setVisible(false);
+                            ramLabelRamIcon.setVisible(false);
+                            ramLabelRamManufacturer.setVisible(false);
+                            ramLabelMemoryType.setVisible(false);
+                            ramLabelRamBankSlotLabel.setVisible(false);
+                            ramLabelRamCapacity.setVisible(false);
+                            ramLabelRamClockSpeed.setVisible(false);
+                            storageLabelStorageDescription.setVisible(false);
+                            storageLabelStorageLabel.setVisible(false);
+                            storageLabelStorageLogicalVolume.setVisible(false);
 
-                     CPUModelText.setText(lineTrim);
-                     cpuLabelCpuModel.setText(lineTrim);
-                     SysVer.setText(line1Trim);
-                     SysName.setText(line1Trim);
-                     MBModelText.setText(line2Trim);
-                     motherboardLabelSystemModel.setText(line2Trim);
-                     BIOSModelText.setText(line3Trim);
-                     motherboardLabelBios.setText(line3Trim);
-                     GPUChipText.setText(line4Trim);
-                     gpuLabelGpuModel.setText(line4Trim);
-                     GPUDisplayMemory.setText(line5Trim);
-                     gpuLabelGpuDisplayMemory.setText(line5Trim);
-                     systemLabelMachineModel.setText(line6Trim);
-                     systemLabelMachineId.setText(line7Trim);
-                     System.out.println(line8Trim);
-                     System.out.println(line9Trim);
-                     System.out.println(line10Trim);
-                     System.out.println(line11Trim);
-                     System.out.println(line12Trim);
-                     System.out.println(line13Trim);
-                     System.out.println(line14Trim);
-                     motherboardLabelSystemManufacturer.setText(line15Trim);
+                            CPUModelText.setText(lineTrim);
+                            cpuLabelCpuModel.setText(lineTrim);
+                            SysVer.setText(line1Trim);
+                            SysName.setText(line1Trim);
+                            MBModelText.setText(line2Trim);
+                            motherboardLabelSystemModel.setText(line2Trim);
+                            BIOSModelText.setText(line3Trim);
+                            motherboardLabelBios.setText(line3Trim);
+                            GPUChipText.setText(line4Trim);
+                            gpuLabelGpuModel.setText(line4Trim);
+                            GPUDisplayMemory.setText(line5Trim);
+                            gpuLabelGpuDisplayMemory.setText(line5Trim);
+                            systemLabelMachineModel.setText(line6Trim);
+                            systemLabelMachineId.setText(line7Trim);
+                            System.out.println(line8Trim);
+                            System.out.println(line9Trim);
+                            System.out.println(line10Trim);
+                            System.out.println(line11Trim);
+                            System.out.println(line12Trim);
+                            System.out.println(line13Trim);
+                            System.out.println(line14Trim);
+                            motherboardLabelSystemManufacturer.setText(line15Trim);
 
-                     isDxDiagFinished = "no";
-                     runIfDxDiagFinished = 0;
-                     break;
-                 }
+                            isDxDiagFinished = "no";
+                            runIfDxDiagFinished = 0;
+                            break;
+                    }
             }
 
             //.....................................................//
@@ -1438,6 +1459,106 @@ public class UI extends JFrame{
             Options.setBorderPainted(false);
             frame.add(Options);
             Options.setBounds(35, 363, 177, 20);
+
+            isSwitchContentPage = "0";
+
+            JFrame sysinfoFrame = new JFrame("TaskMgr");
+
+            Image icon1 = Toolkit.getDefaultToolkit().getImage(Objects.requireNonNull(UI.class.getClassLoader().getResource("Graphics/SysInfo32Icon.png")));
+            sysinfoFrame.setIconImage(icon1);
+
+            sysinfoFrame.setLayout(new BorderLayout());
+            sysinfoFrame.setContentPane(new JLabel(new ImageIcon(Objects.requireNonNull(UI.class.getClassLoader().getResource("Graphics/sysInfoTaskMgrDesign.png")))));
+
+            sysinfoFrame.pack();
+            sysinfoFrame.setVisible(false);
+            sysinfoFrame.setLayout(null);
+            sysinfoFrame.setLocationRelativeTo(null);
+            sysinfoFrame.setResizable(false);
+            sysinfoFrame.setTitle("TaskMgr");
+            sysinfoFrame.setSize(300, 125);
+
+            JFrame sysinfoFrame2 = new JFrame("TaskMgr");
+
+            Image icon2 = Toolkit.getDefaultToolkit().getImage(Objects.requireNonNull(UI.class.getClassLoader().getResource("Graphics/SysInfo32Icon.png")));
+            sysinfoFrame2.setIconImage(icon2);
+
+            sysinfoFrame2.setLayout(new BorderLayout());
+            sysinfoFrame2.setContentPane(new JLabel(new ImageIcon(Objects.requireNonNull(UI.class.getClassLoader().getResource("Graphics/sysInfoTaskMgrDesign.png")))));
+
+            sysinfoFrame2.pack();
+            sysinfoFrame2.setVisible(false);
+            sysinfoFrame2.setLayout(null);
+            sysinfoFrame2.setLocationRelativeTo(null);
+            sysinfoFrame2.setResizable(false);
+            sysinfoFrame2.setTitle("TaskKill");
+            sysinfoFrame2.setSize(300, 125);
+
+            JTextField enterTask = new JTextField();
+            sysinfoFrame.add(enterTask);
+            enterTask.setVisible(true);
+            enterTask.setBounds(40, 8, 200, 30);
+
+            JButton enterTaskBtn = new JButton();
+            sysinfoFrame.add(enterTaskBtn);
+            enterTaskBtn.setVisible(true);
+            enterTaskBtn.setBounds(93, 43, 90, 28);
+            enterTaskBtn.setText("Submit");
+
+            JTextField enterTask1 = new JTextField();
+            sysinfoFrame2.add(enterTask1);
+            enterTask1.setVisible(true);
+            enterTask1.setBounds(40, 8, 200, 30);
+
+            JButton enterTaskBtn1 = new JButton();
+            sysinfoFrame2.add(enterTaskBtn1);
+            enterTaskBtn1.setVisible(true);
+            enterTaskBtn1.setBounds(93, 43, 90, 28);
+            enterTaskBtn1.setText("Submit");
+
+            final String[] enteredTask = {""};
+            final String[] enteredTask1 = {""};
+
+            switchContentPage.addActionListener(arg0 -> {
+                    switchContentPageToStartTask.setVisible(true);
+                    switchContentPageToKillTask.setVisible(true);
+            });
+
+            switchContentPageToStartTask.addActionListener(arg0 -> {
+                    switchContentPageToStartTask.setVisible(false);
+                    switchContentPageToKillTask.setVisible(false);
+                    sysinfoFrame.setVisible(true);
+            });
+
+            switchContentPageToKillTask.addActionListener(arg0 -> {
+                    switchContentPageToStartTask.setVisible(false);
+                    switchContentPageToKillTask.setVisible(false);
+                    sysinfoFrame2.setVisible(true);
+            });
+
+            enterTaskBtn.addActionListener(arg0 -> {
+                    enteredTask[0] = enterTask.getText();
+                    selectedTask = enteredTask[0];
+                    ProcessBuilder startExec = new ProcessBuilder(selectedTask);
+                    try {
+                            startExec.start();
+                    } catch (IOException e) {
+                            e.printStackTrace();
+                    }
+                    selectedTask = "";
+                    enterTask.setText("");
+                    sysinfoFrame.setVisible(false);
+            });
+
+            enterTaskBtn1.addActionListener(arg0 -> {
+                    enteredTask1[0] = enterTask1.getText();
+                    selectedTask1 = enteredTask1[0];
+                    Run.taskKill((selectedTask1 + "*"));
+                    selectedTask1 = "";
+                    enterTask1.setText("");
+                    sysinfoFrame2.setVisible(false);
+            });
+            //.....................................................//
             //.....................................................//
 
             //.....................................................//

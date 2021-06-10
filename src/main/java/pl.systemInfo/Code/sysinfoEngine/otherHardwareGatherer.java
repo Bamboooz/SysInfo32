@@ -1,4 +1,4 @@
-package pl.systemInfo.Code.engineFiles;
+package pl.systemInfo.Code.sysinfoEngine;
 
 import oshi.SystemInfo;
 import oshi.hardware.GlobalMemory;
@@ -9,7 +9,7 @@ import oshi.util.FormatUtil;
 import java.io.*;
 import java.net.*;
 import java.util.List;
-import static pl.systemInfo.Code.engineFiles.stringsAndLabels.*;
+import static pl.systemInfo.Code.sysinfoEngine.stringsAndLabels.*;
 
 public class otherHardwareGatherer {
 

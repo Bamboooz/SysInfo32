@@ -1,4 +1,4 @@
-package pl.systemInfo.Code.engineFiles;
+package pl.systemInfo.Code.sysinfoEngine;
 
 public class stringsAndLabels {
 
@@ -27,6 +27,10 @@ public class stringsAndLabels {
     public static String mcSiteLocal;
     public static String multicastAddress;
     public static String siteLocalAddress;
+
+    public static String selectedTask;
+    public static String selectedTask1;
+    public static String isSwitchContentPage;
 
     public static String lineTrim;
     public static String line1Trim;

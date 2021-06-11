@@ -3,7 +3,6 @@ package pl.systemInfo.Code.sysinfoGUI;
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
 import oshi.hardware.HardwareAbstractionLayer;
-import pl.taskmgr.Run;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,6 +13,7 @@ import java.util.Objects;
 import static pl.systemInfo.Code.sysinfoEngine.dxDiagnosis.*;
 import static pl.systemInfo.Code.sysinfoEngine.otherHardwareGatherer.*;
 import static pl.systemInfo.Code.sysinfoEngine.stringsAndLabels.*;
+import static sysinfoUtilities.sysinfoUtils.*;
 
 public class UI extends JFrame{
 
@@ -37,36 +37,59 @@ public class UI extends JFrame{
             frame.setLocationRelativeTo(null);
             frame.setResizable(false);
             frame.setTitle("| SysInfo v.3.7.2 | Loading Libraries. Please Wait To Use Program |");
-            frame.setSize(748, 529);
+            frame.setSize(748, 549);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+            JMenuBar utilsMenu = new JMenuBar();
+            utilsMenu.setVisible(true);
+            frame.add(utilsMenu);
+            frame.setJMenuBar(utilsMenu);
+            JMenu menu = new JMenu("Utils");
+            utilsMenu.add(menu);
+
+            final JMenuItem taskMgr = new JMenuItem("Task Manager");
+            taskMgr.addActionListener((e -> taskMgr()));
+
+            final JMenuItem cmdExe = new JMenuItem("Cmd");
+            cmdExe.addActionListener((e -> {
+                    try {
+                            cmdExe();
+                    } catch (IOException ioException) {
+                            ioException.printStackTrace();
+                    }
+            }));
+
+            final JMenuItem msConfig = new JMenuItem("MsConfig");
+            msConfig.addActionListener((e -> msConfig()));
+
+            final JMenuItem controlPanel = new JMenuItem("Control Panel");
+            controlPanel.addActionListener((e -> controlPanel()));
+
+            final JMenuItem regedit = new JMenuItem("Regedit");
+            regedit.addActionListener((e -> regedit()));
+
+            final JMenuItem powerShell = new JMenuItem("PowerShell");
+            powerShell.addActionListener((e -> {
+                    try {
+                            powerShell();
+                    } catch (IOException ioException) {
+                            ioException.printStackTrace();
+                    }
+            }));
+
+            final JMenuItem explorer = new JMenuItem("Explorer");
+            explorer.addActionListener((e -> explorer()));
+
+            menu.add(taskMgr);
+            menu.add(cmdExe);
+            menu.add(msConfig);
+            menu.add(controlPanel);
+            menu.add(regedit);
+            menu.add(powerShell);
+            menu.add(explorer);
 
             Color colorFg = new Color(121, 145, 161);
             Color color = new Color(91, 91, 91);
-
-            JButton switchContentPage = new JButton("Other");
-            frame.add(switchContentPage);
-            switchContentPage.setBackground(color);
-            switchContentPage.setForeground(colorFg);
-            switchContentPage.setVisible(false);
-            switchContentPage.setBorderPainted(false);
-            switchContentPage.setBounds(35, 391, 177, 20);
-            switchContentPage.setText("Other");
-
-            JButton switchContentPageToStartTask = new JButton("Other");
-            frame.add(switchContentPageToStartTask);
-            switchContentPageToStartTask.setBackground(color);
-            switchContentPageToStartTask.setForeground(colorFg);
-            switchContentPageToStartTask.setVisible(false);
-            switchContentPageToStartTask.setBounds(212, 376, 177, 20);
-            switchContentPageToStartTask.setText("Start New Task");
-
-            JButton switchContentPageToKillTask = new JButton("Other");
-            frame.add(switchContentPageToKillTask);
-            switchContentPageToKillTask.setBackground(color);
-            switchContentPageToKillTask.setForeground(colorFg);
-            switchContentPageToKillTask.setVisible(false);
-            switchContentPageToKillTask.setBounds(212, 406, 177, 20);
-            switchContentPageToKillTask.setText("Kill Task");
 
             //.....................................................//
 
@@ -1210,7 +1233,6 @@ public class UI extends JFrame{
                             SysName.setVisible(true);
                             SysArch.setVisible(true);
                             storageInfoLabel.setVisible(true);
-                            switchContentPage.setVisible(true);
                             discIconLbl.setVisible(true);
                             mbIconLbl.setVisible(true);
                             gpuIconLbl.setVisible(true);
@@ -1462,103 +1484,6 @@ public class UI extends JFrame{
 
             isSwitchContentPage = "0";
 
-            JFrame sysinfoFrame = new JFrame("TaskMgr");
-
-            Image icon1 = Toolkit.getDefaultToolkit().getImage(Objects.requireNonNull(UI.class.getClassLoader().getResource("Graphics/SysInfo32Icon.png")));
-            sysinfoFrame.setIconImage(icon1);
-
-            sysinfoFrame.setLayout(new BorderLayout());
-            sysinfoFrame.setContentPane(new JLabel(new ImageIcon(Objects.requireNonNull(UI.class.getClassLoader().getResource("Graphics/sysInfoTaskMgrDesign.png")))));
-
-            sysinfoFrame.pack();
-            sysinfoFrame.setVisible(false);
-            sysinfoFrame.setLayout(null);
-            sysinfoFrame.setLocationRelativeTo(null);
-            sysinfoFrame.setResizable(false);
-            sysinfoFrame.setTitle("TaskMgr");
-            sysinfoFrame.setSize(300, 125);
-
-            JFrame sysinfoFrame2 = new JFrame("TaskMgr");
-
-            Image icon2 = Toolkit.getDefaultToolkit().getImage(Objects.requireNonNull(UI.class.getClassLoader().getResource("Graphics/SysInfo32Icon.png")));
-            sysinfoFrame2.setIconImage(icon2);
-
-            sysinfoFrame2.setLayout(new BorderLayout());
-            sysinfoFrame2.setContentPane(new JLabel(new ImageIcon(Objects.requireNonNull(UI.class.getClassLoader().getResource("Graphics/sysInfoTaskMgrDesign.png")))));
-
-            sysinfoFrame2.pack();
-            sysinfoFrame2.setVisible(false);
-            sysinfoFrame2.setLayout(null);
-            sysinfoFrame2.setLocationRelativeTo(null);
-            sysinfoFrame2.setResizable(false);
-            sysinfoFrame2.setTitle("TaskKill");
-            sysinfoFrame2.setSize(300, 125);
-
-            JTextField enterTask = new JTextField();
-            sysinfoFrame.add(enterTask);
-            enterTask.setVisible(true);
-            enterTask.setBounds(40, 8, 200, 30);
-
-            JButton enterTaskBtn = new JButton();
-            sysinfoFrame.add(enterTaskBtn);
-            enterTaskBtn.setVisible(true);
-            enterTaskBtn.setBounds(93, 43, 90, 28);
-            enterTaskBtn.setText("Submit");
-
-            JTextField enterTask1 = new JTextField();
-            sysinfoFrame2.add(enterTask1);
-            enterTask1.setVisible(true);
-            enterTask1.setBounds(40, 8, 200, 30);
-
-            JButton enterTaskBtn1 = new JButton();
-            sysinfoFrame2.add(enterTaskBtn1);
-            enterTaskBtn1.setVisible(true);
-            enterTaskBtn1.setBounds(93, 43, 90, 28);
-            enterTaskBtn1.setText("Submit");
-
-            final String[] enteredTask = {""};
-            final String[] enteredTask1 = {""};
-
-            switchContentPage.addActionListener(arg0 -> {
-                    switchContentPageToStartTask.setVisible(true);
-                    switchContentPageToKillTask.setVisible(true);
-            });
-
-            switchContentPageToStartTask.addActionListener(arg0 -> {
-                    switchContentPageToStartTask.setVisible(false);
-                    switchContentPageToKillTask.setVisible(false);
-                    sysinfoFrame.setVisible(true);
-            });
-
-            switchContentPageToKillTask.addActionListener(arg0 -> {
-                    switchContentPageToStartTask.setVisible(false);
-                    switchContentPageToKillTask.setVisible(false);
-                    sysinfoFrame2.setVisible(true);
-            });
-
-            enterTaskBtn.addActionListener(arg0 -> {
-                    enteredTask[0] = enterTask.getText();
-                    selectedTask = enteredTask[0];
-                    ProcessBuilder startExec = new ProcessBuilder(selectedTask);
-                    try {
-                            startExec.start();
-                    } catch (IOException e) {
-                            e.printStackTrace();
-                    }
-                    selectedTask = "";
-                    enterTask.setText("");
-                    sysinfoFrame.setVisible(false);
-            });
-
-            enterTaskBtn1.addActionListener(arg0 -> {
-                    enteredTask1[0] = enterTask1.getText();
-                    selectedTask1 = enteredTask1[0];
-                    Run.taskKill((selectedTask1 + "*"));
-                    selectedTask1 = "";
-                    enterTask1.setText("");
-                    sysinfoFrame2.setVisible(false);
-            });
-            //.....................................................//
             //.....................................................//
 
             //.....................................................//

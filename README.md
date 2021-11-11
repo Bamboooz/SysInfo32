@@ -11,7 +11,8 @@ STILL WORKING ON PROJECT, DOWNLOAD IS AVAILABLE BUT A LOT STUFF DONT WORK (THEY 
 0/10
 
 # Author
-@Bamboooz
+@Bamboooz - Main Dev, Frontend and Backend Designer.
+@Illuminator3 - helped with a few things.
 # License
 Mozilla Public License 2.0
 

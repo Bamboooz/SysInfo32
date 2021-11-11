@@ -7,6 +7,9 @@ Application Is Using OSHI is a free JNA-based (native) Operating System and Hard
 
 STILL WORKING ON PROJECT, DOWNLOAD IS AVAILABLE BUT A LOT STUFF DONT WORK (THEY ARE NOT FINISHED) !!!
 
+#Code Quality
+0/10
+
 # Author
 @Bamboooz
 # License

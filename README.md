@@ -13,7 +13,7 @@ STILL WORKING ON PROJECT, DOWNLOAD IS AVAILABLE BUT A LOT STUFF DONT WORK (THEY 
 Mozilla Public License 2.0
 
 # Supported platforms
-Windows Only
+Windows Only ( i think )
 
 # Supported features
 - Main Information About System Like: Architecture, System Name etc.

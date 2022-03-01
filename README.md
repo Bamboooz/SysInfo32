@@ -1,4 +1,5 @@
 # SysInfo32
+NEW VERSION UPCOMING SOON!
 SysInfo32 is a free Advanced Hardware Info Gatherer Application Which Is Made In Java.
 
 Download Link: https://bambusixmc.wixsite.com/sysinfo32

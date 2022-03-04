@@ -9,17 +9,14 @@ Application Is Using OSHI is a free JNA-based (native) Operating System and Hard
 
 STILL WORKING ON PROJECT, DOWNLOAD IS AVAILABLE BUT A LOT STUFF DONT WORK (THEY ARE NOT FINISHED) !!!
 
-# Code Quality
-0/10
-
 # Author
 @Bamboooz - Main Dev, Frontend and Backend Designer.
-@Illuminator3 - helped with a few things.
+@Illuminator3 - Solved a few errors that I couldn't solve.
 # License
 Mozilla Public License 2.0
 
 # Supported platforms
-Windows Only ( i think )
+Currently we only support Windows systems, but we want to support other systems such as Linux and MacOS in future.
 
 # Supported features
 - Main Information About System Like: Architecture, System Name etc.
@@ -35,14 +32,11 @@ Windows Only ( i think )
 - Sound Info: Some Sound System Info etc.
 - Peripherals Info: List Of Current Peripherals.
 
-# Might Needed Softwares
+# Needed Softwares
 - Java Installed (Recommend Newest Version), Link -> https://www.java.com/en/download/
 
 # Support
 Contact Me At:
 - Discord: Bamboooz#8423
-- Twitter (I Don't Use It Often): @Bamboooz1
+- Twitter: @Bamboooz1
 - E-Mail: BambusixMc@gmail.com
-
-# Is It Safe?
-SysInfo32 Is Safe App And Dont Send Any Your Data To Us, If Your Not Sure, Check Whole Source Code.

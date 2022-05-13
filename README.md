@@ -1,5 +1,5 @@
 # SysInfo32
-NEW VERSION UPCOMING SOON! ( Predicted Upload Date: 01.05.2022r. )
+NEW VERSION UPCOMING SOON! ( Predicted Upload Date: I HAVE NO IDEA, WILL START TO WROK ON WHEN I FINISH CORE OF THIS APP: https://githubcom/Bamboooz/pysil)
 
 SysInfo32 is a free Advanced Hardware Info Gatherer Application Which Is Made In Java.
 
